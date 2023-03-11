@@ -93,6 +93,12 @@
         <DCCReference Include="model\dao\UDAO.Intf.pas"/>
         <DCCReference Include="model\dao\UDAO.Base.pas"/>
         <DCCReference Include="model\utils\UUtil.Banco.pas"/>
+        <DCCReference Include="model\dao\UDAO.Usuario.pas"/>
+        <DCCReference Include="model\dao\UDAO.Endereco.pas"/>
+        <DCCReference Include="model\dao\UDAO.TipoProblema.pas"/>
+        <DCCReference Include="model\dao\UDAO.Status.pas"/>
+        <DCCReference Include="model\dao\UDAO.Ocorrencia.pas"/>
+        <DCCReference Include="model\dao\UDAO.Apoios.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
