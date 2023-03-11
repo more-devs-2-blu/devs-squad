@@ -1,5 +1,6 @@
 # Arquitetura da Aplicação
 
-- [ ] Diagrama Classes - BackEnd;
-- [ ] Diagrama Classes - FrontEnd;
+- [X] Diagrama Classes - BackEnd;
+- [X] Diagrama Classes - FrontEnd;
+- [ ] Diagrama UML;
 - [ ] Diagrama arquitetura macro WS;

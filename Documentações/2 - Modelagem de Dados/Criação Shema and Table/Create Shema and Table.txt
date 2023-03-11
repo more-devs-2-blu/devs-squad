@@ -27,7 +27,7 @@ CREATE TABLE ocorrencia
  dataFinal DATETIME NOT NULL,
  dataAlteracao DATETIME NOT NULL, 
  idusuario INT,  
- idtipoProblemas INT,  
+ idtipoProblema INT,  
  idstatus INT,  
  idendereco INT  
 ); 
@@ -38,7 +38,7 @@ CREATE TABLE status
  nome VARCHAR(20) NOT NULL  
 ); 
 
-CREATE TABLE tipoProblemas 
+CREATE TABLE tipoProblema 
 ( 
  id INT PRIMARY KEY AUTO_INCREMENT,  
  nome VARCHAR(30) NOT NULL  
@@ -54,7 +54,7 @@ CREATE TABLE endereco
  complemento VARCHAR(30)  
 ); 
 
-CREATE TABLE apoios 
+CREATE TABLE apoio 
 ( 
  id INT PRIMARY KEY AUTO_INCREMENT,  
  idusuario INT,  
@@ -62,8 +62,8 @@ CREATE TABLE apoios
 ); 
 
 ALTER TABLE ocorrencia ADD FOREIGN KEY(idusuario) REFERENCES usuario (id);
-ALTER TABLE ocorrencia ADD FOREIGN KEY(idtipoProblemas) REFERENCES tipoProblemas (id);
+ALTER TABLE ocorrencia ADD FOREIGN KEY(idtipoProblema) REFERENCES tipoProblema (id);
 ALTER TABLE ocorrencia ADD FOREIGN KEY(idstatus) REFERENCES status (id);
 ALTER TABLE ocorrencia ADD FOREIGN KEY(idendereco) REFERENCES endereco (id);
-ALTER TABLE apoios ADD FOREIGN KEY(idusuario) REFERENCES usuario (id);
-ALTER TABLE apoios ADD FOREIGN KEY(idocorrencia) REFERENCES ocorrencia (id);
+ALTER TABLE apoio ADD FOREIGN KEY(idusuario) REFERENCES usuario (id);
+ALTER TABLE apoio ADD FOREIGN KEY(idocorrencia) REFERENCES ocorrencia (id);
