@@ -43,10 +43,7 @@ implementation
 { TControllerEndereco }
 
 uses
-  UDAO.Intf,
-  UDAO.Endereco,
-  System.JSON,
-  System.SysUtils;
+  UDAO.Endereco;
 
 class procedure TControllerEndereco.Delete(Req: THorseRequest;
   Res: THorseResponse; Next: TProc);
