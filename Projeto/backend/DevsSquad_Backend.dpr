@@ -28,7 +28,8 @@ uses
   UController.Login in 'model\controllers\UController.Login.pas',
   UController.Apoios in 'model\controllers\UController.Apoios.pas',
   UController.Endereco in 'model\controllers\UController.Endereco.pas',
-  UController.Ocorrencia in 'model\controllers\UController.Ocorrencia.pas';
+  UController.Ocorrencia in 'model\controllers\UController.Ocorrencia.pas',
+  UEntity.Apoios in 'model\entities\UEntity.Apoios.pas';
 
 procedure Registry;
 begin
@@ -36,7 +37,7 @@ begin
   THorse.Group.Prefix('v1')
     .Post('/login', TControllerLogin.PostLogin);
 
-  //Users
+  //Usuários
   THorse.Group.Prefix('v1')
     .Get('/usuarios', TControllerUsuario.Gets)
     .Get('/usuarios/:id', TControllerUsuario.Get)
@@ -50,6 +51,20 @@ begin
     .Post('/enderecos', TControllerEndereco.Post)
     .Delete('/enderecos/:id', TControllerEndereco.Delete);
 
+  //Ocorrências
+  THorse.Group.Prefix('v1')
+    .Get('/ocorrencias', TControllerOcorrencia.Gets)
+    .Get('/ocorrencias/:id', TControllerOcorrencia.Get)
+    .Post('/ocorrencias', TControllerOcorrencia.Post)
+    .Delete('/ocorrencias/:id', TControllerOcorrencia.Delete);
+
+  //Apoios
+  THorse.Group.Prefix('v1')
+    .Get('/apoios', TControllerApoios.Gets)
+    .Get('/apoios/:id', TControllerApoios.Get)
+    .Post('/apoios', TControllerApoios.Post)
+    .Delete('/apoios/:id', TControllerApoios.Delete);
+
 end;
 
 procedure SwaggerConfig;
@@ -57,8 +72,8 @@ begin
   THorseGBSwaggerRegister.RegisterPath(TControllerUsuario);
   THorseGBSwaggerRegister.RegisterPath(TControllerLogin);
   THorseGBSwaggerRegister.RegisterPath(TControllerEndereco);
-//  THorseGBSwaggerRegister.RegisterPath(TControllerMatch);
-//  THorseGBSwaggerRegister.RegisterPath(TControllerBet);
+  THorseGBSwaggerRegister.RegisterPath(TControllerOcorrencia);
+  THorseGBSwaggerRegister.RegisterPath(TControllerApoios);
 //
   //http://localhost:9000/swagger/doc/html
   Swagger
@@ -87,8 +102,14 @@ begin
       TControllerUsuario.ValidateUser,
       THorseBasicAuthenticationConfig
         .New
-          .SkipRoutes(['/v1/users',
-                       '/v1/users/:id',
+          .SkipRoutes(['/v1/usuarios',
+                       '/v1/usuarios/:id',
+                       '/v1/enderecos/:id',
+                       '/v1/enderecos',
+                       '/v1/ocorrencias/:id',
+                       '/v1/ocorrencias',
+                       '/v1/apoios/:id',
+                       '/v1/apoios',
                        '/swagger/doc/html',
                        '/swagger/doc/json'])));
 
@@ -98,8 +119,8 @@ begin
       THorseJWTConfig
         .New
           .SkipRoutes(['/v1/login',
-                       '/v1/users',
-                       '/v1/users/:id',
+                       '/v1/usuarios',
+                       '/v1/usuarios/:id',
                        '/swagger/doc/html',
                        '/swagger/doc/json'])));
 end;

@@ -25,7 +25,7 @@ uses
 
 constructor TDAOApoios.Create;
 begin
-  FTabela := 'apoios';
+  FTabela := 'apoio';
 end;
 
 function TDAOApoios.ObterRegistros: TJSONArray;

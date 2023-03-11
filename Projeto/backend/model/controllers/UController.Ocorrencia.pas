@@ -9,7 +9,7 @@ uses
   UEntity.Ocorrencias;
 
 type
-  [SwagPath('ocorrência', 'Ocorrência')]
+  [SwagPath('ocorrencia', 'Ocorrência')]
   TControllerOcorrencia = class(TControllerBase)
   private
 
@@ -45,10 +45,7 @@ implementation
 { TControllerOcorrencia }
 
 uses
-  UDAO.Intf,
-  UDAO.Ocorrencia,
-  System.JSON,
-  System.SysUtils;
+  UDAO.Ocorrencia;
 
 class procedure TControllerOcorrencia.Delete(Req: THorseRequest; Res: THorseResponse; Next: TProc);
 begin
