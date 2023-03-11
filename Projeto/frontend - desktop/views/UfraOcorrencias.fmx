@@ -1,0 +1,119 @@
+object fraOcorrencias: TfraOcorrencias
+  Size.Width = 581.000000000000000000
+  Size.Height = 600.000000000000000000
+  Size.PlatformDefault = False
+  object fraOcorrencias: TLabel
+    StyledSettings = [Family]
+    Position.X = 32.000000000000000000
+    Position.Y = 24.000000000000000000
+    Size.Width = 520.000000000000000000
+    Size.Height = 41.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 28.000000000000000000
+    TextSettings.Font.StyleExt = {00060000000000000004000000}
+    TextSettings.FontColor = xFFF8BF52
+    TextSettings.HorzAlign = Center
+    Text = 'Suas Ocorrencias'
+    TabOrder = 1
+  end
+  object rectLista: TRectangle
+    Fill.Color = xFFF8BF52
+    Position.X = 22.000000000000000000
+    Position.Y = 67.000000000000000000
+    Size.Width = 541.000000000000000000
+    Size.Height = 500.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    XRadius = 20.000000000000000000
+    YRadius = 20.000000000000000000
+    object lstOcorrencias: TListView
+      ItemAppearanceClassName = 'TDynamicAppearance'
+      ItemEditAppearanceClassName = 'TDynamicAppearance'
+      HeaderAppearanceClassName = 'TListHeaderObjects'
+      FooterAppearanceClassName = 'TListHeaderObjects'
+      Align = Top
+      Margins.Left = 23.500000000000000000
+      Margins.Top = 30.000000000000000000
+      Margins.Right = 23.500000000000000000
+      Position.X = 23.500000000000000000
+      Position.Y = 30.000000000000000000
+      Size.Width = 494.000000000000000000
+      Size.Height = 443.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      ItemAppearance.ItemHeight = 100
+      ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+        item
+          AppearanceObjectName = 'txtProblema'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Font.Size = 16.000000000000000000
+          Appearance.TextAlign = Leading
+          Appearance.Width = 287.000000000000000000
+          Appearance.Height = 17.000000000000000000
+          Appearance.PlaceOffset.Y = -16.000000000000000000
+        end
+        item
+          AppearanceObjectName = 'txtBairro'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Font.Size = 14.000000000000000000
+          Appearance.TextAlign = Leading
+          Appearance.Width = 192.000000000000000000
+          Appearance.Height = 20.000000000000000000
+          Appearance.PlaceOffset.Y = 16.000000000000000000
+        end
+        item
+          AppearanceObjectName = 'txtRua'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.TextAlign = Leading
+          Appearance.Width = 183.000000000000000000
+          Appearance.Height = 20.000000000000000000
+          Appearance.PlaceOffset.X = 192.000000000000000000
+          Appearance.PlaceOffset.Y = 16.000000000000000000
+        end
+        item
+          AppearanceObjectName = 'txtApoiadores'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.TextAlign = Trailing
+          Appearance.Width = 131.000000000000000000
+          Appearance.Height = 20.000000000000000000
+          Appearance.PlaceOffset.X = 344.000000000000000000
+          Appearance.PlaceOffset.Y = 104.000000000000000000
+        end
+        item
+          AppearanceObjectName = 'txtNumero'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.TextAlign = Leading
+          Appearance.Width = 95.000000000000000000
+          Appearance.Height = 20.000000000000000000
+          Appearance.PlaceOffset.X = 376.000000000000000000
+          Appearance.PlaceOffset.Y = 16.000000000000000000
+        end
+        item
+          AppearanceObjectName = 'txtDescricao'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Font.Size = 14.000000000000000000
+          Appearance.TextAlign = Leading
+          Appearance.TextVertAlign = Leading
+          Appearance.Width = 489.000000000000000000
+          Appearance.Height = 40.000000000000000000
+          Appearance.PlaceOffset.Y = 64.000000000000000000
+        end
+        item
+          AppearanceObjectName = 'txtUrgencia'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Font.Size = 16.000000000000000000
+          Appearance.Width = 150.000000000000000000
+          Appearance.Height = 17.000000000000000000
+          Appearance.PlaceOffset.X = 320.000000000000000000
+          Appearance.PlaceOffset.Y = -16.000000000000000000
+        end>
+      ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+        item
+          AppearanceObjectName = 'Text1'
+          AppearanceClassName = 'TTextObjectAppearance'
+        end>
+      ItemAppearanceObjects.HeaderObjects.Text.Visible = False
+      ItemAppearanceObjects.FooterObjects.Text.Visible = False
+    end
+  end
+end
