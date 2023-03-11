@@ -10,15 +10,10 @@ uses
   Horse.BasicAuthentication,
   Horse.GBSwagger,
   System.SysUtils,
-  UDAO.Intf in 'model\dao\UDAO.Intf.pas',
-  UDAO.Base in 'model\dao\UDAO.Base.pas',
-  UUtil.Banco in 'model\utils\UUtil.Banco.pas',
-  UDAO.Usuario in 'model\dao\UDAO.Usuario.pas',
-  UDAO.Endereco in 'model\dao\UDAO.Endereco.pas',
-  UDAO.TipoProblema in 'model\dao\UDAO.TipoProblema.pas',
-  UDAO.Status in 'model\dao\UDAO.Status.pas',
-  UDAO.Ocorrencia in 'model\dao\UDAO.Ocorrencia.pas',
-  UDAO.Apoios in 'model\dao\UDAO.Apoios.pas';
+  UEntity.Usuarios in 'model\entities\UEntity.Usuarios.pas',
+  UEntity.Logins in 'model\entities\UEntity.Logins.pas',
+  UEntity.Ocorrencias in 'model\entities\UEntity.Ocorrencias.pas',
+  UEntity.Enderecos in 'model\entities\UEntity.Enderecos.pas';
 
 procedure Registry;
 begin
@@ -36,7 +31,7 @@ begin
 //  //http://localhost:9000/swagger/doc/html
 //  Swagger
 //    .Info
-//      .Title('Documentação API DevsBets')
+//      .Title('Documentaï¿½ï¿½o API DevsBets')
 //      .Description('DevsBets - Lance seu Palpite')
 //      .Contact
 //        .Name('Nome da equipe')
