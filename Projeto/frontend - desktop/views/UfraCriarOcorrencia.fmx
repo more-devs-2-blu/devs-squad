@@ -1,0 +1,301 @@
+object fraCriarOcorrencia: TfraCriarOcorrencia
+  Size.Width = 581.000000000000000000
+  Size.Height = 600.000000000000000000
+  Size.PlatformDefault = False
+  object rectPrincipal: TRectangle
+    Fill.Color = xFFF8BF52
+    Position.X = 34.000000000000000000
+    Position.Y = 56.000000000000000000
+    Size.Width = 530.000000000000000000
+    Size.Height = 538.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    XRadius = 20.000000000000000000
+    YRadius = 20.000000000000000000
+    object rectCEP: TRectangle
+      Fill.Color = claWhite
+      Position.X = 31.000000000000000000
+      Position.Y = 60.000000000000000000
+      Size.Width = 148.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      XRadius = 15.000000000000000000
+      YRadius = 15.000000000000000000
+      object edtCEP: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Client
+        StyleLookup = 'transparentedit'
+        TabOrder = 0
+        Margins.Left = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Size.Width = 128.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        TextPrompt = '12345678'
+      end
+    end
+    object rectBairro: TRectangle
+      Fill.Color = claWhite
+      Position.X = 228.000000000000000000
+      Position.Y = 60.000000000000000000
+      Size.Width = 270.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      XRadius = 15.000000000000000000
+      YRadius = 15.000000000000000000
+      object edtBairro: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Client
+        StyleLookup = 'transparentedit'
+        TabOrder = 0
+        Margins.Left = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Size.Width = 250.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        TextPrompt = 'Progresso'
+      end
+    end
+    object rectNumero: TRectangle
+      Fill.Color = claWhite
+      Position.X = 31.000000000000000000
+      Position.Y = 232.000000000000000000
+      Size.Width = 148.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      XRadius = 15.000000000000000000
+      YRadius = 15.000000000000000000
+      object edtNumero: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Client
+        StyleLookup = 'transparentedit'
+        TabOrder = 0
+        Margins.Left = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Size.Width = 128.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        TextPrompt = '1500'
+      end
+    end
+    object rectComplemento: TRectangle
+      Fill.Color = claWhite
+      Position.X = 228.000000000000000000
+      Position.Y = 232.000000000000000000
+      Size.Width = 270.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      XRadius = 15.000000000000000000
+      YRadius = 15.000000000000000000
+      object edtComplemento: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Client
+        StyleLookup = 'transparentedit'
+        TabOrder = 0
+        Margins.Left = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Size.Width = 250.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        TextPrompt = 'Apartamento'
+      end
+    end
+    object rectRua: TRectangle
+      Fill.Color = claWhite
+      Position.X = 26.000000000000000000
+      Position.Y = 146.000000000000000000
+      Size.Width = 472.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      XRadius = 15.000000000000000000
+      YRadius = 15.000000000000000000
+      object edtRua: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Client
+        StyleLookup = 'transparentedit'
+        TabOrder = 0
+        Margins.Left = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Size.Width = 452.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        TextPrompt = 'Rua alfredo...'
+      end
+    end
+    object rectProblema: TRectangle
+      Fill.Color = claWhite
+      Position.X = 26.000000000000000000
+      Position.Y = 322.000000000000000000
+      Size.Width = 472.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      XRadius = 15.000000000000000000
+      YRadius = 15.000000000000000000
+      object edtProblema: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Client
+        StyleLookup = 'transparentedit'
+        TabOrder = 0
+        Margins.Left = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Size.Width = 452.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        TextPrompt = 'Alagamento'
+      end
+    end
+    object rectDescricao: TRectangle
+      Fill.Color = claWhite
+      Position.X = 26.000000000000000000
+      Position.Y = 394.000000000000000000
+      Size.Width = 472.000000000000000000
+      Size.Height = 82.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      XRadius = 15.000000000000000000
+      YRadius = 15.000000000000000000
+      object edtDescricao: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Client
+        StyleLookup = 'transparentedit'
+        TabOrder = 0
+        Margins.Left = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Size.Width = 452.000000000000000000
+        Size.Height = 82.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    object rectEnviar: TRectangle
+      Fill.Color = claWhite
+      Position.X = 154.000000000000000000
+      Position.Y = 490.000000000000000000
+      Size.Width = 352.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      XRadius = 15.000000000000000000
+      YRadius = 15.000000000000000000
+      object Label8: TLabel
+        Align = Center
+        StyledSettings = [Family, FontColor]
+        Size.Width = 100.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 16.000000000000000000
+        TextSettings.Font.StyleExt = {00060000000000000004000000}
+        TextSettings.HorzAlign = Center
+        Text = 'ENVIAR'
+        TabOrder = 0
+      end
+    end
+    object Label1: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 32.000000000000000000
+      Position.Y = 32.000000000000000000
+      Size.Width = 120.000000000000000000
+      Size.Height = 23.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 16.000000000000000000
+      Text = 'Digite o CEP'
+      TabOrder = 9
+    end
+    object Label2: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 232.000000000000000000
+      Position.Y = 32.000000000000000000
+      Size.Width = 49.000000000000000000
+      Size.Height = 23.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 16.000000000000000000
+      Text = 'Bairro'
+      TabOrder = 7
+    end
+    object Label3: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 32.000000000000000000
+      Position.Y = 200.000000000000000000
+      Size.Width = 120.000000000000000000
+      Size.Height = 23.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 16.000000000000000000
+      Text = 'N'#250'mero'
+      TabOrder = 8
+    end
+    object Label4: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 232.000000000000000000
+      Position.Y = 200.000000000000000000
+      Size.Width = 120.000000000000000000
+      Size.Height = 23.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 16.000000000000000000
+      Text = 'Complemento'
+      TabOrder = 6
+    end
+    object Label5: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 32.000000000000000000
+      Position.Y = 112.000000000000000000
+      Size.Width = 120.000000000000000000
+      Size.Height = 23.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 16.000000000000000000
+      Text = 'Rua'
+      TabOrder = 5
+    end
+    object Label6: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 32.000000000000000000
+      Position.Y = 288.000000000000000000
+      Size.Width = 145.000000000000000000
+      Size.Height = 23.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 16.000000000000000000
+      Text = 'Qual o problema?'
+      TabOrder = 4
+    end
+    object Label7: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 32.000000000000000000
+      Position.Y = 368.000000000000000000
+      Size.Width = 145.000000000000000000
+      Size.Height = 23.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 16.000000000000000000
+      Text = 'Descri'#231#227'o'
+      TabOrder = 3
+    end
+    object rbUrgencia: TRadioButton
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 32.000000000000000000
+      Position.Y = 497.000000000000000000
+      Size.Width = 120.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 15
+      Text = 'Urg'#234'ncia'
+      TextSettings.Font.Size = 16.000000000000000000
+    end
+  end
+  object Label9: TLabel
+    StyledSettings = [Family]
+    Position.X = 24.000000000000000000
+    Position.Y = 9.000000000000000000
+    Size.Width = 537.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 36.000000000000000000
+    TextSettings.Font.StyleExt = {00070000000000000004000000}
+    TextSettings.FontColor = xFFF6BF52
+    TextSettings.HorzAlign = Center
+    Text = 'Criar Ocorrencia'
+    TabOrder = 2
+  end
+end
