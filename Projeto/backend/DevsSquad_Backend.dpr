@@ -30,7 +30,8 @@ uses
   UController.Endereco in 'model\controllers\UController.Endereco.pas',
   UController.Ocorrencia in 'model\controllers\UController.Ocorrencia.pas',
   UController.Status in 'model\controllers\UController.Status.pas',
-  UController.TipoProblema in 'model\controllers\UController.TipoProblema.pas';
+  UController.TipoProblema in 'model\controllers\UController.TipoProblema.pas',
+  UUtil.Banco in 'model\utils\UUtil.Banco.pas';
 
 procedure Registry;
 begin
