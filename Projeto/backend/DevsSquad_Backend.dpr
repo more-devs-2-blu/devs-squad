@@ -9,7 +9,11 @@ uses
   Horse.JWT,
   Horse.BasicAuthentication,
   Horse.GBSwagger,
-  System.SysUtils;
+  System.SysUtils,
+  UEntity.Usuarios in 'model\entities\UEntity.Usuarios.pas',
+  UEntity.Logins in 'model\entities\UEntity.Logins.pas',
+  UEntity.Ocorrencias in 'model\entities\UEntity.Ocorrencias.pas',
+  UEntity.Enderecos in 'model\entities\UEntity.Enderecos.pas';
 
 procedure Registry;
 begin
