@@ -3,7 +3,8 @@ unit UEntity.Usuarios;
 interface
 
 uses
-  System.JSON;
+  System.JSON,
+  GBSwagger.Model.Attributes;
 
 type
   TUsuario = class
@@ -43,7 +44,7 @@ type
     constructor Create(const aId: Integer); overload;
     constructor Create(const aNome, aCpf, aSenha: String); overload;
     constructor Create(const aId: Integer; const aTipoUsuario, aNome,
-      aTelefone: String; const abairro: String; const aEmail: String;
+      aTelefone: String; const aBairro: String; const aEmail: String;
       const aCpf: String; const aSenha: String); overload;
 
     destructor Destroy; override;
@@ -80,24 +81,24 @@ end;
 
 constructor TUsuario.Create(const aNome, aCpf, aSenha: String);
 begin
-  FNome := aNome;
-  FCpf := aCpf;
+  FNome  := aNome;
+  FCpf   := aCpf;
   FSenha := aSenha;
 
   Self.Create;
 end;
 
 constructor TUsuario.Create(const aId: Integer;
-  const aTipoUsuario, aNome, aTelefone, abairro, aEmail, aCpf, aSenha: String);
+  const aTipoUsuario, aNome, aTelefone, aBairro, aEmail, aCpf, aSenha: String);
 begin
-  FId := aId;
+  FId          := aId;
   FTipoUsuario := aTipoUsuario.ToBoolean;
-  FNome := aNome;
-  FTelefone := aTelefone;
-  FBairro := abairro;
-  FEmail := aEmail;
-  FCpf := aCpf;
-  FSenha := aSenha;
+  FNome        := aNome;
+  FTelefone    := aTelefone;
+  FBairro      := aBairro;
+  FEmail       := aEmail;
+  FCpf         := aCpf;
+  FSenha       := aSenha;
 end;
 
 destructor TUsuario.Destroy;
@@ -128,14 +129,14 @@ end;
 
 function TUsuario.GetJSON: TJSONObject;
 begin
-  FJSON.AddPair('id', FId.ToString);
+  FJSON.AddPair('id',          FId.ToString);
   FJSON.AddPair('tipousuario', FTipoUsuario.ToString);
-  FJSON.AddPair('nome', FNome);
-  FJSON.AddPair('telefone', FTelefone);
-  FJSON.AddPair('beirro', FBairro);
-  FJSON.AddPair('email', FEmail);
-  FJSON.AddPair('cpf', FCpf);
-  FJSON.AddPair('senha', FSenha);
+  FJSON.AddPair('nome',        FNome);
+  FJSON.AddPair('telefone',    FTelefone);
+  FJSON.AddPair('beirro',      FBairro);
+  FJSON.AddPair('email',       FEmail);
+  FJSON.AddPair('cpf',         FCpf);
+  FJSON.AddPair('senha',       FSenha);
 
   Result := FJSON;
 end;

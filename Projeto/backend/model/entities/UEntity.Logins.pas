@@ -2,6 +2,9 @@ unit UEntity.Logins;
 
 interface
 
+uses
+  GBSwagger.Model.Attributes;
+
 type
   TLogin = class
   private
@@ -20,8 +23,13 @@ type
   public
     constructor Create(const aCPF, aSenha: String);
 
+    [SwagProp('Autenticação Login CPF', True)]
     property CPF:   String read GetCPF   write SetCPF;
+
+    [SwagProp('Autenticação Senha', True)]
     property Senha: String read GetSenha write SetSenha;
+
+    [SwagProp('Autenticação Token', True)]
     property Token: String read GetSenha write SetToken;
   end;
 

@@ -1,4 +1,4 @@
-program DevsSquad_Backend;
+﻿program DevsSquad_Backend;
 
 {$APPTYPE CONSOLE}
 
@@ -13,7 +13,16 @@ uses
   UEntity.Usuarios in 'model\entities\UEntity.Usuarios.pas',
   UEntity.Logins in 'model\entities\UEntity.Logins.pas',
   UEntity.Ocorrencias in 'model\entities\UEntity.Ocorrencias.pas',
-  UEntity.Enderecos in 'model\entities\UEntity.Enderecos.pas';
+  UEntity.Enderecos in 'model\entities\UEntity.Enderecos.pas',
+  UDAO.Apoios in 'model\dao\UDAO.Apoios.pas',
+  UDAO.Base in 'model\dao\UDAO.Base.pas',
+  UDAO.Endereco in 'model\dao\UDAO.Endereco.pas',
+  UDAO.Intf in 'model\dao\UDAO.Intf.pas',
+  UDAO.Ocorrencia in 'model\dao\UDAO.Ocorrencia.pas',
+  UDAO.Status in 'model\dao\UDAO.Status.pas',
+  UDAO.TipoProblema in 'model\dao\UDAO.TipoProblema.pas',
+  UDAO.Usuario in 'model\dao\UDAO.Usuario.pas',
+  UUtil.Banco in 'model\utils\UUtil.Banco.pas';
 
 procedure Registry;
 begin
