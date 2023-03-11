@@ -20,12 +20,12 @@ type
 
       [SwagGET('{id}', 'Procurar um endereço')]
       [SwagParamPath('id', 'id do Endereço')]
-      [SwagResponse(200, TEndereco, 'Informações do Apoio')]
+      [SwagResponse(200, TEndereco, 'Informações do Endereço')]
       [SwagResponse(404)]
       class procedure Get(Req: THorseRequest; Res: THorseResponse; Next: TProc); override;
 
       [SwagPOST('Adicionar novo Endereço')]
-      [SwagParamBody('Informações do Time', TEndereco)]
+      [SwagParamBody('Informações do Endereço', TEndereco)]
       [SwagResponse(201)]
       [SwagResponse(400)]
       class procedure Post(Req: THorseRequest; Res: THorseResponse; Next: TProc); override;

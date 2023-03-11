@@ -14,7 +14,7 @@ type
     private
     public
       [SwagGET('Listar Apoios', True)]
-//      [SwagResponse(200, TApoios, 'Informações de apoios', True)]
+//    [SwagResponse(200, TApoios, 'Informações de apoios', True)]
       [SwagResponse(404)]
       class procedure Gets(Req: THorseRequest; Res: THorseResponse; Next: TProc); override;
 
