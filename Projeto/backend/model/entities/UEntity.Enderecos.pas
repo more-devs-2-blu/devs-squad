@@ -3,7 +3,8 @@ unit UEntity.Enderecos;
 interface
 
 uses
-  System.JSON;
+  System.JSON,
+  GBSwagger.Model.Attributes;
 
 type
   TEndereco = class
@@ -40,15 +41,25 @@ type
 
     destructor Destroy; override;
 
+    [SwagProp('Endereço Id', True)]
     property Id: Integer read GetId write SetId;
+
+    [SwagProp('Endereço CEP', True)]
     property Cep: String read GetCep write SetCep;
+
+    [SwagProp('Endereço Bairro', True)]
     property Bairro: String read GetBairro write SetBairro;
+
+    [SwagProp('Endereço Número', True)]
     property Numero: Integer read GetNumero write SetNumero;
+
+    [SwagProp('Endereço Logradouro', True)]
     property Logradouro: String read GetLogradouro write SetLogradouro;
+
+    [SwagProp('Endereço Complemento', True)]
     property Complemento: String read GetComplemento write SetComplemento;
 
     property JSON: TJSONObject read GetJSON;
-
 
   end;
 
