@@ -9,7 +9,10 @@ uses
   Horse.JWT,
   Horse.BasicAuthentication,
   Horse.GBSwagger,
-  System.SysUtils;
+  System.SysUtils,
+  UDAO.Intf in 'model\dao\UDAO.Intf.pas',
+  UDAO.Base in 'model\dao\UDAO.Base.pas',
+  UUtil.Banco in 'model\utils\UUtil.Banco.pas';
 
 procedure Registry;
 begin
