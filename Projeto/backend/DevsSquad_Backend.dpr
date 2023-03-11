@@ -31,7 +31,7 @@ begin
 //  //http://localhost:9000/swagger/doc/html
 //  Swagger
 //    .Info
-//      .Title('Documentação API DevsBets')
+//      .Title('Documentaï¿½ï¿½o API DevsBets')
 //      .Description('DevsBets - Lance seu Palpite')
 //      .Contact
 //        .Name('Nome da equipe')
