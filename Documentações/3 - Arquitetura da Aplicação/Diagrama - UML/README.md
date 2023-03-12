@@ -1,4 +1,4 @@
 # Diagrama Caso de Uso
 
-- [ ] Diagrama Caso de Uso;
+- [x] Diagrama Caso de Uso;
 
