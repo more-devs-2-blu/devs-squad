@@ -15,7 +15,7 @@ type
       FOcorrencia: TOcorrencia;
       FOcorrencias:TObjectList<TOcorrencia>;
 
-      function GetOcorrencia: TObjectList<TOcorrencia>;
+      function GetOcorrencias: TObjectList<TOcorrencia>;
 
       procedure PreencherOcorrencias(const aJsonOcorrencias: String);
       procedure CarregarUsuario(const aJsonUsuario: String; var aUsuario: TUsuario);
@@ -30,9 +30,12 @@ type
       procedure Listar; override;
       procedure Excluir; override;
 
+      procedure ListaPorUsuario(const aIdUsuario: Integer);
+      procedure ListaPorBairro(const aBairro: String);
+      procedure ListaPorLogradouro(const aLogradouro: String);
       function ObterRegistro(const aId: Integer): TObject; override;
 
-      property Ocorrencias: TObjectList<TOcorrencia> read GetOcorrencia;
+      property Ocorrencias: TObjectList<TOcorrencia> read GetOcorrencias;
   end;
 
 implementation
@@ -150,9 +153,82 @@ begin
   end;
 end;
 
-function TServiceOcorrencia.GetOcorrencia: TObjectList<TOcorrencia>;
+function TServiceOcorrencia.GetOcorrencias: TObjectList<TOcorrencia>;
 begin
   Result := FOcorrencias;
+end;
+
+procedure TServiceOcorrencia.ListaPorBairro(const aBairro: String);
+var
+  xBairro : String;
+begin
+  try
+    xBairro := StringReplace(aBairro,' ','+',[rfReplaceAll]);
+    FRESTClient.BaseURL := URL_BASE_OCORRENCIAS +
+                            '/bairro/' + xBairro;
+    FRESTRequest.Method := rmGet;
+    FRESTRequest.Execute;
+
+    case FRESTResponse.StatusCode of
+      API_SUCESSO:
+        Self.PreencherOcorrencias(FRESTResponse.Content);
+      API_NAO_AUTORIZADO:
+        raise Exception.Create('Usuário não autorizado.');
+      else
+        raise Exception.Create('Erro ao carregar a lista de Ocorrencias. Código do Erro: ' + FRESTResponse.StatusCode.ToString);
+    end;
+  except
+    on e: exception do
+      raise Exception.Create(e.Message);
+  end;
+end;
+
+procedure TServiceOcorrencia.ListaPorLogradouro(
+  const aLogradouro: String);
+var
+  xLogradouro : String;
+begin
+  try
+    xLogradouro := StringReplace(aLogradouro,' ','+',[rfReplaceAll]);
+    FRESTClient.BaseURL := URL_BASE_OCORRENCIAS +
+                            '/logradouro/' + xLogradouro;
+    FRESTRequest.Method := rmGet;
+    FRESTRequest.Execute;
+
+    case FRESTResponse.StatusCode of
+      API_SUCESSO:
+        Self.PreencherOcorrencias(FRESTResponse.Content);
+      API_NAO_AUTORIZADO:
+        raise Exception.Create('Usuário não autorizado.');
+      else
+        raise Exception.Create('Erro ao carregar a lista de Ocorrencias. Código do Erro: ' + FRESTResponse.StatusCode.ToString);
+    end;
+  except
+    on e: exception do
+      raise Exception.Create(e.Message);
+  end;
+end;
+
+procedure TServiceOcorrencia.ListaPorUsuario(const aIdUsuario: Integer);
+begin
+  try
+    FRESTClient.BaseURL := URL_BASE_OCORRENCIAS +
+                            '/usuario/' + aIdUsuario.ToString;
+    FRESTRequest.Method := rmGet;
+    FRESTRequest.Execute;
+
+    case FRESTResponse.StatusCode of
+      API_SUCESSO:
+        Self.PreencherOcorrencias(FRESTResponse.Content);
+      API_NAO_AUTORIZADO:
+        raise Exception.Create('Usuário não autorizado.');
+      else
+        raise Exception.Create('Erro ao carregar a lista de Ocorrencias. Código do Erro: ' + FRESTResponse.StatusCode.ToString);
+    end;
+  except
+    on e: exception do
+      raise Exception.Create(e.Message);
+  end;
 end;
 
 procedure TServiceOcorrencia.Listar;
@@ -177,9 +253,55 @@ begin
 end;
 
 function TServiceOcorrencia.ObterRegistro(const aId: Integer): TObject;
+var
+  xMemTable: TFDMemTable;
+  xUsuario: TUsuario;
+  xEndereco: TEndereco;
 begin
-  Result := nil;
-  //Verificar
+  try
+    FRESTClient.BaseURL := URL_BASE_OCORRENCIAS + '/' + aId.ToString;
+    FRESTRequest.Method := rmGet;
+    FRESTRequest.Execute;
+
+    case FRESTResponse.StatusCode of
+      API_SUCESSO:
+        begin
+          xMemTable := TFDMemTable.Create(nil);
+          try
+            xMemTable.LoadFromJSON(FRESTResponse.Content);
+
+            Self.CarregarUsuario(
+              xMemTable.FieldByName('Usuario').AsString, xUsuario);
+
+            Self.CarregarEndereco(
+              xMemTable.FieldByName('Endereco').AsString, xEndereco);
+
+            Result :=
+              TOcorrencia
+                .Create(xMemTable.FieldByName('Id').AsInteger,
+                        xMemTable.FieldByName('QntApoio').asInteger,
+                        xMemTable.FieldByName('DataInicial').AsDateTime,
+                        xMemTable.FieldByName('DataFinal').AsDateTime,
+                        xMemTable.FieldByName('DataAlteracao').AsDateTime,
+                        xMemTable.FieldByName('Urgencia').AsInteger,
+                        xMemTable.FieldByName('Descricao').AsString,
+                        xMemTable.FieldByName('TipoProblema').AsString,
+                        xMemTable.FieldByName('Status').AsString,
+                        xUsuario,
+                        xEndereco);
+          finally
+            FreeAndNil(xMemTable);
+          end;
+        end;
+      API_NAO_AUTORIZADO:
+        raise Exception.Create('Usuário não autorizado.');
+      else
+        raise Exception.Create('Erro ao carregar a lista de Ocorrencias. Código do Erro: ' + FRESTResponse.StatusCode.ToString);
+    end;
+  except
+    on e: exception do
+      raise Exception.Create(e.Message);
+  end;
 end;
 
 procedure TServiceOcorrencia.PreencherOcorrencias(const aJsonOcorrencias: String);
