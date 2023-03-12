@@ -49,13 +49,28 @@ type
 
     destructor Destroy; override;
 
+    [SwagProp('Usuário Id', True)]
     property Id: Integer read GetId write SetId;
+
+    [SwagProp('Usuário Tipo Usuário', True)]
     property TipoUsuario: Boolean read GetTipoUsuario write SetTipoUsuario;
+
+    [SwagProp('Usuário Nome', True)]
     property Nome: String read GetNome write SetNome;
+
+    [SwagProp('Usuário Telefone', True)]
     property Telefone: String read GetTelefone write SetTelefone;
+
+    [SwagProp('Usuário Bairro', True)]
     property Bairro: String read GetBairro write SetBairro;
+
+    [SwagProp('Usuário E-mail', True)]
     property Email: String read GetEmail write SetEmail;
+
+    [SwagProp('Usuário CPF', True)]
     property Cpf: String read GetCpf write SetCpf;
+
+    [SwagProp('Usuário Senha', True)]
     property Senha: String read GetSenha write SetSenha;
 
     property JSON: TJSONObject read GetJSON;
@@ -133,7 +148,7 @@ begin
   FJSON.AddPair('tipousuario', FTipoUsuario.ToString);
   FJSON.AddPair('nome',        FNome);
   FJSON.AddPair('telefone',    FTelefone);
-  FJSON.AddPair('beirro',      FBairro);
+  FJSON.AddPair('bairro',      FBairro);
   FJSON.AddPair('email',       FEmail);
   FJSON.AddPair('cpf',         FCpf);
   FJSON.AddPair('senha',       FSenha);

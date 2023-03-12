@@ -9,7 +9,7 @@ CREATE TABLE usuario
  id INT PRIMARY KEY AUTO_INCREMENT,
  tipoUsuario ENUM('user', 'adm') NOT NULL,
  nome VARCHAR(60) NOT NULL,   
- telefone VARCHAR(8) NOT NULL,  
+ telefone VARCHAR(13) NOT NULL,  
  bairro VARCHAR(30) NOT NULL, 
  email VARCHAR(80) NOT NULL,
  cpf VARCHAR(11) NOT NULL, 
@@ -67,3 +67,9 @@ ALTER TABLE ocorrencia ADD FOREIGN KEY(idstatus) REFERENCES status (id);
 ALTER TABLE ocorrencia ADD FOREIGN KEY(idendereco) REFERENCES endereco (id);
 ALTER TABLE apoio ADD FOREIGN KEY(idusuario) REFERENCES usuario (id);
 ALTER TABLE apoio ADD FOREIGN KEY(idocorrencia) REFERENCES ocorrencia (id);
+
+
+
+INSERT INTO `servicoescutacidadao_sec`.`status` (`id`, `nome`) VALUES ('1', 'Em atendimento');
+INSERT INTO `servicoescutacidadao_sec`.`tipoproblema` (`id`, `nome`) VALUES ('1', 'Via com buraco');
+
