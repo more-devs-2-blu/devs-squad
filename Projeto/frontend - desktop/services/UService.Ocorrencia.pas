@@ -53,7 +53,6 @@ procedure TServiceOcorrencia.CarregarEndereco(const aJsonEndereco: String;
   var aEndereco: TEndereco);
 var
   xMemTable: TFDMemTable;
-  xStatus: Byte;
 begin
   aEndereco := nil;
   xMemTable := TFDMemTable.Create(nil);
@@ -63,9 +62,6 @@ begin
 
     if xMemTable.RecordCount > 0 then
     begin
-      xStatus := TUtilsFunctions.IIF<Byte>(
-        xMemTable.FieldByName('status').AsString = 'true',
-        1, 0);
 
       aEndereco := TEndereco.Create(xMemTable.FieldByName('Id').AsInteger,
                                    xMemTable.FieldByName('Numero').AsInteger,
@@ -82,7 +78,6 @@ end;
 procedure TServiceOcorrencia.CarregarUsuario(const aJsonUsuario: String; var aUsuario: TUsuario);
 var
   xMemTable: TFDMemTable;
-  xStatus: Byte;
 begin
   aUsuario     := nil;
   xMemTable := TFDMemTable.Create(nil);
@@ -92,10 +87,6 @@ begin
 
     if xMemTable.RecordCount > 0 then
     begin
-      xStatus := TUtilsFunctions.IIF<Byte>(
-        xMemTable.FieldByName('status').AsString = 'true',
-        1, 0);
-
       aUsuario := TUsuario.Create(xMemTable.FieldByName('Id').AsInteger,
                                   xMemTable.FieldByName('TipoUsuario').AsString,
                                   xMemTable.FieldByName('Nome').AsString,
@@ -310,7 +301,6 @@ var
   xMemTableOcorrencia: TFDMemTable;
   xUsuario: TUsuario;
   xEndereco: TEndereco;
-  xStatus: Byte;
 
 begin
   FOcorrencias.Clear;
@@ -340,10 +330,6 @@ begin
                                     xMemTable.FieldByName('Bairro').AsString,
                                     xMemTable.FieldByName('Logradouro').AsString,
                                     xMemTable.FieldByName('Complemento').AsString);
-
-      xStatus := TUtilsFunctions.IIF<Byte>(
-        xMemTable.FieldByName('status').AsString = 'true',
-        1, 0);
 
       FOcorrencias.Add(TOcorrencia.Create(xMemTable.FieldByName('id').AsInteger,
                                     xMemTable.FieldByName('Qntapoio').AsInteger,
