@@ -25,12 +25,14 @@ type
     Label4: TLabel;
     Z: TLabel;
     Label3: TLabel;
-    Edit1: TEdit;
-    Edit2: TEdit;
+    edtCPF: TEdit;
+    edtSenha: TEdit;
     procedure CircFecharClick(Sender: TObject);
     procedure RectEntrarClick(Sender: TObject);
   private
     { Private declarations }
+    procedure AbrirHome;
+    procedure Logar;
   public
     { Public declarations }
   end;
@@ -42,14 +44,45 @@ implementation
 
 {$R *.fmx}
 
-uses UfrmHome;
+uses UfrmHome, UService.Intf, UService.Login, UEntity.Logins;
 
 procedure TfrmAutenticacao.CircFecharClick(Sender: TObject);
 begin
   Close;
 end;
 
+procedure TfrmAutenticacao.Logar;
+var
+  xCPF, xSenha: String;
+  xServiceLogin: IService;
+begin
+    xCPF := edtCPF.Text;
+  xSenha := edtSenha.Text;
+  if Trim(edtCPF.Text) = EmptyStr then
+      raise Exception.Create('Informe o CPF.');
+
+  if Trim(edtSenha.Text) = EmptyStr then
+    raise Exception.Create('Informe a Senha.');
+
+  xServiceLogin := TServiceLogin.Create(
+    TLogin.Create(Trim(edtCPF.Text),
+                  Trim(edtSenha.Text)));
+
+  try
+    TServiceLogin(xServiceLogin).Autenticar;
+    Self.AbrirHome;
+  except
+    on e: exception do
+      raise Exception.Create('Login: ' + e.Message);
+  end;
+end;
+
 procedure TfrmAutenticacao.RectEntrarClick(Sender: TObject);
+begin
+  Self.Logar;
+end;
+
+procedure TfrmAutenticacao.AbrirHome;
 begin
   if not Assigned(frmHome) then
     frmHome := TfrmHome.Create(application);

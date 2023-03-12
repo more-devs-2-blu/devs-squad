@@ -69,7 +69,7 @@ begin
     FreeAndNil(xSMTP);
     FreeAndNil(xMessage);
     FreeAndNil(xSocketSSL);
-//  end;
+  end;
 
 end;
 
