@@ -61,6 +61,7 @@ begin
   //Apoios
   THorse.Group.Prefix('v1')
     .Get('/apoios', TControllerApoios.Gets)
+    .Get('/apoios/usuario/:id',TControllerApoios.GetsByUser)
     .Get('/apoios/:id', TControllerApoios.Get)
     .Post('/apoios', TControllerApoios.Post)
     .Delete('/apoios/:id', TControllerApoios.Delete);

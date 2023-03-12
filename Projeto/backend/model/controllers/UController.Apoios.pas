@@ -14,9 +14,14 @@ type
     private
     public
       [SwagGET('Listar Apoios', True)]
-    [SwagResponse(200, TApoios, 'Informações de apoios', True)]
+      [SwagResponse(200, TApoios, 'Informações de apoios', True)]
       [SwagResponse(404)]
       class procedure Gets(Req: THorseRequest; Res: THorseResponse; Next: TProc); override;
+
+      [SwagGET('Listar Apoios de um usuário', True)]
+      [SwagResponse(200, TApoios, 'Informações de apoios de um usuário', True)]
+      [SwagResponse(404)]
+      class procedure GetsByUser(Req: THorseRequest; Res: THorseResponse; Next: TProc);
 
       [SwagGET('{id}', 'Procurar Apoio')]
       [SwagParamPath('id', 'id do Apoio')]
@@ -67,6 +72,18 @@ class procedure TControllerApoios.Gets(Req: THorseRequest;
 begin
   FDAO := TDAOApoios.Create;
   Inherited;
+end;
+
+class procedure TControllerApoios.GetsByUser(Req: THorseRequest;
+  Res: THorseResponse; Next: TProc);
+var
+  xId: Integer;
+begin
+  if (Req.Params.Count <> 1) or (not(Req.Params.ContainsKey('id'))) then
+  begin
+    FDAO := TDAOApoios.Create;
+    Res.Send<TJSONArray>(TDAOApoios(FDAO).ObterRegistrosPorUsuario(xId));
+  end;
 end;
 
 class procedure TControllerApoios.Post(Req: THorseRequest;
