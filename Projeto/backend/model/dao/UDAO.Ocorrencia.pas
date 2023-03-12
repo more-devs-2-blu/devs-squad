@@ -58,10 +58,6 @@ begin
     xJSONObject.AddPair('usuario', Self.ProcurarUsuario(xIdUser));
     xJSONObject.RemovePair('idusuario');
 
-    xIdUser := StrToInt(xJSONObject.GetValue('idusuario').Value);
-    xJSONObject.AddPair('usuario', Self.ProcurarUsuario(xIdUser));
-    xJSONObject.RemovePair('idusuario');
-
     xIdEndereco := StrToInt(xJSONObject.GetValue('idendereco').Value);
     xJSONObject.AddPair('endereco', Self.ProcurarEnderedeco(xIdEndereco));
     xJSONObject.RemovePair('idendereco');
@@ -93,10 +89,6 @@ begin
 
   if xJSONObject.Count = 0 then
     Exit(xJSONObject);
-
-  xIdUser := StrToInt(xJSONObject.GetValue('idusuario').Value);
-  xJSONObject.AddPair('usuario', Self.ProcurarUsuario(xIdUser));
-  xJSONObject.RemovePair('idusuario');
 
   xIdUser := StrToInt(xJSONObject.GetValue('idusuario').Value);
   xJSONObject.AddPair('usuario', Self.ProcurarUsuario(xIdUser));
