@@ -112,12 +112,12 @@ begin
 
           while not xMemTable.Eof do
           begin
-            FEnderecos.Add(TEndereco.Create(xMemTable.FieldByName('id').AsInteger,
-                                    xMemTable.FieldByName('numero').AsInteger,
-                                    xMemTable.FieldByName('cep').AsString,
-                                    xMemTable.FieldByName('bairro').AsString,
-                                    xMemTable.FieldByName('logradouro').AsString,
-                                    xMemTable.FieldByName('complemento').AsString));
+            FEnderecos.Add(TEndereco.Create(xMemTable.FieldByName('Id').AsInteger,
+                                    xMemTable.FieldByName('Numero').AsInteger,
+                                    xMemTable.FieldByName('Cep').AsString,
+                                    xMemTable.FieldByName('Bairro').AsString,
+                                    xMemTable.FieldByName('Logradouro').AsString,
+                                    xMemTable.FieldByName('Complemento').AsString));
 
             xMemTable.Next;
           end;
