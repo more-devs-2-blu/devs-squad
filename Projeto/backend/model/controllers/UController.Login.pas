@@ -41,8 +41,8 @@ begin
   xToken := TJWT.Create;
   try
     //Token Claims
-    xToken.Claims.Issuer     := 'DevsBets';
-    xToken.Claims.Subject    := 'Projeto Final';
+    xToken.Claims.Issuer     := 'DevsSquad';
+    xToken.Claims.Subject    := 'HackWeek';
     xToken.Claims.Expiration := Now + 1;
 
     xJSONLogin := Req.Body<TJSONObject>;
@@ -53,13 +53,13 @@ begin
       Exit;
     end;
 
-    if not xJSONLogin.TryGetValue<String>('login', xUser) then
+    if not xJSONLogin.TryGetValue<String>('cpf', xUser) then
     begin
       Res.Status(THTTPStatus.BadRequest);
       Exit;
     end;
 
-    if not xJSONLogin.TryGetValue<String>('password', xPassword) then
+    if not xJSONLogin.TryGetValue<String>('senha', xPassword) then
     begin
       Res.Status(THTTPStatus.BadRequest);
       Exit;
@@ -67,10 +67,10 @@ begin
 
     //Outros Claims
     xToken.Claims.SetClaimOfType<Integer>('id', UController.Usuario.GIdUser);
-    xToken.Claims.SetClaimOfType<String>('login', xUser);
+    xToken.Claims.SetClaimOfType<String>('cpf', xUser);
 
     //Assinatura
-    xCompactToken := TJOSE.SHA256CompactToken('KeyDevsBets', xToken);
+    xCompactToken := TJOSE.SHA256CompactToken('KeyDevsSquad', xToken);
 
     Res.Send(xCompactToken);
   finally

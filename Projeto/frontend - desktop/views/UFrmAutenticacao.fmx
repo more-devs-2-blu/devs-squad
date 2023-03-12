@@ -8450,7 +8450,7 @@ object frmAutenticacao: TfrmAutenticacao
           Stroke.Kind = None
           XRadius = 10.000000000000000000
           YRadius = 7.000000000000000000
-          object Edit1: TEdit
+          object edtCPF: TEdit
             Touch.InteractiveGestures = [LongTap, DoubleTap]
             Align = Client
             StyleLookup = 'transparentedit'
@@ -8475,7 +8475,7 @@ object frmAutenticacao: TfrmAutenticacao
           Stroke.Kind = None
           XRadius = 10.000000000000000000
           YRadius = 10.000000000000000000
-          object Edit2: TEdit
+          object edtSenha: TEdit
             Touch.InteractiveGestures = [LongTap, DoubleTap]
             Align = Client
             StyleLookup = 'transparentedit'
@@ -8491,6 +8491,7 @@ object frmAutenticacao: TfrmAutenticacao
           end
         end
         object RectEntrar: TRectangle
+          Cursor = crHandPoint
           Fill.Color = xFFFEA904
           Position.X = 272.000000000000000000
           Position.Y = 160.000000000000000000
@@ -8570,6 +8571,7 @@ object frmAutenticacao: TfrmAutenticacao
         end
       end
       object CircFechar: TCircle
+        Cursor = crHandPoint
         Fill.Kind = None
         Position.X = 736.000000000000000000
         Position.Y = 16.000000000000000000
