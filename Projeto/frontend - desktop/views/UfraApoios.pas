@@ -12,7 +12,7 @@ type
   TfraApoio = class(TFrame)
     rectLista: TRectangle;
     lstApoio: TListView;
-    Label1: TLabel;
+    lblTituloFrame: TLabel;
   private
     { Private declarations }
   public

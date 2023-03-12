@@ -24,12 +24,14 @@ uses
   UService.Login in 'services\UService.Login.pas',
   UService.Ocorrencia in 'services\UService.Ocorrencia.pas',
   UService.Usuario.Authenticated in 'services\UService.Usuario.Authenticated.pas',
-  UService.Usuario in 'services\UService.Usuario.pas';
+  UService.Usuario in 'services\UService.Usuario.pas',
+  uDados in 'views\uDados.pas' {DmDados: TDataModule};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.CreateForm(TfrmAutenticacao, frmAutenticacao);
+  Application.CreateForm(TDmDados, DmDados);
   Application.Run;
 end.

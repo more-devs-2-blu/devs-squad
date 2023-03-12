@@ -8479,6 +8479,7 @@ object frmAutenticacao: TfrmAutenticacao
             Align = Client
             StyleLookup = 'transparentedit'
             TabOrder = 3
+            Password = True
             TextSettings.Font.Size = 16.000000000000000000
             TextSettings.FontColor = claWhite
             TextSettings.HorzAlign = Center
