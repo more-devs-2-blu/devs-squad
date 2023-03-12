@@ -1,0 +1,27 @@
+inherited frmAutenticacao_Windows: TfrmAutenticacao_Windows
+  DesignerMasterStyle = 0
+  inherited rectPrincipal: TRectangle
+    inherited lytPrincipal: TLayout
+      inherited lytBotoes: TLayout
+        inherited RectEntrar: TRectangle
+          inherited lblEntrar: TLabel
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+          end
+        end
+        inherited Label3: TLabel
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+        end
+      end
+      inherited CircInfo: TCircle
+        inherited Label4: TLabel
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+        end
+      end
+      inherited CircFechar: TCircle
+        inherited Z: TLabel
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+        end
+      end
+    end
+  end
+end

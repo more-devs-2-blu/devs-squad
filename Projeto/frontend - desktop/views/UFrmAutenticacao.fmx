@@ -8461,7 +8461,6 @@ object frmAutenticacao: TfrmAutenticacao
             Size.Width = 241.000000000000000000
             Size.Height = 41.000000000000000000
             Size.PlatformDefault = False
-            TextPrompt = '12345678911'
             StyledSettings = [Family, Style]
           end
         end
@@ -8486,7 +8485,6 @@ object frmAutenticacao: TfrmAutenticacao
             Size.Width = 241.000000000000000000
             Size.Height = 41.000000000000000000
             Size.PlatformDefault = False
-            TextPrompt = 'Senha...'
             StyledSettings = [Family, Style]
           end
         end

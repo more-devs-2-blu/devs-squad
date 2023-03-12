@@ -130,6 +130,11 @@ begin
   SwaggerConfig;
   Registry;
 
-  THorse.Listen(9000);
+  THorse.Listen(9000,procedure
+    begin
+      Writeln('Server running at port 9000...');
+      Writeln('');
+      Writeln('API documentation: http://localhost:9000/swagger/doc/html');
+    end);
 
 end.

@@ -43,6 +43,7 @@ var
 implementation
 
 {$R *.fmx}
+{$R *.Windows.fmx MSWINDOWS}
 
 uses UfrmHome, UService.Intf, UService.Login, UEntity.Logins;
 
