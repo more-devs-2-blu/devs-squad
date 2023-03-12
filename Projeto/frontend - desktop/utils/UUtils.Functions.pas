@@ -8,6 +8,7 @@ type
     class function IIF<T>(const aConditional: Boolean;
       const aValueTrue, aValueFalse: T): T;
     class function EnviarEmail(aDestinatario, aAssunto, aCorpo: String) : Boolean;
+    class function LerVariavelDeAmbiente(aChave: String) : String;
   end;
 
 implementation
@@ -18,7 +19,7 @@ uses
   IdSSLOpenSSL,
   IdExplicitTLSClientServerBase,
   UUtils.Constants,
-  System.SysUtils;
+  System.SysUtils, DotEnv4Delphi;
 
 { TUtilsFunctions }
 // para funcionar precisa ter as duas DLL na pasta raiz onde o arquivo binário está sendo executado.
@@ -39,15 +40,15 @@ begin
     xSocketSSL.SSLOptions.Mode := sslmClient;
     xSocketSSL.SSLOptions.Method := sslvTLSv1_2;
 
-    xSocketSSL.Host := MAIL_SMTP;
-    xSocketSSL.Port := MAIL_PORT;
+    xSocketSSL.Host := Self.LerVariavelDeAmbiente('MAIL_SMTP');
+    xSocketSSL.Port := StrToIntDef(Self.LerVariavelDeAmbiente('MAIL_PORT'), 9000);
 
     xSMTP.IOHandler := xSocketSSL;
-    xSMTP.Host := MAIL_SMTP;
-    xSMTP.Port := MAIL_PORT;
+    xSMTP.Host := Self.LerVariavelDeAmbiente('MAIL_SMTP');
+    xSMTP.Port := StrToIntDef(Self.LerVariavelDeAmbiente('MAIL_PORT'),9000);
     xSMTP.AuthType := satDefault;
-    xSMTP.Username := MAIL_EMAIL;
-    xSMTP.Password := MAIL_PASSWORD;
+    xSMTP.Username := Self.LerVariavelDeAmbiente('MAIL_EMAIL');
+    xSMTP.Password := Self.LerVariavelDeAmbiente('MAIL_API_TOKEN');
     xSMTP.UseTLS := utUseExplicitTLS;
 
     xMessage.From.Address := aDestinatario;
@@ -68,7 +69,7 @@ begin
     FreeAndNil(xSMTP);
     FreeAndNil(xMessage);
     FreeAndNil(xSocketSSL);
-  end;
+//  end;
 
 end;
 
@@ -79,6 +80,11 @@ begin
     Result := aValueTrue
   else
     Result := aValueFalse;
+end;
+
+class function TUtilsFunctions.LerVariavelDeAmbiente(aChave: String): String;
+begin
+  Result := DotEnv.Env(aChave);
 end;
 
 end.
