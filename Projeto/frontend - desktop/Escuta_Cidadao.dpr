@@ -17,7 +17,11 @@ uses
   UEntity.Enderecos in 'entities\UEntity.Enderecos.pas',
   UEntity.Logins in 'entities\UEntity.Logins.pas',
   UEntity.Ocorrencias in 'entities\UEntity.Ocorrencias.pas',
-  UEntity.Usuarios in 'entities\UEntity.Usuarios.pas';
+  UEntity.Usuarios in 'entities\UEntity.Usuarios.pas',
+  DotEnv4Delphi in 'utils\DotEnv4Delphi.pas',
+  UService.Login in 'services\UService.Login.pas',
+  UService.Usuario.Authenticated in 'services\UService.Usuario.Authenticated.pas',
+  UService.Usuario in 'services\UService.Usuario.pas';
 
 {$R *.res}
 
