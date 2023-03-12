@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "23b5a963-3e0b-4294-8761-5e79627529e9",
+		"_postman_id": "ddcdbcb8-b80d-4544-b5f8-e40b9191a3e2",
 		"name": "DevsSquad",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "23412819"
@@ -105,6 +105,41 @@
 					},
 					"response": []
 				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "123",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "123",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
 			]
 		},
 		{
@@ -134,16 +169,6 @@
 				{
 					"name": "Get One",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEZXZzQmV0cyIsInN1YiI6IlByb2pldG8gRmluYWwiLCJleHAiOjE2Nzg2NjYxNjYsImlkIjoxLCJsb2dpbiI6Im1heCJ9.U_lS4UVYSFBM9EtLMWXwKQ-XYqUMdQFSh9FSrc5AUBc",
-									"type": "string"
-								}
-							]
-						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -169,7 +194,12 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \r\n}"
+							"raw": "{\r\n    \"qntapoio\": 3,\r\n    \"datainicial\": \"10/01/23 10:13:45\",\r\n    \"datafinal\": \"13/01/23 10:15:45\",\r\n    \"dataalteracao\": \"10/01/23 10:16:45\",\r\n    \"urgencia\": 1,\r\n    \"descricao\": \"Rua com buraco\",\r\n    \"idtipoproblema\": 1,\r\n    \"idstatus\": 1,\r\n    \"idusuario\": 1,\r\n    \"idendereco\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
 						"url": {
 							"raw": "http://localhost:9000/v1/ocorrencias",
@@ -196,7 +226,7 @@
 							"raw": "{\r\n    \r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:9000/v1/ocorrencias/INSERIR_ID",
+							"raw": "http://localhost:9000/v1/ocorrencias/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -205,7 +235,7 @@
 							"path": [
 								"v1",
 								"ocorrencias",
-								"INSERIR_ID"
+								"1"
 							]
 						}
 					},
@@ -243,7 +273,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:9000/v1/apoios/1",
+							"raw": "http://localhost:9000/v1/apoios/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -252,7 +282,7 @@
 							"path": [
 								"v1",
 								"apoios",
-								"1"
+								"2"
 							]
 						}
 					},
@@ -265,7 +295,12 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \r\n}"
+							"raw": "{\r\n    \"idusuario\": 1,\r\n    \"idocorrencia\": 2      \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
 						"url": {
 							"raw": "http://localhost:9000/v1/apoios",
@@ -302,6 +337,28 @@
 								"v1",
 								"apoios",
 								"INSERIR_ID"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/v1/apoios/usuario/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"apoios",
+								"usuario",
+								"1"
 							]
 						}
 					},
@@ -361,7 +418,12 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \r\n}"
+							"raw": "{\r\n  \"cep\": \"12345678\",\r\n  \"bairro\": \"Velha Central\",\r\n  \"numero\": 66,\r\n  \"logradouro\": \"Rua João\",\r\n  \"complemento\": \"Casa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
 						"url": {
 							"raw": "http://localhost:9000/v1/enderecos",
@@ -421,7 +483,7 @@
 						},
 						{
 							"key": "username",
-							"value": "10140628967",
+							"value": "12345678912",
 							"type": "string"
 						},
 						{
@@ -435,7 +497,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"login\": \"max\",\r\n    \"password\": \"123\"\r\n}",
+					"raw": "{\r\n    \"cpf\": \"123\",\r\n    \"senha\": \"123\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -464,7 +526,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEZXZzQmV0cyIsInN1YiI6IlByb2pldG8gRmluYWwiLCJleHAiOjE2Nzg2NjYxNjYsImlkIjoxLCJsb2dpbiI6Im1heCJ9.U_lS4UVYSFBM9EtLMWXwKQ-XYqUMdQFSh9FSrc5AUBc",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEZXZzU3F1YWQiLCJzdWIiOiJIYWNrV2VlayIsImV4cCI6MTY3ODczMDQ0NiwiaWQiOjEsImNwZiI6IjEyMyJ9.AJItxnVxg9iKVPXTopBu7BYHO9e586_y94IH9Em2tA4",
 				"type": "string"
 			}
 		]

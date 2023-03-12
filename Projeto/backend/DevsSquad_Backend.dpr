@@ -111,6 +111,7 @@ begin
                        '/v1/ocorrencias',
                        '/v1/apoios/:id',
                        '/v1/apoios',
+                       '/v1/apoios/usuario/:id',
                        '/swagger/doc/html',
                        '/swagger/doc/json'])));
 

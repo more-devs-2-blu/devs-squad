@@ -30,7 +30,7 @@ type
       class procedure Get(Req: THorseRequest; Res: THorseResponse; Next: TProc); override;
 
       [SwagPOST('Adicionar novo apoio')]
-      [SwagParamBody('Informações do Time', TApoios)]
+      [SwagParamBody('Informações do Apoio', TApoios)]
       [SwagResponse(201)]
       [SwagResponse(400)]
       class procedure Post(Req: THorseRequest; Res: THorseResponse; Next: TProc); override;
