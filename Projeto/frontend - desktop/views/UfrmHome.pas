@@ -102,6 +102,7 @@ begin
     FraOcorrencia := TFraOcorrencias.Create(Application);
 
   FraOcorrencia.Align := TAlignLayout.Center;
+  FraOcorrencia.CarregarRegistros;
   lytContainer.AddObject(FraOcorrencia);
 end;
 

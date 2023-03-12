@@ -17,6 +17,7 @@ type
     { Private declarations }
   public
     { Public declarations }
+    procedure CarregarRegistros;
   end;
 
 var
@@ -24,6 +25,25 @@ var
 
 implementation
 
+uses
+  UService.Intf, UService.Ocorrencia, UEntity.Ocorrencias,
+  UService.Usuario.Authenticated;
+
 {$R *.fmx}
+
+{ TfraOcorrencias }
+
+procedure TfraOcorrencias.CarregarRegistros;
+var
+  xServiceOcorrencia : IService;
+  xOcorrencia : TOcorrencia;
+begin
+
+  xServiceOcorrencia := TServiceOcorrencia.Create;
+  TServiceOcorrencia(xServiceOcorrencia).ListaPorUsuario(1);
+  for xOcorrencia in TServiceOcorrencia(xServiceOcorrencia).Ocorrencias do
+    ShowMessage(xOcorrencia.Endereco.Logradouro);
+    ShowMessage(gbInstance.Usuario.Id.ToString);
+end;
 
 end.

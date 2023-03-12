@@ -314,32 +314,32 @@ begin
     while not xMemTable.Eof do
     begin
       xMemTableOcorrencia.LoadFromJSON(xMemTable.FieldByName('usuario').AsString);
-      xUsuario := TUsuario.Create(xMemTableOcorrencia.FieldByName('Id').AsInteger,
-                                  xMemTable.FieldByName('TipoUsuario').AsString,
-                                  xMemTable.FieldByName('Nome').AsString,
-                                  xMemTable.FieldByName('Telefone').AsString,
-                                  xMemTable.FieldByName('Bairro').AsString,
-                                  xMemTable.FieldByName('Email').AsString,
-                                  xMemTable.FieldByName('Cpf').AsString,
-                                  xMemTable.FieldByName('Senha').AsString);
+      xUsuario := TUsuario.Create(xMemTableOcorrencia.FieldByName('id').AsInteger,
+                                  xMemTableOcorrencia.FieldByName('tipousuario').AsString,
+                                  xMemTableOcorrencia.FieldByName('nome').AsString,
+                                  xMemTableOcorrencia.FieldByName('telefone').AsString,
+                                  xMemTableOcorrencia.FieldByName('bairro').AsString,
+                                  xMemTableOcorrencia.FieldByName('email').AsString,
+                                  xMemTableOcorrencia.FieldByName('cpf').AsString,
+                                  xMemTableOcorrencia.FieldByName('senha').AsString);
 
       xMemTableOcorrencia.LoadFromJSON(xMemTable.FieldByName('endereco').AsString);
       xEndereco := TEndereco.Create(xMemTableOcorrencia.FieldByName('id').AsInteger,
-                                    xMemTable.FieldByName('Numero').AsInteger,
-                                    xMemTable.FieldByName('Cep').AsString,
-                                    xMemTable.FieldByName('Bairro').AsString,
-                                    xMemTable.FieldByName('Logradouro').AsString,
-                                    xMemTable.FieldByName('Complemento').AsString);
+                                    xMemTableOcorrencia.FieldByName('numero').AsInteger,
+                                    xMemTableOcorrencia.FieldByName('cep').AsString,
+                                    xMemTableOcorrencia.FieldByName('bairro').AsString,
+                                    xMemTableOcorrencia.FieldByName('logradouro').AsString,
+                                    xMemTableOcorrencia.FieldByName('complemento').AsString);
 
       FOcorrencias.Add(TOcorrencia.Create(xMemTable.FieldByName('id').AsInteger,
-                                    xMemTable.FieldByName('Qntapoio').AsInteger,
-                                    xMemTable.FieldByName('DataInicial').AsDateTime,
-                                    xMemTable.FieldByName('DataFinal').AsDateTime,
-                                    xMemTable.FieldByName('DataAlteracao').AsDateTime,
-                                    xMemTable.FieldByName('Urgencia').AsInteger,
-                                    xMemTable.FieldByName('Descricao').AsString,
-                                    xMemTable.FieldByName('TipoProblema').AsString,
-                                    xMemTable.FieldByName('Status').AsString,
+                                    xMemTable.FieldByName('qntapoio').AsInteger,
+                                    xMemTable.FieldByName('dataInicial').AsDateTime,
+                                    xMemTable.FieldByName('dataFinal').AsDateTime,
+                                    xMemTable.FieldByName('dataAlteracao').AsDateTime,
+                                    xMemTable.FieldByName('urgencia').AsInteger,
+                                    xMemTable.FieldByName('descricao').AsString,
+                                    xMemTable.FieldByName('tipoProblema').AsString,
+                                    xMemTable.FieldByName('status').AsString,
                                     xUsuario,
                                     xEndereco));
       xMemTable.Next;
