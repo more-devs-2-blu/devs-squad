@@ -58,8 +58,50 @@ end;
 
 procedure TServiceApoio.CarregarOcorrencia(const aJsonEndereco: String;
   var aOcorrencia: TOcorrencia);
+var
+  xMemTable: TFDMemTable;
+  xMemTableEndereco: TFDMemTable;
+  xEndereco: TEndereco;
+  xUsuario: TUsuario;
 begin
-  //
+  aOcorrencia       := nil;
+  xMemTable         := TFDMemTable.Create(nil);
+  xMemTableEndereco := TFDMemTable.Create(nil);
+
+  try
+    xMemTable.LoadFromJSON(aJsonEndereco);
+
+    if xMemTable.RecordCount > 0 then
+    begin
+
+      xMemTableEndereco.LoadFromJSON(xMemTable.FieldByName('Endereco').AsString);
+
+      xEndereco := TEndereco.Create(xMemTableEndereco.FieldByName('Id').AsInteger,
+                                    xMemTableEndereco.FieldByName('Numero').AsInteger,
+                                    xMemTableEndereco.FieldByName('Cep').AsString,
+                                    xMemTableEndereco.FieldByName('Bairro').AsString,
+                                    xMemTableEndereco.FieldByName('Logradouro').AsString,
+                                    xMemTableEndereco.FieldByName('Complemento').AsString);
+
+      Self.CarregarUsuario(xMemTable.FieldByName('Usuario').AsString,
+                            xUsuario);
+      aOcorrencia :=
+        TOcorrencia.Create( xMemTable.FieldByName('Id').AsInteger,
+                            xMemTable.FieldByName('QntApoio').AsInteger,
+                            xMemTable.FieldByName('DataInicial').AsDateTime,
+                            xMemTable.FieldByName('DataFinal').AsDateTime,
+                            xMemTable.FieldByName('DataAlteracao').AsDateTime,
+                            xMemTable.FieldByName('Urgencia').AsInteger,
+                            xMemTable.FieldByName('Descricao').AsString,
+                            xMemTable.FieldByName('TipoProblema').AsString,
+                            xMemTable.FieldByName('Status').AsString,
+                            xUsuario,
+                            xEndereco);
+    end;
+  finally
+    FreeAndNil(xMemTable);
+    FreeAndNil(xMemTableEndereco);
+  end;
 end;
 
 procedure TServiceApoio.CarregarUsuario(const aJsonUsuario: String; var aUsuario: TUsuario);
@@ -167,7 +209,6 @@ end;
 procedure TServiceApoio.PreencherApoios(const aJsonApoios: String);
 var
   xMemTable: TFDMemTable;
-  xMemTableApoio: TFDMemTable;
   xUsuario: TUsuario;
   xEndereco: TEndereco;
   xOcorrencia: TOcorrencia;
@@ -177,57 +218,26 @@ begin
   FApoios.Clear;
 
   xMemTable      := TFDMemTable.Create(nil);
-  xMemTableApoio := TFDMemTable.Create(nil);
 
   try
     xMemTable.LoadFromJSON(aJsonApoios);
 
     while not xMemTable.Eof do
     begin
-      xMemTableApoio.LoadFromJSON(xMemTable.FieldByName('usuario').AsString);
-      xUsuario := TUsuario.Create(xMemTableApoio.FieldByName('Id').AsInteger,
-                                  xMemTable.FieldByName('TipoUsuario').AsString,
-                                  xMemTable.FieldByName('Nome').AsString,
-                                  xMemTable.FieldByName('Telefone').AsString,
-                                  xMemTable.FieldByName('Bairro').AsString,
-                                  xMemTable.FieldByName('Email').AsString,
-                                  xMemTable.FieldByName('Cpf').AsString,
-                                  xMemTable.FieldByName('Senha').AsString);
 
-      xMemTableApoio.LoadFromJSON(xMemTable.FieldByName('ocorrencia').AsString);
-      xOcorrencia := TOcorrencia.Create(xMemTableApoio.FieldByName('id').AsInteger,
-                                        xMemTable.FieldByName('Qntapoio').AsInteger,
-                                        xMemTable.FieldByName('DataInicial').AsDateTime,
-                                        xMemTable.FieldByName('DataFinal').AsDateTime,
-                                        xMemTable.FieldByName('DataAlteracao').AsDateTime,
-                                        xMemTable.FieldByName('Urgencia').AsInteger,
-                                        xMemTable.FieldByName('Descricao').AsString,
-                                        xMemTable.FieldByName('TipoProblema').AsString,
-                                        xMemTable.FieldByName('Status').AsString,
-                                        xUsuario,
-                                        xEndereco));
+      Self.CarregarUsuario(xMemTable.FieldByName('Usuario').AsString,
+                            xUsuario);
 
-      xStatus := TUtilsFunctions.IIF<Byte>(
-        xMemTable.FieldByName('status').AsString = 'true',
-        1, 0);
+      Self.CarregarOcorrencia(xMemTable.FieldByName('Ocorrencia').AsString,
+                               xOcorrencia);
 
-
-      FApoio.Add(TApoios.Create(xMemTable.FieldByName('id').AsInteger,
-                                    xMemTable.FieldByName('Qntapoio').AsInteger,
-                                    xMemTable.FieldByName('DataInicial').AsDateTime,
-                                    xMemTable.FieldByName('DataFinal').AsDateTime,
-                                    xMemTable.FieldByName('DataAlteracao').AsDateTime,
-                                    xMemTable.FieldByName('Urgencia').AsInteger,
-                                    xMemTable.FieldByName('Descricao').AsString,
-                                    xMemTable.FieldByName('TipoProblema').AsString,
-                                    xMemTable.FieldByName('Status').AsString,
-                                    xUsuario,
-                                    xEndereco));
+      FApoios.Add(TApoios.Create(xMemTable.FieldByName('id').AsInteger,
+                                  xUsuario,
+                                  xOcorrencia));
       xMemTable.Next;
     end;
   finally
     FreeAndNil(xMemTable);
-    FreeAndNil(xMemTableOcorrencia);
   end;
 end;
 
