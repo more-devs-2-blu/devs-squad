@@ -107,7 +107,6 @@ end;
 procedure TServiceApoio.CarregarUsuario(const aJsonUsuario: String; var aUsuario: TUsuario);
 var
   xMemTable: TFDMemTable;
-  xStatus: Byte;
 begin
   aUsuario     := nil;
   xMemTable := TFDMemTable.Create(nil);
@@ -117,9 +116,6 @@ begin
 
     if xMemTable.RecordCount > 0 then
     begin
-      xStatus := TUtilsFunctions.IIF<Byte>(
-        xMemTable.FieldByName('status').AsString = 'true',
-        1, 0);
 
       aUsuario := TUsuario.Create(xMemTable.FieldByName('Id').AsInteger,
                                   xMemTable.FieldByName('TipoUsuario').AsString,
@@ -212,7 +208,6 @@ var
   xUsuario: TUsuario;
   xEndereco: TEndereco;
   xOcorrencia: TOcorrencia;
-  xStatus: Byte;
 
 begin
   FApoios.Clear;
