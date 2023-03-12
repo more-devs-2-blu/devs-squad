@@ -15,6 +15,9 @@ type
     public
       Constructor Create;
       function ObterRegistros: TJSONArray; override;
+      function ObterRegistrosPorUsuario(aIdUsuario: Integer): TJSONArray;
+      function ObterRegistrosPorBairro(aBairro: String): TJSONArray;
+      function ObterRegistrosPorLogradouro(aLogradouro: String): TJSONArray;
       function ProcurarPorId(const aIdentificador: Integer): TJSONObject; override;
   end;
 
@@ -22,7 +25,7 @@ implementation
 
 uses
   System.SysUtils, UDAO.Intf, UDAO.Status, UDAO.TipoProblema, UDAO.Usuario,
-  UDAO.Endereco;
+  UDAO.Endereco, UUtil.Banco;
 
 { TDAOOcorrencia }
 
@@ -42,6 +45,172 @@ var
   xIdEndereco: Integer;
 begin
   xJSONArray := inherited;
+
+  if xJSONArray.Count = 0 then
+    Exit(xJSONArray);
+
+  xJSONArrayAux := TJSONArray.Create;
+
+  for I := 0 to Pred(xJSONArray.Count) do
+  begin
+    xJSONObject := TJSONObject.ParseJSONValue(
+      TEncoding.ASCII.GetBytes(
+        xJSONArray[I].ToJSON), 0) as TJSONObject;
+
+    xIdUser := StrToInt(xJSONObject.GetValue('idusuario').Value);
+    xJSONObject.AddPair('usuario', Self.ProcurarUsuario(xIdUser));
+    xJSONObject.RemovePair('idusuario');
+
+    xIdEndereco := StrToInt(xJSONObject.GetValue('idendereco').Value);
+    xJSONObject.AddPair('endereco', Self.ProcurarEnderedeco(xIdEndereco));
+    xJSONObject.RemovePair('idendereco');
+
+    xIdStatus := StrToInt(xJSONObject.GetValue('idstatus').Value);
+    xJSONObject.AddPair('status', Self.ProcurarStatus(xIdStatus));
+    xJSONObject.RemovePair('idstatus');
+
+    xIdTipoProblema := StrToInt(xJSONObject.GetValue('idtipoproblema').Value);
+    xJSONObject.AddPair('tipoProblema', Self.ProcurarTipoProblema(xIdTipoProblema));
+    xJSONObject.RemovePair('idtipoproblema');
+
+    xJSONArrayAux.AddElement(xJSONObject);
+  end;
+
+  FreeAndNil(xJSONArray);
+  Result := xJSONArrayAux;
+end;
+
+function TDAOOcorrencia.ObterRegistrosPorBairro(aBairro: String): TJSONArray;
+var
+  xJSONArray, xJSONArrayAux: TJSONArray;
+  xJSONObject: TJSONObject;
+  I: Integer;
+  xIdUser: Integer;
+  xIdTipoProblema: Integer;
+  xIdStatus: Integer;
+  xIdEndereco: Integer;
+begin
+
+  try
+    xJSONArray := TUtilBanco.ExecutarConsulta(
+      Format(
+      'SELECT * FROM OCORRENCIA LEFT JOIN ENDERECO ON OCORRENCIA.idendereco = ENDERECO.id WHERE bairro = "%s";',
+      [aBairro]));
+  except
+    on e: Exception do
+      raise Exception.Create('Erro ao Obter Registros: ' + e.Message);
+  end;
+
+  if xJSONArray.Count = 0 then
+    Exit(xJSONArray);
+
+  xJSONArrayAux := TJSONArray.Create;
+
+  for I := 0 to Pred(xJSONArray.Count) do
+  begin
+    xJSONObject := TJSONObject.ParseJSONValue(
+      TEncoding.ASCII.GetBytes(
+        xJSONArray[I].ToJSON), 0) as TJSONObject;
+
+    xIdUser := StrToInt(xJSONObject.GetValue('idusuario').Value);
+    xJSONObject.AddPair('usuario', Self.ProcurarUsuario(xIdUser));
+    xJSONObject.RemovePair('idusuario');
+
+    xIdEndereco := StrToInt(xJSONObject.GetValue('idendereco').Value);
+    xJSONObject.AddPair('endereco', Self.ProcurarEnderedeco(xIdEndereco));
+    xJSONObject.RemovePair('idendereco');
+
+    xIdStatus := StrToInt(xJSONObject.GetValue('idstatus').Value);
+    xJSONObject.AddPair('status', Self.ProcurarStatus(xIdStatus));
+    xJSONObject.RemovePair('idstatus');
+
+    xIdTipoProblema := StrToInt(xJSONObject.GetValue('idtipoproblema').Value);
+    xJSONObject.AddPair('tipoProblema', Self.ProcurarTipoProblema(xIdTipoProblema));
+    xJSONObject.RemovePair('idtipoproblema');
+
+    xJSONArrayAux.AddElement(xJSONObject);
+  end;
+
+  FreeAndNil(xJSONArray);
+  Result := xJSONArrayAux;
+end;
+
+function TDAOOcorrencia.ObterRegistrosPorLogradouro(
+  aLogradouro: String): TJSONArray;
+var
+  xJSONArray, xJSONArrayAux: TJSONArray;
+  xJSONObject: TJSONObject;
+  I: Integer;
+  xIdUser: Integer;
+  xIdTipoProblema: Integer;
+  xIdStatus: Integer;
+  xIdEndereco: Integer;
+begin
+
+  try
+    xJSONArray := TUtilBanco.ExecutarConsulta(
+      Format(
+      'SELECT * FROM OCORRENCIA LEFT JOIN ENDERECO ON OCORRENCIA.idendereco = ENDERECO.id WHERE logradouro = "%s";',
+      [aLogradouro]));
+  except
+    on e: Exception do
+      raise Exception.Create('Erro ao Obter Registros: ' + e.Message);
+  end;
+
+  if xJSONArray.Count = 0 then
+    Exit(xJSONArray);
+
+  xJSONArrayAux := TJSONArray.Create;
+
+  for I := 0 to Pred(xJSONArray.Count) do
+  begin
+    xJSONObject := TJSONObject.ParseJSONValue(
+      TEncoding.ASCII.GetBytes(
+        xJSONArray[I].ToJSON), 0) as TJSONObject;
+
+    xIdUser := StrToInt(xJSONObject.GetValue('idusuario').Value);
+    xJSONObject.AddPair('usuario', Self.ProcurarUsuario(xIdUser));
+    xJSONObject.RemovePair('idusuario');
+
+    xIdEndereco := StrToInt(xJSONObject.GetValue('idendereco').Value);
+    xJSONObject.AddPair('endereco', Self.ProcurarEnderedeco(xIdEndereco));
+    xJSONObject.RemovePair('idendereco');
+
+    xIdStatus := StrToInt(xJSONObject.GetValue('idstatus').Value);
+    xJSONObject.AddPair('status', Self.ProcurarStatus(xIdStatus));
+    xJSONObject.RemovePair('idstatus');
+
+    xIdTipoProblema := StrToInt(xJSONObject.GetValue('idtipoproblema').Value);
+    xJSONObject.AddPair('tipoProblema', Self.ProcurarTipoProblema(xIdTipoProblema));
+    xJSONObject.RemovePair('idtipoproblema');
+
+    xJSONArrayAux.AddElement(xJSONObject);
+  end;
+
+  FreeAndNil(xJSONArray);
+  Result := xJSONArrayAux;
+end;
+
+function TDAOOcorrencia.ObterRegistrosPorUsuario(
+  aIdUsuario: Integer): TJSONArray;
+var
+  xJSONArray, xJSONArrayAux: TJSONArray;
+  xJSONObject: TJSONObject;
+  I: Integer;
+  xIdUser: Integer;
+  xIdTipoProblema: Integer;
+  xIdStatus: Integer;
+  xIdEndereco: Integer;
+begin
+
+  try
+    xJSONArray := TUtilBanco.ExecutarConsulta(
+      Format('SELECT * FROM %s WHERE id = %d',
+      [FTabela, aIdUsuario]));
+  except
+    on e: Exception do
+      raise Exception.Create('Erro ao Obter Registros: ' + e.Message);
+  end;
 
   if xJSONArray.Count = 0 then
     Exit(xJSONArray);

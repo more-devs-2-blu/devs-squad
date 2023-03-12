@@ -55,6 +55,9 @@ begin
   THorse.Group.Prefix('v1')
     .Get('/ocorrencias', TControllerOcorrencia.Gets)
     .Get('/ocorrencias/:id', TControllerOcorrencia.Get)
+    .Get('/ocorrencias/usuario/:id', TControllerOcorrencia.GetsByUser)
+    .Get('/ocorrencias/bairro/:bairro', TControllerOcorrencia.GetsByBairro)
+    .Get('/ocorrencias/logradouro/:logradouro', TControllerOcorrencia.GetsByLogradouro)
     .Post('/ocorrencias', TControllerOcorrencia.Post)
     .Delete('/ocorrencias/:id', TControllerOcorrencia.Delete);
 
@@ -109,6 +112,9 @@ begin
                        '/v1/enderecos',
                        '/v1/ocorrencias/:id',
                        '/v1/ocorrencias',
+                       '/v1/ocorrencias/usuario/:id',
+                       '/v1/ocorrencias/bairro/:bairro',
+                       '/v1/ocorrencias/logradouro/:logradouro',
                        '/v1/apoios/:id',
                        '/v1/apoios',
                        '/v1/apoios/usuario/:id',

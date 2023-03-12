@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "ddcdbcb8-b80d-4544-b5f8-e40b9191a3e2",
+		"_postman_id": "a5f40b07-d8c1-47d7-8bce-430d5d774d6f",
 		"name": "DevsSquad",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "23412819"
+		"_exporter_id": "22933804"
 	},
 	"item": [
 		{
@@ -240,6 +240,72 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "GetByUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/v1/ocorrencias/usuario/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"ocorrencias",
+								"usuario",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByBairro",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/v1/ocorrencias/bairro/Velha+central",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"ocorrencias",
+								"bairro",
+								"Velha+central"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByLogradouro",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/v1/ocorrencias/logradouro/Rua+João",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"ocorrencias",
+								"logradouro",
+								"Rua+João"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -273,7 +339,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:9000/v1/apoios/2",
+							"raw": "http://localhost:9000/v1/apoios/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -282,7 +348,7 @@
 							"path": [
 								"v1",
 								"apoios",
-								"2"
+								"1"
 							]
 						}
 					},
@@ -295,7 +361,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"idusuario\": 1,\r\n    \"idocorrencia\": 2      \r\n}",
+							"raw": "{\r\n    \"idusuario\": 1,\r\n    \"idocorrencia\": 1      \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
