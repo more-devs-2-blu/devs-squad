@@ -2,7 +2,7 @@ object fraHome: TfraHome
   Size.Width = 581.000000000000000000
   Size.Height = 590.000000000000000000
   Size.PlatformDefault = False
-  object Label1: TLabel
+  object lblTituloFrame: TLabel
     StyledSettings = [Family]
     Position.X = 24.000000000000000000
     Position.Y = 1.000000000000000000
@@ -13,7 +13,7 @@ object fraHome: TfraHome
     TextSettings.Font.StyleExt = {00070000000000000004000000}
     TextSettings.FontColor = xFFF6BF52
     TextSettings.HorzAlign = Center
-    Text = 'Ocorrencias do Seu Bairro'
+    Text = 'Ocorr'#234'ncias do Seu Bairro'
     TabOrder = 2
   end
   object RectApoiar: TRectangle
@@ -26,7 +26,7 @@ object fraHome: TfraHome
     Stroke.Kind = None
     XRadius = 10.000000000000000000
     YRadius = 10.000000000000000000
-    object Label2: TLabel
+    object lblApoiar: TLabel
       Align = Center
       StyledSettings = [Family]
       TextSettings.Font.Size = 16.000000000000000000

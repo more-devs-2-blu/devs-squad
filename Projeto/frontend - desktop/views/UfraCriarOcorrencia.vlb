@@ -7,35 +7,17 @@ Coordinates=106,280,62,36
 [rectBairro]
 Coordinates=571,234,71,36
 
-[Label1]
-Coordinates=98,166,53,58
-
 [edtBairro]
 Coordinates=505,10,67,58
 
 [edtCEP]
 Coordinates=310,10,59,58
 
-[Label8]
-Coordinates=446,166,53,58
-
-[Label6]
-Coordinates=121,10,53,58
-
-[Label2]
-Coordinates=283,166,53,58
-
 [edtDescricao]
 Coordinates=346,166,90,58
 
-[Label4]
-Coordinates=184,10,53,58
-
 [rectRua]
 Coordinates=501,234,60,36
-
-[Label7]
-Coordinates=442,10,53,58
 
 [rectDescricao]
 Coordinates=398,234,93,36
@@ -55,9 +37,6 @@ Coordinates=93,234,82,36
 [edtNumero]
 Coordinates=10,166,78,58
 
-[Label5]
-Coordinates=247,10,53,58
-
 [edtRua]
 Coordinates=582,10,56,58
 
@@ -67,10 +46,31 @@ Coordinates=10,234,73,36
 [rectProblema]
 Coordinates=509,166,91,36
 
-[Label3]
-Coordinates=379,10,53,58
-
 []
 Coordinates=10,10,101,146
 Visible=True
+
+[lblCEP]
+Coordinates=98,166,53,58
+
+[lblDescricao]
+Coordinates=442,10,53,58
+
+[lblRua]
+Coordinates=247,10,53,58
+
+[lblProblema]
+Coordinates=121,10,53,58
+
+[lblComplemento]
+Coordinates=184,10,53,58
+
+[lblNumero]
+Coordinates=379,10,53,58
+
+[lblBairro]
+Coordinates=283,166,53,58
+
+[lblEnviar]
+Coordinates=446,166,53,58
 

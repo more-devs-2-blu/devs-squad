@@ -3,40 +3,49 @@ unit UfraCriarOcorrencia;
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
+  System.SysUtils, System.Types, System.UITypes, System.Classes,
+  System.Variants,
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
-  FMX.Objects, FMX.Controls.Presentation, FMX.ListBox, FMX.Edit;
+  FMX.Objects, FMX.Controls.Presentation, FMX.ListBox, FMX.Edit, FMX.Memo.Types,
+  FMX.ScrollBox,
+  FMX.Memo, uDados;
 
 type
   TfraCriarOcorrencia = class(TFrame)
     rectPrincipal: TRectangle;
     rectCEP: TRectangle;
     rectBairro: TRectangle;
-    Label1: TLabel;
-    Label2: TLabel;
-    Label3: TLabel;
+    lblCEP: TLabel;
+    lblBairro: TLabel;
+    lblNumero: TLabel;
     rectNumero: TRectangle;
     rectComplemento: TRectangle;
-    Label4: TLabel;
+    lblComplemento: TLabel;
     rectRua: TRectangle;
-    Label5: TLabel;
+    lblRua: TLabel;
     rectProblema: TRectangle;
-    Label6: TLabel;
+    lblProblema: TLabel;
     rectDescricao: TRectangle;
-    Label7: TLabel;
+    lblDescricao: TLabel;
     rbUrgencia: TRadioButton;
     rectEnviar: TRectangle;
-    Label8: TLabel;
+    lblEnviar: TLabel;
     edtCEP: TEdit;
     edtBairro: TEdit;
     edtNumero: TEdit;
     edtComplemento: TEdit;
     edtRua: TEdit;
     edtDescricao: TEdit;
-    edtProblema: TEdit;
-    Label9: TLabel;
+    lblTituloFrame: TLabel;
+    rectPesquisa: TRectangle;
+    imgLupa: TImage;
+    cmbProblema: TComboBox;
+    procedure rectPesquisaClick(Sender: TObject);
+    procedure rectEnviarClick(Sender: TObject);
   private
     { Private declarations }
+    procedure BuscarCEP;
+    procedure Registrar;
   public
     { Public declarations }
   end;
@@ -46,6 +55,83 @@ var
 
 implementation
 
+uses
+  UService.Intf,
+  UService.Ocorrencia,
+  UEntity.Ocorrencias;
+
 {$R *.fmx}
+
+procedure TfraCriarOcorrencia.BuscarCEP;
+begin
+  DmDados.RESTClient1.BaseURL := 'https://viacep.com.br/ws/' + edtCEP.Text + '/json';
+
+  try
+    DmDados.RESTRequest1.Execute;
+    edtBairro.Text := DmDados.FDMemTable1.FieldByName('bairro').AsString;
+    edtRua.Text := DmDados.FDMemTable1.FieldByName('logradouro').AsString;
+  except
+    on e: exception do
+      raise Exception.Create('Não foi encontrado dados do CEP informado. ');
+  end;
+end;
+
+procedure TfraCriarOcorrencia.rectEnviarClick(Sender: TObject);
+begin
+  Self.Registrar;
+end;
+
+procedure TfraCriarOcorrencia.rectPesquisaClick(Sender: TObject);
+begin
+  BuscarCEP;
+end;
+
+procedure TfraCriarOcorrencia.Registrar;
+var
+  xServiceOcorrencia: IService;
+begin
+  if Trim(edtCEP.Text) = EmptyStr then
+    raise Exception.Create('Informe o CEP.');
+
+  if Trim(edtBairro.Text) = EmptyStr then
+    raise Exception.Create('Informe o Bairro.');
+
+  if Trim(edtRua.Text) = EmptyStr then
+    raise Exception.Create('Informe a Rua.');
+
+  if Trim(edtNumero.Text) = EmptyStr then
+    raise Exception.Create('Informe o Número.');
+
+  if Trim(edtComplemento.Text) = EmptyStr then
+    raise Exception.Create('Informe o Complemento.');
+
+  if cmbProblema.ItemIndex = -1 then
+    raise Exception.Create('Informe o Problema da Ocorrência.');
+
+  if Trim(edtDescricao.Text) = EmptyStr then
+    raise Exception.Create('Informe a Descrição.');
+
+  {xServiceOcorrencia := TServiceOcorrencia.Create(
+    TOcorrencia.Create(Trim(edtCEP.Text),
+                       Trim(edtBairro.Text),
+                       Trim(edtRua.Text),
+                       Trim(edtNumero.Text),
+                       //Trim(cmbProblema.ItemIndex.ToString),
+                       Trim(edtComplemento.Text),
+                       //(rbUrgencia)
+                       Trim(edtDescricao.Text)));
+
+
+                       }
+
+  try
+    xServiceOcorrencia.Registrar;
+    ShowMessage('Ocorrência registrada com sucesso.');
+  except
+    on e: exception do
+      raise Exception.Create('Erro: ' + E.Message);
+  end;
+
+end;
 
 end.

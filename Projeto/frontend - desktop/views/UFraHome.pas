@@ -11,8 +11,8 @@ uses
 type
   TfraHome = class(TFrame)
     RectApoiar: TRectangle;
-    Label2: TLabel;
-    Label1: TLabel;
+    lblApoiar: TLabel;
+    lblTituloFrame: TLabel;
     rectLista: TRectangle;
     lstOcorrencias: TListView;
   private
