@@ -70,7 +70,7 @@ begin
     xToken.Claims.SetClaimOfType<String>('cpf', xUser);
 
     //Assinatura
-    xCompactToken := TJOSE.SHA256CompactToken('KeyDevsBets', xToken);
+    xCompactToken := TJOSE.SHA256CompactToken('KeyDevsSquad', xToken);
 
     Res.Send(xCompactToken);
   finally

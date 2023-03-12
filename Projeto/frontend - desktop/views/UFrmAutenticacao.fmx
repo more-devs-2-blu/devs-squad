@@ -8571,6 +8571,7 @@ object frmAutenticacao: TfrmAutenticacao
         end
       end
       object CircFechar: TCircle
+        Cursor = crHandPoint
         Fill.Kind = None
         Position.X = 736.000000000000000000
         Position.Y = 16.000000000000000000

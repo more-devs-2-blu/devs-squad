@@ -22,7 +22,7 @@ type
 
     property CPF:   String read GetCPF   write SetCPF;
     property Senha: String read GetSenha write SetSenha;
-    property Token: String read GetSenha write SetToken;
+    property Token: String read GetToken write SetToken;
 
   end;
 

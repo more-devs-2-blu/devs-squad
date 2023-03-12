@@ -50,8 +50,8 @@ begin
       FRESTClient.Authenticator := xHTTPBasicAut;
       FRESTClient.BaseURL       := URL_BASE_LOGIN;
 
-      xJSONBody.AddPair('login',    FLogin.CPF);
-      xJSONBody.AddPair('password', FLogin.Senha);
+      xJSONBody.AddPair('cpf',    FLogin.CPF);
+      xJSONBody.AddPair('senha', FLogin.Senha);
 
       FRESTRequest.Method := rmPost;
       FRESTRequest.Params.AddBody(xJSONBody);
@@ -136,7 +136,7 @@ var
   xIdUsuario: Integer;
   xUserAuthenticated: TUsuarioAuthenticated;
 begin
-  xJWT := TJOSE.DeserializeCompact('KeyDevsBets', FLogin.Token);
+  xJWT := TJOSE.DeserializeCompact('KeyDevsSquad', FLogin.Token);
 
   try
     if not xJWT.Claims.JSON.TryGetValue<Integer>('id', xIdUsuario) then

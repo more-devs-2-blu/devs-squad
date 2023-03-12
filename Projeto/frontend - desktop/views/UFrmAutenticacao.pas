@@ -56,7 +56,7 @@ var
   xCPF, xSenha: String;
   xServiceLogin: IService;
 begin
-    xCPF := edtCPF.Text;
+   xCPF := edtCPF.Text;
   xSenha := edtSenha.Text;
   if Trim(edtCPF.Text) = EmptyStr then
       raise Exception.Create('Informe o CPF.');

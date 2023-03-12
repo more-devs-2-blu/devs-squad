@@ -115,7 +115,7 @@ begin
 
   //JWT usado para as demais rotas
   THorse
-    .Use(HorseJWT('KeyDevsBets',
+    .Use(HorseJWT('KeyDevsSquad',
       THorseJWTConfig
         .New
           .SkipRoutes(['/v1/login',
@@ -130,10 +130,6 @@ begin
   SwaggerConfig;
   Registry;
 
-  THorse.Listen(9000,procedure
-    begin
-      Writeln('Server running at port 9000...');
-      Writeln('');
-      Writeln('API documentation: http://localhost:9000/swagger/doc/html');
-    end);
+  THorse.Listen(9000);
+
 end.
