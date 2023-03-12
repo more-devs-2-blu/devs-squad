@@ -36,7 +36,7 @@ Como um cidadão pode ajudar na zeladoria pública de sua cidade?
 
 Ao analisarmos o desafio proposto, reunimos-nos para entender como poderíamos, por meio da tecnologia, facilitar o acesso do cidadão que deseja participar e contribuir com a zeladoria pública.
 
-Após uma análise inicial, constatamos que existem diversas formas de o cidadão se comunicar por meio de canais de ouvidorias existentes. No entanto, nos perguntamos sobre o por que poucas pessoas utilizam esses canais. A resposta que encontramos é que falta acesso rápido a informações relacionadas à manutenção e se há algum planejamento ou ação para resolver o problema encontrado.
+Após uma análise inicial, constatamos que existem diversas formas de o cidadão se comunicar por meio de canais de ouvidorias existentes. No entanto, nos perguntamos sobre o por que poucas pessoas utilizam esses canais. A resposta que encontramos é que falta acesso rápido a informações relacionadas à manutenção e se há algum planejamento ou ação para resolver os problemas encontrados, como também, uma forma mais rápida do cidadão informar problemas que ele encontra.
 
 Por meio das informações coletadas nas mentorias e em rápidas pesquisas, constatamos que, mesmo que haja alguma transparência, a dificuldade de receber essas informações ou comunicar problemas desestimula o cidadão comum a participar e contribuir com a zeladoria pública.
 
