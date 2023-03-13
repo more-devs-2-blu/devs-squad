@@ -76,7 +76,14 @@ begin
       xMemTable.LoadFromJSON(FRESTResponse.Content);
 
       if xMemTable.FindFirst then
-        Result := TUsuario.Create(xMemTable.FieldByName('id').AsInteger);
+        Result := TUsuario.Create(xMemTable.FieldByName('id').AsInteger,
+                                  xMemTable.FieldByName('tipousuario').AsString,
+                                  xMemTable.FieldByName('nome').AsString,
+                                  xMemTable.FieldByName('telefone').AsString,
+                                  xMemTable.FieldByName('bairro').AsString,
+                                  xMemTable.FieldByName('email').AsString,
+                                  xMemTable.FieldByName('cpf').AsString,
+                                  xMemTable.FieldByName('senha').AsString);
     end;
   finally
     FreeAndNil(xMemTable);
