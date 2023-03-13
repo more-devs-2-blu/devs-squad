@@ -45,7 +45,10 @@ uses
   UUtils.Constants, DataSet.Serialize,
   FireDAC.comp.Client,
   UService.Intf, UService.Endereco,
-  UService.Usuario, UUtils.Functions;
+  UService.Usuario,
+  UUtils.Functions,
+  System.JSON, FMX.Dialogs,
+  DateUtils;
 
 { TServiceOcorrencia }
 
@@ -297,56 +300,60 @@ end;
 
 procedure TServiceOcorrencia.PreencherOcorrencias(const aJsonOcorrencias: String);
 var
-  xMemTable: TFDMemTable;
-  xMemTableOcorrencia: TFDMemTable;
+  xJSON, xJSONAux: TJSONValue;
+  xArray: TJSONArray;
   xUsuario: TUsuario;
   xEndereco: TEndereco;
-
+  I: Integer;
+  xDate: TDateTime;
 begin
   FOcorrencias.Clear;
 
-  xMemTable     := TFDMemTable.Create(nil);
-  xMemTableOcorrencia := TFDMemTable.Create(nil);
+  xArray := TJSONArray.Create;
+  xJSON := TJSONValue.Create;
+  xJSONAux := TJSONValue.Create;
 
   try
-    xMemTable.LoadFromJSON(aJsonOcorrencias);
+    xArray := TJSONObject.ParseJSONValue(aJsonOcorrencias) as TJSONArray;
+    xJSON := xArray[0];
 
-    while not xMemTable.Eof do
+
+    for I := 0 to xArray.Count - 1 do
     begin
-      xMemTableOcorrencia.LoadFromJSON(xMemTable.FieldByName('usuario').AsString);
-      xUsuario := TUsuario.Create(xMemTableOcorrencia.FieldByName('id').AsInteger,
-                                  xMemTableOcorrencia.FieldByName('tipousuario').AsString,
-                                  xMemTableOcorrencia.FieldByName('nome').AsString,
-                                  xMemTableOcorrencia.FieldByName('telefone').AsString,
-                                  xMemTableOcorrencia.FieldByName('bairro').AsString,
-                                  xMemTableOcorrencia.FieldByName('email').AsString,
-                                  xMemTableOcorrencia.FieldByName('cpf').AsString,
-                                  xMemTableOcorrencia.FieldByName('senha').AsString);
+      xJSON := xArray[I];
+      xJSONAux := xJSON.GetValue<TJSONValue>('usuario');
+      xUsuario := TUsuario.Create(xJSONAux.GetValue<Integer>('id'),
+                                  xJSONAux.GetValue<String>('tipousuario'),
+                                  xJSONAux.GetValue<String>('nome'),
+                                  xJSONAux.GetValue<String>('telefone'),
+                                  xJSONAux.GetValue<String>('bairro'),
+                                  xJSONAux.GetValue<String>('email'),
+                                  xJSONAux.GetValue<String>('cpf'),
+                                  xJSONAux.GetValue<String>('senha'));
 
-      xMemTableOcorrencia.LoadFromJSON(xMemTable.FieldByName('endereco').AsString);
-      xEndereco := TEndereco.Create(xMemTableOcorrencia.FieldByName('id').AsInteger,
-                                    xMemTableOcorrencia.FieldByName('numero').AsInteger,
-                                    xMemTableOcorrencia.FieldByName('cep').AsString,
-                                    xMemTableOcorrencia.FieldByName('bairro').AsString,
-                                    xMemTableOcorrencia.FieldByName('logradouro').AsString,
-                                    xMemTableOcorrencia.FieldByName('complemento').AsString);
+      xJSONAux := xJSON.GetValue<TJSONValue>('endereco');
+      xEndereco := TEndereco.Create(xJSONAux.GetValue<Integer>('id'),
+                                    xJSONAux.GetValue<Integer>('numero'),
+                                    xJSONAux.GetValue<String>('cep'),
+                                    xJSONAux.GetValue<String>('bairro'),
+                                    xJSONAux.GetValue<String>('logradouro'),
+                                    xJSONAux.GetValue<String>('complemento'));
 
-      FOcorrencias.Add(TOcorrencia.Create(xMemTable.FieldByName('id').AsInteger,
-                                    xMemTable.FieldByName('qntapoio').AsInteger,
-                                    xMemTable.FieldByName('dataInicial').AsDateTime,
-                                    xMemTable.FieldByName('dataFinal').AsDateTime,
-                                    xMemTable.FieldByName('dataAlteracao').AsDateTime,
-                                    xMemTable.FieldByName('urgencia').AsInteger,
-                                    xMemTable.FieldByName('descricao').AsString,
-                                    xMemTable.FieldByName('tipoProblema').AsString,
-                                    xMemTable.FieldByName('status').AsString,
-                                    xUsuario,
-                                    xEndereco));
-      xMemTable.Next;
+      FOcorrencias.Add(
+        TOcorrencia.Create( xJSON.GetValue<Integer>('id'),
+                            xJSON.GetValue<Integer>('qntapoio'),
+                            ISO8601ToDate(xJSON.GetValue<String>('datainicial')),
+                            ISO8601ToDate(xJSON.GetValue<String>('datafinal')),
+                            ISO8601ToDate(xJSON.GetValue<String>('dataalteracao')),
+                            xJSON.GetValue<Integer>('urgencia'),
+                            xJSON.GetValue<String>('descricao'),
+                            xJSON.GetValue<String>('tipoProblema'),
+                            xJSON.GetValue<String>('status'),
+                            xUsuario,
+                            xEndereco));
     end;
   finally
-    FreeAndNil(xMemTable);
-    FreeAndNil(xMemTableOcorrencia);
+    FreeAndNil(xJSONAux);
   end;
 end;
 

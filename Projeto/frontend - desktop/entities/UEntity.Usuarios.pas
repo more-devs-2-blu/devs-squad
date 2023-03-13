@@ -10,7 +10,7 @@ type
 
   private
     FId: Integer;
-    FTipoUsuario: Boolean;
+    FTipoUsuario: String;
     FNome: String;
     FTelefone: String;
     FBairro: String;
@@ -20,7 +20,7 @@ type
     FJSON: TJSONObject;
 
     function GetId: Integer;
-    function GetTipoUsuario: Boolean;
+    function GetTipoUsuario: String;
     function GetNome: String;
     function GetTelefone: String;
     function GetBairro: String;
@@ -30,7 +30,7 @@ type
     function GetJSON: TJSONObject;
 
     procedure SetId(const Value: Integer);
-    procedure SetTipoUsuario(const Value: Boolean);
+    procedure SetTipoUsuario(const Value: String);
     procedure SetNome(const Value: String);
     procedure SetTelefone(const Value: String);
     procedure SetBairro(const Value: String);
@@ -49,7 +49,7 @@ type
     destructor Destroy; override;
 
     property Id: Integer read GetId write SetId;
-    property TipoUsuario: Boolean read GetTipoUsuario write SetTipoUsuario;
+    property TipoUsuario: String read GetTipoUsuario write SetTipoUsuario;
     property Nome: String read GetNome write SetNome;
     property Telefone: String read GetTelefone write SetTelefone;
     property Bairro: String read GetBairro write SetBairro;
@@ -91,7 +91,7 @@ constructor TUsuario.Create(const aId: Integer;
   const aTipoUsuario, aNome, aTelefone, aBairro, aEmail, aCpf, aSenha: String);
 begin
   FId          := aId;
-  FTipoUsuario := aTipoUsuario.ToBoolean;
+  FTipoUsuario := aTipoUsuario;
   FNome        := aNome;
   FTelefone    := aTelefone;
   FBairro      := aBairro;
@@ -129,7 +129,7 @@ end;
 function TUsuario.GetJSON: TJSONObject;
 begin
   FJSON.AddPair('id',          FId.ToString);
-  FJSON.AddPair('tipousuario', FTipoUsuario.ToString);
+  FJSON.AddPair('tipousuario', FTipoUsuario);
   FJSON.AddPair('nome',        FNome);
   FJSON.AddPair('telefone',    FTelefone);
   FJSON.AddPair('bairro',      FBairro);
@@ -155,7 +155,7 @@ begin
   Result := FTelefone;
 end;
 
-function TUsuario.GetTipoUsuario: Boolean;
+function TUsuario.GetTipoUsuario: String;
 begin
   Result := FTipoUsuario;
 end;
@@ -195,7 +195,7 @@ begin
   FTelefone := value;
 end;
 
-procedure TUsuario.SetTipoUsuario(const Value: Boolean);
+procedure TUsuario.SetTipoUsuario(const Value: String);
 begin
   FTipoUsuario := value;
 end;

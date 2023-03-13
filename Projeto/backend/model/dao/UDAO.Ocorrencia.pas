@@ -205,7 +205,7 @@ begin
 
   try
     xJSONArray := TUtilBanco.ExecutarConsulta(
-      Format('SELECT * FROM %s WHERE id = %d',
+      Format('SELECT * FROM %s WHERE idusuario = %d',
       [FTabela, aIdUsuario]));
   except
     on e: Exception do
