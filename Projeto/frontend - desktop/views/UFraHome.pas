@@ -7,7 +7,7 @@ uses
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.ListView.Types, FMX.ListView.Appearances, FMX.ListView.Adapters.Base,
   FMX.Controls.Presentation, FMX.ListView, FMX.Objects, UfraOcorrencias, UEntity.Ocorrencias, Skia,
-  Skia.FMX;
+  Skia.FMX, FMX.Edit;
 
 type
   TfraHome = class(TFrame)
@@ -68,12 +68,15 @@ var
   xServiceOcorrencia : IService;
   xOcorrencia : TOcorrencia;
 
-  xServiceEndereco : IService;
-  xEndereco : TEndereco;
-
 begin
   lstOcorrencias.Items.Clear;
 
+  xServiceOcorrencia := TServiceOcorrencia.Create;
+  TServiceOcorrencia(xServiceOcorrencia).ListaPorBairro(gbInstance.Usuario.Bairro);
+  for xOcorrencia in TServiceOcorrencia(xServiceOcorrencia).Ocorrencias do
+  begin
+    Self.PreparaListViewFiltroBairroUser(xOcorrencia);
+  end;
 end;
 
 procedure TfraHome.IniciarGifLoad;

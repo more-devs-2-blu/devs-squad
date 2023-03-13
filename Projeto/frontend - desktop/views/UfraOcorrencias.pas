@@ -15,7 +15,6 @@ type
     lstOcorrencias: TListView;
   private
     { Private declarations }
-
     procedure PreparaListView(aOcorrenciaUser: TOcorrencia);
   public
     { Public declarations }
@@ -40,6 +39,7 @@ var
   xServiceOcorrencia : IService;
   xOcorrencia : TOcorrencia;
 begin
+  lstOcorrencias.Items.Clear;
 
   xServiceOcorrencia := TServiceOcorrencia.Create;
   TServiceOcorrencia(xServiceOcorrencia).ListaPorUsuario(gbInstance.Usuario.Id);
@@ -47,6 +47,7 @@ begin
   begin
     Self.PreparaListView(xOcorrencia);
   end;
+
 end;
 
 procedure TfraOcorrencias.PreparaListView(aOcorrenciaUser: TOcorrencia);

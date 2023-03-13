@@ -31,14 +31,12 @@ object fraOcorrencias: TfraOcorrencias
       ItemEditAppearanceClassName = 'TDynamicAppearance'
       HeaderAppearanceClassName = 'TListHeaderObjects'
       FooterAppearanceClassName = 'TListHeaderObjects'
-      Align = Top
+      Align = Center
       Margins.Left = 23.500000000000000000
       Margins.Top = 30.000000000000000000
       Margins.Right = 23.500000000000000000
-      Position.X = 23.500000000000000000
-      Position.Y = 30.000000000000000000
-      Size.Width = 494.000000000000000000
-      Size.Height = 443.000000000000000000
+      Size.Width = 471.000000000000000000
+      Size.Height = 376.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
       ItemAppearance.ItemHeight = 100
