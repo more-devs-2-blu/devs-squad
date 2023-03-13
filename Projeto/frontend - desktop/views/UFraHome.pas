@@ -7,7 +7,7 @@ uses
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.ListView.Types, FMX.ListView.Appearances, FMX.ListView.Adapters.Base,
   FMX.Controls.Presentation, FMX.ListView, FMX.Objects, UfraOcorrencias, UEntity.Ocorrencias, Skia,
-  Skia.FMX, FMX.Edit;
+  Skia.FMX, FMX.Edit, Generics.Collections;
 
 type
   TfraHome = class(TFrame)
@@ -20,8 +20,13 @@ type
     RectOcorrenciaBairroUser: TRectangle;
     Label1: TLabel;
     TimerGifCarregar: TTimer;
+    RectPesquisarBairro: TRectangle;
+    edtPesquisarBairro: TEdit;
+    rectPesquisa: TRectangle;
+    imgLupa: TImage;
     procedure TimerGifCarregarTimer(Sender: TObject);
     procedure RectOcorrenciaBairroUserClick(Sender: TObject);
+    procedure rectPesquisaClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -30,6 +35,7 @@ type
     procedure PreparaListViewFiltroBairroUser(aOcorrencia: TOcorrencia);
     procedure IniciarGifLoad;
     procedure FiltroOcorrenciasBairroUser;
+    procedure PesquisarBairro;
   public
     { Public declarations }
   end;
@@ -90,6 +96,11 @@ begin
   CarregarRegistros;
 end;
 
+procedure TfraHome.PesquisarBairro;
+begin
+  lstOcorrencias.Items.Clear;
+end;
+
 procedure TfraHome.PreparaListViewFiltroBairroUser(aOcorrencia: TOcorrencia);
 var
   xItem: TListViewItem;
@@ -136,6 +147,11 @@ end;
 procedure TfraHome.RectOcorrenciaBairroUserClick(Sender: TObject);
 begin
   FiltroOcorrenciasBairroUser;
+end;
+
+procedure TfraHome.rectPesquisaClick(Sender: TObject);
+begin
+  PesquisarBairro;
 end;
 
 procedure TfraHome.TimerGifCarregarTimer(Sender: TObject);
