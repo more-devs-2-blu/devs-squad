@@ -441,4 +441,63 @@ object fraHome: TfraHome
     Left = 552
     Top = 8
   end
+  object RectPesquisarBairro: TRectangle
+    Fill.Color = xFF25CCF7
+    Position.X = 48.000000000000000000
+    Position.Y = 56.000000000000000000
+    Size.Width = 185.000000000000000000
+    Size.Height = 25.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    XRadius = 10.000000000000000000
+    YRadius = 10.000000000000000000
+    OnClick = RectOcorrenciaBairroUserClick
+    object edtPesquisarBairro: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Center
+      StyleLookup = 'transparentedit'
+      TabOrder = 0
+      Size.Width = 143.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TextPrompt = 'Pesquisar Bairro'
+    end
+    object rectPesquisa: TRectangle
+      Align = FitRight
+      Fill.Color = claWhite
+      Position.X = 156.093750000000000000
+      Size.Width = 28.906250000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      XRadius = 12.500000000000000000
+      YRadius = 15.000000000000000000
+      OnClick = rectPesquisaClick
+      object imgLupa: TImage
+        MultiResBitmap.Height = 12
+        MultiResBitmap.Width = 12
+        MultiResBitmap = <
+          item
+            Width = 16
+            Height = 16
+            PNG = {
+              89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+              61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+              00B249444154384FCD913D0AC2401046577B2D3C8FA888A51622B991782A7F6A
+              11ACC5521B6D3507F07B3B0B1AD85D431A7DF0C86CC264265FDC5F32933B5906
+              B7722A6BB19217B9909DE05C9EE452666132CD3D7FAAC2BDABCC6EC2DA4C4E51
+              C88D95719E92955374E5C3CA37ED70AD432B58E1F3050739B1320ACFF656C621
+              20D24E857896037FCAC0AF226D02E39B91606926A391FC0A9B90360DB8964CA6
+              F92E87B2317D7993637F6A081B1CADFC3DCEBD0082821EA5C004532E00000000
+              49454E44AE426082}
+            FileName = 'C:\GIT\devs-squad\Projeto\frontend - desktop\imagens\lupa.png'
+          end>
+        Align = Fit
+        HitTest = False
+        Size.Width = 28.906250000000000000
+        Size.Height = 21.679679870605470000
+        Size.PlatformDefault = False
+      end
+    end
+  end
 end
