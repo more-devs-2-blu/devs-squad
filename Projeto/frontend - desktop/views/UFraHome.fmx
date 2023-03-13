@@ -70,8 +70,13 @@ object fraHome: TfraHome
           AppearanceClassName = 'TTextObjectAppearance'
           Appearance.Font.Size = 16.000000000000000000
           Appearance.TextAlign = Leading
+<<<<<<< HEAD
+          Appearance.Width = 50.000000000000000000
+          Appearance.PlaceOffset.Y = -16.000000000000000000
+=======
           Appearance.Width = 215.000000000000000000
           Appearance.Height = 25.000000000000000000
+>>>>>>> db9c9e3b84dac681d2973f995adf66e4b5f4b0c2
         end
         item
           AppearanceObjectName = 'txtBairro'
@@ -479,7 +484,7 @@ object fraHome: TfraHome
       Size.PlatformDefault = False
       Stroke.Kind = None
       XRadius = 12.500000000000000000
-      YRadius = 15.000000000000000000
+      YRadius = 12.500000000000000000
       OnClick = rectPesquisaClick
       object imgLupa: TImage
         MultiResBitmap.Height = 12
