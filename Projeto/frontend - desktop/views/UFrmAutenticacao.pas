@@ -71,6 +71,7 @@ begin
   try
     TServiceLogin(xServiceLogin).Autenticar;
     Self.AbrirHome;
+    frmAutenticacao.Close
   except
     on e: exception do
       raise Exception.Create('Login: ' + e.Message);
