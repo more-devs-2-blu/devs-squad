@@ -40,10 +40,12 @@ var
 begin
 
   xServiceOcorrencia := TServiceOcorrencia.Create;
-  TServiceOcorrencia(xServiceOcorrencia).ListaPorUsuario(1);
+  TServiceOcorrencia(xServiceOcorrencia).ListaPorUsuario(gbInstance.Usuario.Id);
   for xOcorrencia in TServiceOcorrencia(xServiceOcorrencia).Ocorrencias do
+  begin
     ShowMessage(xOcorrencia.Endereco.Logradouro);
     ShowMessage(gbInstance.Usuario.Id.ToString);
+  end;
 end;
 
 end.
