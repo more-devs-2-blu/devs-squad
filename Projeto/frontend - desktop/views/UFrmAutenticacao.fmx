@@ -8454,14 +8454,13 @@ object frmAutenticacao: TfrmAutenticacao
             Touch.InteractiveGestures = [LongTap, DoubleTap]
             Align = Client
             StyleLookup = 'transparentedit'
-            TabOrder = 3
+            TabOrder = 1
             TextSettings.Font.Size = 16.000000000000000000
             TextSettings.FontColor = claWhite
             TextSettings.HorzAlign = Center
             Size.Width = 241.000000000000000000
             Size.Height = 41.000000000000000000
             Size.PlatformDefault = False
-            TextPrompt = '12345678911'
             StyledSettings = [Family, Style]
           end
         end
@@ -8479,14 +8478,14 @@ object frmAutenticacao: TfrmAutenticacao
             Touch.InteractiveGestures = [LongTap, DoubleTap]
             Align = Client
             StyleLookup = 'transparentedit'
-            TabOrder = 3
+            TabOrder = 9
+            Password = True
             TextSettings.Font.Size = 16.000000000000000000
             TextSettings.FontColor = claWhite
             TextSettings.HorzAlign = Center
             Size.Width = 241.000000000000000000
             Size.Height = 41.000000000000000000
             Size.PlatformDefault = False
-            TextPrompt = 'Senha...'
             StyledSettings = [Family, Style]
           end
         end
@@ -8513,7 +8512,7 @@ object frmAutenticacao: TfrmAutenticacao
             TabOrder = 0
           end
         end
-        object Label1: TLabel
+        object lblEntreComCPF: TLabel
           Position.X = 272.000000000000000000
           Position.Y = 8.000000000000000000
           Size.Width = 241.000000000000000000

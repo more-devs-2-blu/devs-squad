@@ -13,13 +13,14 @@ type
     public
       Constructor Create;
       function ObterRegistros: TJSONArray; override;
+      function ObterRegistrosPorUsuario(aIdUsuario: Integer): TJSONArray;
       function ProcurarPorId(const aIdentificador: Integer): TJSONObject; override;
   end;
 
 implementation
 
 uses
-  System.SysUtils, UDAO.Intf, UDAO.Usuario, UDAO.Ocorrencia;
+  System.SysUtils, UDAO.Intf, UDAO.Usuario, UDAO.Ocorrencia, UUtil.Banco;
 
 { TDAOApoios }
 
@@ -53,6 +54,46 @@ begin
     xJSONObject.AddPair('usuario', Self.ProcurarUsuario(xIdUser));
     xJSONObject.RemovePair('idusuario');
 
+    xIdOcorrencia := StrToInt(xJSONObject.GetValue('idocorrencia').Value);
+    xJSONObject.AddPair('ocorrencia', Self.ProcurarOcorrencia(xIdOcorrencia));
+    xJSONObject.RemovePair('idocorrencia');
+
+    xJSONArrayAux.AddElement(xJSONObject);
+  end;
+
+  FreeAndNil(xJSONArray);
+  Result := xJSONArrayAux;
+end;
+
+function TDAOApoios.ObterRegistrosPorUsuario(aIdUsuario: Integer): TJSONArray;
+var
+  xJSONArray, xJSONArrayAux: TJSONArray;
+  xJSONObject: TJSONObject;
+  I: Integer;
+  xIdUser: Integer;
+  xIdOcorrencia: Integer;
+begin
+
+  try
+    xJSONArray := TUtilBanco.ExecutarConsulta(
+      Format('SELECT * FROM %s WHERE id = %d',
+      [FTabela, aIdUsuario]));
+  except
+    on e: Exception do
+      raise Exception.Create('Erro ao Obter Registros: ' + e.Message);
+  end;
+
+  if xJSONArray.Count = 0 then
+    Exit(xJSONArray);
+
+  xJSONArrayAux := TJSONArray.Create;
+
+  for I := 0 to Pred(xJSONArray.Count) do
+  begin
+    xJSONObject := TJSONObject.ParseJSONValue(
+      TEncoding.ASCII.GetBytes(
+        xJSONArray[I].ToJSON), 0) as TJSONObject;
+
     xIdUser := StrToInt(xJSONObject.GetValue('idusuario').Value);
     xJSONObject.AddPair('usuario', Self.ProcurarUsuario(xIdUser));
     xJSONObject.RemovePair('idusuario');
@@ -78,10 +119,6 @@ begin
 
   if xJSONObject.Count = 0 then
     Exit(xJSONObject);
-
-  xIdUser := StrToInt(xJSONObject.GetValue('idusuario').Value);
-  xJSONObject.AddPair('usuario', Self.ProcurarUsuario(xIdUser));
-  xJSONObject.RemovePair('idusuario');
 
   xIdUser := StrToInt(xJSONObject.GetValue('idusuario').Value);
   xJSONObject.AddPair('usuario', Self.ProcurarUsuario(xIdUser));

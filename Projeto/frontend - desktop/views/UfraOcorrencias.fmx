@@ -13,7 +13,7 @@ object fraOcorrencias: TfraOcorrencias
     TextSettings.Font.StyleExt = {00060000000000000004000000}
     TextSettings.FontColor = xFFF8BF52
     TextSettings.HorzAlign = Center
-    Text = 'Suas Ocorrencias'
+    Text = 'Suas Ocorr'#234'ncias'
     TabOrder = 1
   end
   object rectLista: TRectangle
@@ -48,7 +48,7 @@ object fraOcorrencias: TfraOcorrencias
           AppearanceClassName = 'TTextObjectAppearance'
           Appearance.Font.Size = 16.000000000000000000
           Appearance.TextAlign = Leading
-          Appearance.Width = 287.000000000000000000
+          Appearance.Width = 50.000000000000000000
           Appearance.Height = 17.000000000000000000
           Appearance.PlaceOffset.Y = -16.000000000000000000
         end
@@ -57,7 +57,7 @@ object fraOcorrencias: TfraOcorrencias
           AppearanceClassName = 'TTextObjectAppearance'
           Appearance.Font.Size = 14.000000000000000000
           Appearance.TextAlign = Leading
-          Appearance.Width = 192.000000000000000000
+          Appearance.Width = 50.000000000000000000
           Appearance.Height = 20.000000000000000000
           Appearance.PlaceOffset.Y = 16.000000000000000000
         end
@@ -65,7 +65,7 @@ object fraOcorrencias: TfraOcorrencias
           AppearanceObjectName = 'txtRua'
           AppearanceClassName = 'TTextObjectAppearance'
           Appearance.TextAlign = Leading
-          Appearance.Width = 183.000000000000000000
+          Appearance.Width = 50.000000000000000000
           Appearance.Height = 20.000000000000000000
           Appearance.PlaceOffset.X = 192.000000000000000000
           Appearance.PlaceOffset.Y = 16.000000000000000000

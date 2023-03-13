@@ -18,15 +18,20 @@ uses
   UEntity.Logins in 'entities\UEntity.Logins.pas',
   UEntity.Ocorrencias in 'entities\UEntity.Ocorrencias.pas',
   UEntity.Usuarios in 'entities\UEntity.Usuarios.pas',
-  DotEnv4Delphi in 'utils\DotEnv4Delphi.pas',
+  DotEnv4Delphi in 'utils\DotEnv4Delphi.pas' {$R *.res},
+  UService.Apoio in 'services\UService.Apoio.pas',
+  UService.Endereco in 'services\UService.Endereco.pas',
   UService.Login in 'services\UService.Login.pas',
+  UService.Ocorrencia in 'services\UService.Ocorrencia.pas',
   UService.Usuario.Authenticated in 'services\UService.Usuario.Authenticated.pas',
-  UService.Usuario in 'services\UService.Usuario.pas';
+  UService.Usuario in 'services\UService.Usuario.pas',
+  uDados in 'views\uDados.pas' {DmDados: TDataModule};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.CreateForm(TfrmAutenticacao, frmAutenticacao);
+  Application.CreateForm(TDmDados, DmDados);
   Application.Run;
 end.

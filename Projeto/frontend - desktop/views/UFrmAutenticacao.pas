@@ -18,7 +18,7 @@ type
     RectSenha: TRectangle;
     RectEntrar: TRectangle;
     lblEntrar: TLabel;
-    Label1: TLabel;
+    lblEntreComCPF: TLabel;
     Label2: TLabel;
     CircInfo: TCircle;
     CircFechar: TCircle;
@@ -43,6 +43,7 @@ var
 implementation
 
 {$R *.fmx}
+{$R *.Windows.fmx MSWINDOWS}
 
 uses UfrmHome, UService.Intf, UService.Login, UEntity.Logins;
 

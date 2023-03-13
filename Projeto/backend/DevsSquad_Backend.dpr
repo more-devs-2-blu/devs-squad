@@ -55,12 +55,16 @@ begin
   THorse.Group.Prefix('v1')
     .Get('/ocorrencias', TControllerOcorrencia.Gets)
     .Get('/ocorrencias/:id', TControllerOcorrencia.Get)
+    .Get('/ocorrencias/usuario/:id', TControllerOcorrencia.GetsByUser)
+    .Get('/ocorrencias/bairro/:bairro', TControllerOcorrencia.GetsByBairro)
+    .Get('/ocorrencias/logradouro/:logradouro', TControllerOcorrencia.GetsByLogradouro)
     .Post('/ocorrencias', TControllerOcorrencia.Post)
     .Delete('/ocorrencias/:id', TControllerOcorrencia.Delete);
 
   //Apoios
   THorse.Group.Prefix('v1')
     .Get('/apoios', TControllerApoios.Gets)
+    .Get('/apoios/usuario/:id',TControllerApoios.GetsByUser)
     .Get('/apoios/:id', TControllerApoios.Get)
     .Post('/apoios', TControllerApoios.Post)
     .Delete('/apoios/:id', TControllerApoios.Delete);
@@ -108,8 +112,12 @@ begin
                        '/v1/enderecos',
                        '/v1/ocorrencias/:id',
                        '/v1/ocorrencias',
+                       '/v1/ocorrencias/usuario/:id',
+                       '/v1/ocorrencias/bairro/:bairro',
+                       '/v1/ocorrencias/logradouro/:logradouro',
                        '/v1/apoios/:id',
                        '/v1/apoios',
+                       '/v1/apoios/usuario/:id',
                        '/swagger/doc/html',
                        '/swagger/doc/json'])));
 
@@ -130,6 +138,11 @@ begin
   SwaggerConfig;
   Registry;
 
-  THorse.Listen(9000);
+  THorse.Listen(9000,procedure
+    begin
+      Writeln('Server running at port 9000...');
+      Writeln('');
+      Writeln('API documentation: http://localhost:9000/swagger/doc/html');
+    end);
 
 end.

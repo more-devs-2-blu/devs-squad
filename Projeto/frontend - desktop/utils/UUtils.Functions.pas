@@ -22,6 +22,7 @@ uses
   System.SysUtils, DotEnv4Delphi;
 
 { TUtilsFunctions }
+
 // para funcionar precisa ter as duas DLL na pasta raiz onde o arquivo binário está sendo executado.
 class function TUtilsFunctions.EnviarEmail(aDestinatario, aAssunto, aCorpo: String) : Boolean;
 var

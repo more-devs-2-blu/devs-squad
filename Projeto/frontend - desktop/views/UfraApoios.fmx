@@ -102,7 +102,7 @@ object fraApoio: TfraApoio
       ItemAppearanceObjects.FooterObjects.Text.Visible = False
     end
   end
-  object Label1: TLabel
+  object lblTituloFrame: TLabel
     StyledSettings = [Family]
     Position.X = 32.000000000000000000
     Position.Y = 24.000000000000000000
