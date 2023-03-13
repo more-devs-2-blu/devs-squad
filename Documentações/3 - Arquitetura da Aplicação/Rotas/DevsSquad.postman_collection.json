@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "a5f40b07-d8c1-47d7-8bce-430d5d774d6f",
+		"_postman_id": "514a93a2-3caf-41f1-a5b1-9d70343227b2",
 		"name": "DevsSquad",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "22933804"
@@ -194,7 +194,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"qntapoio\": 3,\r\n    \"datainicial\": \"10/01/23 10:13:45\",\r\n    \"datafinal\": \"13/01/23 10:15:45\",\r\n    \"dataalteracao\": \"10/01/23 10:16:45\",\r\n    \"urgencia\": 1,\r\n    \"descricao\": \"Rua com buraco\",\r\n    \"idtipoproblema\": 1,\r\n    \"idstatus\": 1,\r\n    \"idusuario\": 1,\r\n    \"idendereco\": 1\r\n}",
+							"raw": "{\r\n    \"qntapoio\": 0,\r\n    \"datainicial\": \"10/01/23 10:13:45\",\r\n    \"datafinal\": \"13/01/23 10:15:45\",\r\n    \"dataalteracao\": \"10/01/23 10:16:45\",\r\n    \"urgencia\": 1,\r\n    \"descricao\": \"Rua com buraco\",\r\n    \"idtipoproblema\": 1,\r\n    \"idstatus\": 1,\r\n    \"idusuario\": 2,\r\n    \"idendereco\": 2\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -361,7 +361,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"idusuario\": 1,\r\n    \"idocorrencia\": 1      \r\n}",
+							"raw": "{\r\n    \"idusuario\": 2,\r\n    \"idocorrencia\": 1      \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -414,7 +414,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:9000/v1/apoios/usuario/1",
+							"raw": "http://localhost:9000/v1/apoios/usuario/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -424,7 +424,7 @@
 								"v1",
 								"apoios",
 								"usuario",
-								"1"
+								"2"
 							]
 						}
 					},
@@ -484,7 +484,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"cep\": \"12345678\",\r\n  \"bairro\": \"Velha Central\",\r\n  \"numero\": 66,\r\n  \"logradouro\": \"Rua João\",\r\n  \"complemento\": \"Casa\"\r\n}",
+							"raw": "{\r\n  \"cep\": \"89012001\",\r\n  \"bairro\": \"Victor Konder\",\r\n  \"numero\": 1212,\r\n  \"logradouro\": \"Rua São Paulo\",\r\n  \"complemento\": \"Casa\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -501,6 +501,36 @@
 							"path": [
 								"v1",
 								"enderecos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Id",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cep\": \"12345678\",\r\n  \"bairro\": \"Velha Central\",\r\n  \"numero\": 66,\r\n  \"logradouro\": \"Rua João\",\r\n  \"complemento\": \"Casa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/v1/enderecos/id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"enderecos",
+								"id"
 							]
 						}
 					},
@@ -543,13 +573,13 @@
 					"type": "basic",
 					"basic": [
 						{
-							"key": "password",
-							"value": "123",
+							"key": "username",
+							"value": "10140628967",
 							"type": "string"
 						},
 						{
-							"key": "username",
-							"value": "12345678912",
+							"key": "password",
+							"value": "123",
 							"type": "string"
 						},
 						{
@@ -563,7 +593,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"cpf\": \"123\",\r\n    \"senha\": \"123\"\r\n}",
+					"raw": "{\r\n    \"cpf\": \"10140628967\",\r\n    \"senha\": \"123\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -592,7 +622,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEZXZzU3F1YWQiLCJzdWIiOiJIYWNrV2VlayIsImV4cCI6MTY3ODczMDQ0NiwiaWQiOjEsImNwZiI6IjEyMyJ9.AJItxnVxg9iKVPXTopBu7BYHO9e586_y94IH9Em2tA4",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEZXZzU3F1YWQiLCJzdWIiOiJIYWNrV2VlayIsImV4cCI6MTY3ODc5NDE4MiwiaWQiOjEsImNwZiI6IjEwMTQwNjI4OTY3In0.lRFRstOBHCMU6Ia3WL0EjEwH-tI-csLOrShC1y0A6fY",
 				"type": "string"
 			}
 		]

@@ -216,7 +216,7 @@ begin
     Exit(xJSONArray);
 
   xJSONArrayAux := TJSONArray.Create;
-
+  xJSONObject := TJSONObject.Create;
   for I := 0 to Pred(xJSONArray.Count) do
   begin
     xJSONObject := TJSONObject.ParseJSONValue(
@@ -243,6 +243,7 @@ begin
   end;
 
   FreeAndNil(xJSONArray);
+  FreeAndNil(xJSONObject);
   Result := xJSONArrayAux;
 end;
 

@@ -49,6 +49,7 @@ begin
     .Get('/enderecos', TControllerEndereco.Gets)
     .Get('/enderecos/:id', TControllerEndereco.Get)
     .Post('/enderecos', TControllerEndereco.Post)
+    .Post('/enderecos/id',TControllerEndereco.GetId)
     .Delete('/enderecos/:id', TControllerEndereco.Delete);
 
   //Ocorrências
@@ -109,6 +110,7 @@ begin
           .SkipRoutes(['/v1/usuarios',
                        '/v1/usuarios/:id',
                        '/v1/enderecos/:id',
+                       '/v1/enderecos/id',
                        '/v1/enderecos',
                        '/v1/ocorrencias/:id',
                        '/v1/ocorrencias',

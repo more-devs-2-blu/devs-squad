@@ -176,6 +176,9 @@ object fraCriarOcorrencia: TfraCriarOcorrencia
       YRadius = 15.000000000000000000
       object cmbProblema: TComboBox
         Align = Client
+        Items.Strings = (
+          'Alagamento'
+          'Buraco na Estrada')
         Size.Width = 472.000000000000000000
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
