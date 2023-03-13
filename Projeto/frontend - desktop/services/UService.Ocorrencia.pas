@@ -1,4 +1,4 @@
-unit UService.Ocorrencia;
+﻿unit UService.Ocorrencia;
 
 interface
 
@@ -332,12 +332,12 @@ begin
                                   xJSONAux.GetValue<String>('senha'));
 
       xJSONAux := xJSON.GetValue<TJSONValue>('endereco');
-      xEndereco := TEndereco.Create(xJSONAux.GetValue<Integer>('id'),
-                                    xJSONAux.GetValue<Integer>('numero'),
+      xEndereco := TEndereco.Create(xJSONAux.GetValue<Integer>('numero'),
                                     xJSONAux.GetValue<String>('cep'),
                                     xJSONAux.GetValue<String>('bairro'),
                                     xJSONAux.GetValue<String>('logradouro'),
-                                    xJSONAux.GetValue<String>('complemento'));
+                                    xJSONAux.GetValue<String>('complemento'),
+                                    xJSONAux.GetValue<Integer>('id'));
 
       FOcorrencias.Add(
         TOcorrencia.Create( xJSON.GetValue<Integer>('id'),
