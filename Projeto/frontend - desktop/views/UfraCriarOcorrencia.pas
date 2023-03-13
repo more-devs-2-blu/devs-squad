@@ -3,7 +3,7 @@ unit UfraCriarOcorrencia;
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes,
+  System.Types, System.UITypes, System.Classes,
   System.Variants,
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Objects, FMX.Controls.Presentation, FMX.ListBox, FMX.Edit, FMX.Memo.Types,
@@ -58,7 +58,10 @@ implementation
 uses
   UService.Intf,
   UService.Ocorrencia,
-  UEntity.Ocorrencias;
+  UService.Endereco,
+  UEntity.Enderecos,
+  UEntity.Ocorrencias,
+  System.SysUtils;
 
 {$R *.fmx}
 
@@ -89,6 +92,11 @@ end;
 procedure TfraCriarOcorrencia.Registrar;
 var
   xServiceOcorrencia: IService;
+  xOcorrencia: TOcorrencia;
+
+  xServiceEndereco: IService;
+  xEndereco: TEndereco;
+
 begin
   if Trim(edtCEP.Text) = EmptyStr then
     raise Exception.Create('Informe o CEP.');
@@ -111,18 +119,18 @@ begin
   if Trim(edtDescricao.Text) = EmptyStr then
     raise Exception.Create('Informe a Descrição.');
 
+  xEndereco := TEndereco.Create(
+                      StrToInt(Trim(edtNumero.Text)),
+                      Trim(edtCEP.Text),
+                      Trim(edtBairro.Text),
+                      Trim(edtRua.Text),
+                      Trim(edtComplemento.Text));
+
+  xServiceEndereco := TServiceEndereco.Create(xEndereco);
+  xServiceEndereco.Registrar;
+
   {xServiceOcorrencia := TServiceOcorrencia.Create(
-    TOcorrencia.Create(Trim(edtCEP.Text),
-                       Trim(edtBairro.Text),
-                       Trim(edtRua.Text),
-                       Trim(edtNumero.Text),
-                       //Trim(cmbProblema.ItemIndex.ToString),
-                       Trim(edtComplemento.Text),
-                       //(rbUrgencia)
-                       Trim(edtDescricao.Text)));
-
-
-                       }
+    TOcorrencia.Create(xEndereco, ));}
 
   try
     xServiceOcorrencia.Registrar;

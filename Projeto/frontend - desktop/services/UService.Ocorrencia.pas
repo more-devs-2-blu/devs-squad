@@ -66,12 +66,12 @@ begin
     if xMemTable.RecordCount > 0 then
     begin
 
-      aEndereco := TEndereco.Create(xMemTable.FieldByName('Id').AsInteger,
-                                   xMemTable.FieldByName('Numero').AsInteger,
-                                   xMemTable.FieldByName('Cep').AsString,
-                                   xMemTable.FieldByName('Bairro').AsString,
-                                   xMemTable.FieldByName('Logradouro').AsString,
-                                   xMemTable.FieldByName('Complemento').AsString);
+      aEndereco := TEndereco.Create(xMemTable.FieldByName('Numero').AsInteger,
+                                    xMemTable.FieldByName('Cep').AsString,
+                                    xMemTable.FieldByName('Bairro').AsString,
+                                    xMemTable.FieldByName('Logradouro').AsString,
+                                    xMemTable.FieldByName('Complemento').AsString,
+                                    xMemTable.FieldByName('Id').AsInteger);
     end;
   finally
     FreeAndNil(xMemTable);
@@ -126,7 +126,7 @@ end;
 procedure TServiceOcorrencia.Excluir;
 begin
   if (not Assigned(FOcorrencia)) or (FOcorrencia.Id = 0) then
-    raise Exception.Create('Nenhum Palpite foi escolhido para exclusão.');
+    raise Exception.Create('Nenhum Palpite foi escolhido para exclusï¿½o.');
 
   try
     FRESTClient.BaseURL := Format(URL_BASE_OCORRENCIAS + '/%d', [FOcorrencia.Id]);
@@ -137,9 +137,9 @@ begin
       API_SUCESSO_SEM_RETORNO:
         Exit;
       API_NAO_AUTORIZADO:
-        raise Exception.Create('Usuário não autorizado.');
+        raise Exception.Create('Usuï¿½rio nï¿½o autorizado.');
       else
-        raise Exception.Create('Erro não catalogado.');
+        raise Exception.Create('Erro nï¿½o catalogado.');
     end;
   except
     on e: exception do
@@ -167,9 +167,9 @@ begin
       API_SUCESSO:
         Self.PreencherOcorrencias(FRESTResponse.Content);
       API_NAO_AUTORIZADO:
-        raise Exception.Create('Usuário não autorizado.');
+        raise Exception.Create('Usuï¿½rio nï¿½o autorizado.');
       else
-        raise Exception.Create('Erro ao carregar a lista de Ocorrencias. Código do Erro: ' + FRESTResponse.StatusCode.ToString);
+        raise Exception.Create('Erro ao carregar a lista de Ocorrencias. Cï¿½digo do Erro: ' + FRESTResponse.StatusCode.ToString);
     end;
   except
     on e: exception do
@@ -193,9 +193,9 @@ begin
       API_SUCESSO:
         Self.PreencherOcorrencias(FRESTResponse.Content);
       API_NAO_AUTORIZADO:
-        raise Exception.Create('Usuário não autorizado.');
+        raise Exception.Create('Usuï¿½rio nï¿½o autorizado.');
       else
-        raise Exception.Create('Erro ao carregar a lista de Ocorrencias. Código do Erro: ' + FRESTResponse.StatusCode.ToString);
+        raise Exception.Create('Erro ao carregar a lista de Ocorrencias. Cï¿½digo do Erro: ' + FRESTResponse.StatusCode.ToString);
     end;
   except
     on e: exception do
@@ -215,9 +215,9 @@ begin
       API_SUCESSO:
         Self.PreencherOcorrencias(FRESTResponse.Content);
       API_NAO_AUTORIZADO:
-        raise Exception.Create('Usuário não autorizado.');
+        raise Exception.Create('Usuï¿½rio nï¿½o autorizado.');
       else
-        raise Exception.Create('Erro ao carregar a lista de Ocorrencias. Código do Erro: ' + FRESTResponse.StatusCode.ToString);
+        raise Exception.Create('Erro ao carregar a lista de Ocorrencias. Cï¿½digo do Erro: ' + FRESTResponse.StatusCode.ToString);
     end;
   except
     on e: exception do
@@ -236,9 +236,9 @@ begin
       API_SUCESSO:
         Self.PreencherOcorrencias(FRESTResponse.Content);
       API_NAO_AUTORIZADO:
-        raise Exception.Create('Usuário não autorizado.');
+        raise Exception.Create('Usuï¿½rio nï¿½o autorizado.');
       else
-        raise Exception.Create('Erro ao carregar a lista de Ocorrencias. Código do Erro: ' + FRESTResponse.StatusCode.ToString);
+        raise Exception.Create('Erro ao carregar a lista de Ocorrencias. Cï¿½digo do Erro: ' + FRESTResponse.StatusCode.ToString);
     end;
   except
     on e: exception do
@@ -288,9 +288,9 @@ begin
           end;
         end;
       API_NAO_AUTORIZADO:
-        raise Exception.Create('Usuário não autorizado.');
+        raise Exception.Create('Usuï¿½rio nï¿½o autorizado.');
       else
-        raise Exception.Create('Erro ao carregar a lista de Ocorrencias. Código do Erro: ' + FRESTResponse.StatusCode.ToString);
+        raise Exception.Create('Erro ao carregar a lista de Ocorrencias. Cï¿½digo do Erro: ' + FRESTResponse.StatusCode.ToString);
     end;
   except
     on e: exception do
@@ -369,9 +369,9 @@ begin
       API_CRIADO:
         Exit;
       API_NAO_AUTORIZADO:
-        raise Exception.Create('Usuário não autorizado.');
+        raise Exception.Create('Usuï¿½rio nï¿½o autorizado.');
       else
-        raise Exception.Create('Erro não catalogado.');
+        raise Exception.Create('Erro nï¿½o catalogado.');
     end;
   except
     on e: exception do
