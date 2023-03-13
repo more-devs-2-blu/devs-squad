@@ -53,13 +53,17 @@ var
   xServiceOcorrencia: IService;
   xOcorrencia: TOcorrencia;
 begin
-  lstOcorrencias.Items.Clear;
+  try
+    lstOcorrencias.Items.Clear;
 
-  xServiceOcorrencia := TServiceOcorrencia.Create;
-  xServiceOcorrencia.Listar;
+    xServiceOcorrencia := TServiceOcorrencia.Create;
+    xServiceOcorrencia.Listar;
 
-  for xOcorrencia in TServiceOcorrencia(xServiceOcorrencia).Ocorrencias do
-    Self.PrepararListView(xOcorrencia);
+    for xOcorrencia in TServiceOcorrencia(xServiceOcorrencia).Ocorrencias do
+      Self.PrepararListView(xOcorrencia);
+  except
+
+  end;
 end;
 
 
@@ -89,6 +93,7 @@ end;
 procedure TfraHome.PreparaListViewFiltroBairroUser(aOcorrencia: TOcorrencia);
 var
   xItem: TListViewItem;
+  xUrgencia: String;
 begin
   xItem := lstOcorrencias.Items.Add;
   xItem.Tag := aOcorrencia.Id;
@@ -98,22 +103,34 @@ begin
   TListItemText(xItem.Objects.FindDrawable('txtApoiadores')).Text := aOcorrencia.QntApoio.ToString;
   TListItemText(xItem.Objects.FindDrawable('txtNumero')).Text := aOcorrencia.Endereco.Numero.ToString;
   TListItemText(xItem.Objects.FindDrawable('txtDescricao')).Text := aOcorrencia.Descricao;
-  TListItemText(xItem.Objects.FindDrawable('txtUrgencia')).Text := aOcorrencia.Urgencia.ToString;
+
+  if aOcorrencia.Urgencia.ToString = '0' then
+    xUrgencia := 'Não urgente'
+  else
+    xUrgencia := 'URGENTE';
+
+  TListItemText(xItem.Objects.FindDrawable('txtUrgencia')).Text := xUrgencia;
 end;
 
 procedure TfraHome.PrepararListView(aOcorrencia: TOcorrencia);
 var
   xItem: TListViewItem;
+  xUrgencia: String;
 begin
   xItem := lstOcorrencias.Items.Add;
   xItem.Tag := aOcorrencia.Id;
 
   TListItemText(xItem.Objects.FindDrawable('txtBairro')).Text := aOcorrencia.Endereco.Bairro;
   TListItemText(xItem.Objects.FindDrawable('txtRua')).Text := aOcorrencia.Endereco.Logradouro;
-  TListItemText(xItem.Objects.FindDrawable('txtApoiadores')).Text := aOcorrencia.QntApoio.ToString;
-  TListItemText(xItem.Objects.FindDrawable('txtNumero')).Text := aOcorrencia.Endereco.Numero.ToString;
+  TListItemText(xItem.Objects.FindDrawable('txtApoiadores')).Text := 'Apoios:' + aOcorrencia.QntApoio.ToString;
+  TListItemText(xItem.Objects.FindDrawable('txtNumero')).Text := 'numero: '+aOcorrencia.Endereco.Numero.ToString;
   TListItemText(xItem.Objects.FindDrawable('txtDescricao')).Text := aOcorrencia.Descricao;
-  TListItemText(xItem.Objects.FindDrawable('txtUrgencia')).Text := aOcorrencia.Urgencia.ToString;
+  if aOcorrencia.Urgencia.ToString = '0' then
+    xUrgencia := 'Não urgente'
+  else
+    xUrgencia := 'URGENTE';
+
+  TListItemText(xItem.Objects.FindDrawable('txtUrgencia')).Text := xUrgencia;
 end;
 
 procedure TfraHome.RectOcorrenciaBairroUserClick(Sender: TObject);
