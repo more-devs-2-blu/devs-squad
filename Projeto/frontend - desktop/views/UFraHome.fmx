@@ -68,7 +68,7 @@ object fraHome: TfraHome
           AppearanceClassName = 'TTextObjectAppearance'
           Appearance.Font.Size = 16.000000000000000000
           Appearance.TextAlign = Leading
-          Appearance.Width = 200.000000000000000000
+          Appearance.Width = 50.000000000000000000
           Appearance.PlaceOffset.Y = -16.000000000000000000
         end
         item
@@ -471,7 +471,7 @@ object fraHome: TfraHome
       Size.PlatformDefault = False
       Stroke.Kind = None
       XRadius = 12.500000000000000000
-      YRadius = 15.000000000000000000
+      YRadius = 12.500000000000000000
       OnClick = rectPesquisaClick
       object imgLupa: TImage
         MultiResBitmap.Height = 12
