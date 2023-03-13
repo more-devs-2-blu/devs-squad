@@ -57,51 +57,56 @@ object fraHome: TfraHome
       Margins.Top = 10.000000000000000000
       Margins.Right = 23.500000000000000000
       Margins.Bottom = 10.000000000000000000
-      Size.Width = 471.000000000000000000
+      Size.Width = 470.000000000000000000
       Size.Height = 376.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
-      ItemAppearance.ItemHeight = 200
+      ItemAppearance.ItemHeight = 110
+      ItemAppearance.HeaderHeight = 10
+      ItemAppearance.FooterHeight = 1
       ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
         item
           AppearanceObjectName = 'txtProblema'
           AppearanceClassName = 'TTextObjectAppearance'
           Appearance.Font.Size = 16.000000000000000000
           Appearance.TextAlign = Leading
-          Appearance.Width = 200.000000000000000000
-          Appearance.PlaceOffset.Y = -16.000000000000000000
+          Appearance.Width = 215.000000000000000000
+          Appearance.Height = 25.000000000000000000
         end
         item
           AppearanceObjectName = 'txtBairro'
           AppearanceClassName = 'TTextObjectAppearance'
           Appearance.Font.Size = 14.000000000000000000
           Appearance.TextAlign = Leading
-          Appearance.Width = 150.000000000000000000
-          Appearance.PlaceOffset.Y = 16.000000000000000000
+          Appearance.Width = 231.000000000000000000
+          Appearance.Height = 25.000000000000000000
+          Appearance.PlaceOffset.Y = 64.000000000000000000
         end
         item
           AppearanceObjectName = 'txtRua'
           AppearanceClassName = 'TTextObjectAppearance'
           Appearance.TextAlign = Leading
-          Appearance.Width = 200.000000000000000000
-          Appearance.PlaceOffset.X = 192.000000000000000000
-          Appearance.PlaceOffset.Y = 16.000000000000000000
+          Appearance.Width = 271.000000000000000000
+          Appearance.Height = 25.000000000000000000
+          Appearance.PlaceOffset.Y = 88.000000000000000000
         end
         item
           AppearanceObjectName = 'txtApoiadores'
           AppearanceClassName = 'TTextObjectAppearance'
           Appearance.TextAlign = Trailing
-          Appearance.Width = 250.000000000000000000
-          Appearance.PlaceOffset.X = 344.000000000000000000
-          Appearance.PlaceOffset.Y = 104.000000000000000000
+          Appearance.Width = 92.000000000000000000
+          Appearance.Height = 25.000000000000000000
+          Appearance.PlaceOffset.X = 358.000000000000000000
+          Appearance.PlaceOffset.Y = 88.000000000000000000
         end
         item
           AppearanceObjectName = 'txtNumero'
           AppearanceClassName = 'TTextObjectAppearance'
           Appearance.TextAlign = Leading
-          Appearance.Width = 300.000000000000000000
-          Appearance.PlaceOffset.X = 376.000000000000000000
-          Appearance.PlaceOffset.Y = 16.000000000000000000
+          Appearance.Width = 87.000000000000000000
+          Appearance.Height = 25.000000000000000000
+          Appearance.PlaceOffset.X = 272.000000000000000000
+          Appearance.PlaceOffset.Y = 88.000000000000000000
         end
         item
           AppearanceObjectName = 'txtDescricao'
@@ -109,16 +114,19 @@ object fraHome: TfraHome
           Appearance.Font.Size = 14.000000000000000000
           Appearance.TextAlign = Leading
           Appearance.TextVertAlign = Leading
-          Appearance.Width = 350.000000000000000000
-          Appearance.PlaceOffset.Y = 64.000000000000000000
+          Appearance.Width = 455.000000000000000000
+          Appearance.Height = 31.000000000000000000
+          Appearance.PlaceOffset.Y = 32.000000000000000000
         end
         item
           AppearanceObjectName = 'txtUrgencia'
           AppearanceClassName = 'TTextObjectAppearance'
           Appearance.Font.Size = 16.000000000000000000
-          Appearance.Width = 450.000000000000000000
-          Appearance.PlaceOffset.X = 320.000000000000000000
-          Appearance.PlaceOffset.Y = -16.000000000000000000
+          Appearance.TextAlign = Trailing
+          Appearance.Width = 159.000000000000000000
+          Appearance.Height = 25.000000000000000000
+          Appearance.PlaceOffset.X = 288.000000000000000000
+          Appearance.PlaceOffset.Y = 32.000000000000000000
         end>
       ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
         item

@@ -130,7 +130,7 @@ begin
   xServiceEndereco.Registrar;
 
   {xServiceOcorrencia := TServiceOcorrencia.Create(
-    TOcorrencia.Create(xEndereco, ));}
+    TOcorrencia.Create(xEndereco, cmbProblema.Items[cmbProblema.ItemIndex]));}
 
   try
     xServiceOcorrencia.Registrar;
