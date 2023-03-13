@@ -76,12 +76,12 @@ begin
 
       xMemTableEndereco.LoadFromJSON(xMemTable.FieldByName('Endereco').AsString);
 
-      xEndereco := TEndereco.Create(xMemTableEndereco.FieldByName('Id').AsInteger,
-                                    xMemTableEndereco.FieldByName('Numero').AsInteger,
+      xEndereco := TEndereco.Create(xMemTableEndereco.FieldByName('Numero').AsInteger,
                                     xMemTableEndereco.FieldByName('Cep').AsString,
                                     xMemTableEndereco.FieldByName('Bairro').AsString,
                                     xMemTableEndereco.FieldByName('Logradouro').AsString,
-                                    xMemTableEndereco.FieldByName('Complemento').AsString);
+                                    xMemTableEndereco.FieldByName('Complemento').AsString,
+                                    xMemTableEndereco.FieldByName('Id').AsInteger);
 
       Self.CarregarUsuario(xMemTable.FieldByName('Usuario').AsString,
                             xUsuario);

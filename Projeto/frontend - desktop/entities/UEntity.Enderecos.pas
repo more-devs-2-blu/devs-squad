@@ -35,8 +35,8 @@ type
     constructor Create; overload;
     constructor Create(const aId: Integer); overload;
 
-    constructor Create(aId, aNumero: Integer; aCep, aBairro, aLogradouro,
-      aComplemento: String)overload;
+    constructor Create(aNumero: Integer; aCep, aBairro, aLogradouro,
+      aComplemento: String; aId: Integer = 0 )overload;
 
     destructor Destroy; override;
 
@@ -69,8 +69,8 @@ begin
   Self.Create;
 end;
 
-constructor TEndereco.Create(aId, aNumero: Integer; aCep, aBairro, aLogradouro,
-  aComplemento: String);
+constructor TEndereco.Create(aNumero: Integer; aCep, aBairro, aLogradouro,
+  aComplemento: String; aId: Integer = 0 );
 begin
   FId          := aId;
   FNumero      := aNumero;
@@ -109,7 +109,9 @@ end;
 
 function TEndereco.GetJSON: TJSONObject;
 begin
-  FJSON.AddPair('id',           FId.ToString);
+  if not (FId = 0) then
+    FJSON.AddPair('id',           FId.ToString);
+
   FJSON.AddPair('numero',       FNumero.ToString);
   FJSON.AddPair('cep',          FCep);
   FJSON.AddPair('bairro',       FBairro);

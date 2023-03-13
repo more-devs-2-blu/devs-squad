@@ -63,12 +63,12 @@ begin
     if xMemTable.RecordCount > 0 then
     begin
 
-      aEndereco := TEndereco.Create(xMemTable.FieldByName('Id').AsInteger,
-                                   xMemTable.FieldByName('Numero').AsInteger,
-                                   xMemTable.FieldByName('Cep').AsString,
-                                   xMemTable.FieldByName('Bairro').AsString,
-                                   xMemTable.FieldByName('Logradouro').AsString,
-                                   xMemTable.FieldByName('Complemento').AsString);
+      aEndereco := TEndereco.Create(xMemTable.FieldByName('Numero').AsInteger,
+                                    xMemTable.FieldByName('Cep').AsString,
+                                    xMemTable.FieldByName('Bairro').AsString,
+                                    xMemTable.FieldByName('Logradouro').AsString,
+                                    xMemTable.FieldByName('Complemento').AsString,
+                                    xMemTable.FieldByName('Id').AsInteger);
     end;
   finally
     FreeAndNil(xMemTable);
@@ -324,12 +324,12 @@ begin
                                   xMemTableOcorrencia.FieldByName('senha').AsString);
 
       xMemTableOcorrencia.LoadFromJSON(xMemTable.FieldByName('endereco').AsString);
-      xEndereco := TEndereco.Create(xMemTableOcorrencia.FieldByName('id').AsInteger,
-                                    xMemTableOcorrencia.FieldByName('numero').AsInteger,
+      xEndereco := TEndereco.Create(xMemTableOcorrencia.FieldByName('numero').AsInteger,
                                     xMemTableOcorrencia.FieldByName('cep').AsString,
                                     xMemTableOcorrencia.FieldByName('bairro').AsString,
                                     xMemTableOcorrencia.FieldByName('logradouro').AsString,
-                                    xMemTableOcorrencia.FieldByName('complemento').AsString);
+                                    xMemTableOcorrencia.FieldByName('complemento').AsString,
+                                    xMemTableOcorrencia.FieldByName('id').AsInteger);
 
       FOcorrencias.Add(TOcorrencia.Create(xMemTable.FieldByName('id').AsInteger,
                                     xMemTable.FieldByName('qntapoio').AsInteger,
