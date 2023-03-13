@@ -1,22 +1,32 @@
+<div align="center"> 
+
 # DEVS-SQUAD
 
 <p align="center">
 <img src="https://img.shields.io/badge/STATUS:-EM%20DESENVOLVIMENTO-green" alt="Status: Em Desenvolvimento"> 
 </p>
 
-### Grupo
 
-<div align="left">
+
+<div>
 <img src="https://github.com/MuriloBatista/devs-squad/blob/main/Documenta%C3%A7%C3%B5es/1%20-%20Mockup/DEvs.png?raw=true" width="300" height="300" >
 </div>
 
-- [Guilherme Hillesheim](https://github.com/GuilhermeHSilva1)
-- [Jean Carlos Möller](https://github.com/JeanCarlosMoller)
-- [Jean Jefferson Oliveira](https://github.com)
-- [Jefferson Domareski](https://github.com)
-- [Jieff Cavalcanti Neves](https://github.com)
-- [Max Furtado](https://github.com/maax103)
-- [Murilo Batista](https://github.com/MuriloBatista)
+ [Guilherme Hillesheim](https://github.com/GuilhermeHSilva1)
+ 
+ [Jean Carlos Möller](https://github.com/JeanCarlosMoller)
+ 
+ [Jean Jefferson Oliveira](https://github.com/Jeanjoliveira)
+ 
+ [Jefferson Domareski](https://github.com/Jdomareski)
+ 
+ [Jieff Cavalcanti Neves](https://github.com/jieff)
+ 
+ [Max Furtado](https://github.com/maax103)
+ 
+ [Murilo Batista](https://github.com/MuriloBatista)
+
+</div>
 
 _________________________
 </br>
@@ -34,7 +44,7 @@ Projeto desenvolvido para o Hackweek +Devs2Blu com um sistema que ajuda o cidad�
 
 Como um cidadão pode ajudar na zeladoria pública de sua cidade?
 
-Ao analisarmos o desafio proposto, reunimos-nos para entender como poderíamos, por meio da tecnologia, facilitar o acesso do cidadão que deseja participar e contribuir com a zeladoria pública.
+Ao analisarmos o desafio proposto, nos reunimos para entender como poderíamos, por meio da tecnologia, facilitar o acesso do cidadão que deseja participar e contribuir com a zeladoria pública.
 
 Após uma análise inicial, constatamos que existem diversas formas de o cidadão se comunicar por meio de canais de ouvidorias existentes. No entanto, nos perguntamos sobre o por que poucas pessoas utilizam esses canais. A resposta que encontramos é que falta acesso rápido a informações relacionadas à manutenção e se há algum planejamento ou ação para resolver os problemas encontrados, como também, uma forma mais rápida do cidadão informar problemas que ele encontra.
 
@@ -88,12 +98,13 @@ A aplicação **_SEC - Serviço Escuta Cidadão_** conta com dois principais pap
 
 </br>
 
-**Criar Conta:** Ação responsável por criar uma conta. No caso do administrado, o mesmo pode excluir uma conta caso as diretrizes de uso seja violada pelo usuário.
+**Criar Conta:** Ação responsável por criar uma conta. No caso do administrador, o mesmo pode excluir uma conta caso as diretrizes de uso seja violada pelo usuário.
 
 **Visualizar Ocorrências:** Ação responsável por visualizar ocorrencias criadas pelos usuários, trazendo visibilidade sobre qual ocorrência o administrador deve priorizar.
 
 **Modificar Status Ocorrências:** Ação responsável por modificar o status de uma ocorrência, trazendo transparência ao usuário sobre o tratamento da ocorrência gerada.
 
+</br>
 
-
+## Tecnologias Utilizadas
 
