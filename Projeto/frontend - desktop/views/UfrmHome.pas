@@ -17,7 +17,6 @@ type
     lblHome: TLabel;
     lblCriarOcorrencia: TLabel;
     lblSuasOcorrencias: TLabel;
-    lblPesquisarOcorrencias: TLabel;
     lytContainer: TLayout;
     procedure lblSairClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
