@@ -28,6 +28,7 @@ type
     procedure ListarBairro(const aBairro: String);
 
     function ObterRegistro(const aId: Integer): TObject; override;
+    function ObterId(const aEndereco: TEndereco) : Integer;
 
     property Enderecos: TObjectList<TEndereco> read GetEnderecos;
   end;
@@ -40,7 +41,7 @@ uses
   UUtils.Constants,
   DataSet.Serialize,
   FireDAC.comp.Client,
-  UService.Intf;
+  UService.Intf, System.JSON;
 
 { TServiceEndereco }
 
@@ -181,6 +182,41 @@ begin
     end;
   finally
     FreeAndNil(xMemTable);
+  end;
+end;
+
+function TServiceEndereco.ObterId(const aEndereco: TEndereco): Integer;
+var
+  xMemTable: TFDMemTable;
+  xJSON : TJSONObject;
+begin
+  Result := 0;
+
+  xMemTable := TFDMemTable.Create(nil);
+  xJSON := TJSONObject.Create;
+  try
+
+    xJSON.AddPair('cep', aEndereco.Cep);
+    xJSON.AddPair('bairro', aEndereco.Bairro);
+    xJSON.AddPair('numero', aEndereco.Numero.ToString);
+    xJSON.AddPair('logradouro', aEndereco.Logradouro);
+    xJSON.AddPair('complemento', aEndereco.Complemento);
+
+    FRESTClient.BaseURL := URL_BASE_ENDERECOS + '/id';
+    FRESTRequest.Method := rmPOST;
+    FRESTRequest.AddBody(xJSON.ToString);
+    FRESTRequest.Execute;
+
+    if FRESTResponse.StatusCode = API_SUCESSO then
+    begin
+      xMemTable.LoadFromJSON(FRESTResponse.Content);
+
+      if xMemTable.FindFirst then
+        Result := StrToInt(FRESTResponse.Content);
+    end;
+  finally
+    FreeAndNil(xMemTable);
+    FreeAndNil(xJSON);
   end;
 end;
 

@@ -24,6 +24,12 @@ type
       [SwagResponse(404)]
       class procedure Get(Req: THorseRequest; Res: THorseResponse; Next: TProc); override;
 
+      [SwagPOST('id', 'Procurar Id')]
+      [SwagParamPath('/id/', 'id do Endereço')]
+      [SwagResponse(200, 'Dados do endereço em JSON', 'Id do Endereço')]
+      [SwagResponse(404)]
+      class procedure GetId(Req: THorseRequest; Res: THorseResponse; Next: TProc);
+
       [SwagPOST('Adicionar novo Endereço')]
       [SwagParamBody('Informações do Endereço', TEndereco)]
       [SwagResponse(201)]
@@ -43,7 +49,7 @@ implementation
 { TControllerEndereco }
 
 uses
-  UDAO.Endereco;
+  UDAO.Endereco, System.SysUtils, JOSE.Types.JSON;
 
 class procedure TControllerEndereco.Delete(Req: THorseRequest;
   Res: THorseResponse; Next: TProc);
@@ -57,6 +63,39 @@ class procedure TControllerEndereco.Get(Req: THorseRequest; Res: THorseResponse;
 begin
   FDAO := TDAOEndereco.Create;
   Inherited;
+end;
+
+class procedure TControllerEndereco.GetId(Req: THorseRequest;
+  Res: THorseResponse; Next: TProc);
+var
+  xJSON: TJSONObject;
+  xEndereco: TEndereco;
+  xId: Integer;
+begin
+
+  xJSON := TJSONObject.Create;
+  xJSON := TJSONObject.ParseJSONValue(
+      TEncoding.ASCII.GetBytes(
+        Req.Body), 0) as TJSONObject;
+
+  Res.Send(xJSON.GetValue('cep').Value);
+
+  xEndereco := TEndereco.Create( 0,
+                    xJSON.GetValue<Integer>('numero'),
+                    xJSON.GetValue('cep').Value,
+                    xJSON.GetValue('bairro').Value,
+                    xJSON.GetValue('logradouro').Value,
+                    xJSON.GetValue('complemento').Value);
+  FDAO := TDAOEndereco.Create;
+  xId := TDAOEndereco(FDAO).ProcurarIdPorEndereco(xEndereco);
+  if xId = 0 then
+  begin
+    Res.Status(THTTPStatus.InternalServerError);
+    Exit;
+  end;
+
+  Res.Send(xId.ToString);
+
 end;
 
 class procedure TControllerEndereco.Gets(Req: THorseRequest;
