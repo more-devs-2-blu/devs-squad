@@ -26,6 +26,8 @@ type
     procedure lblPesquisarOcorrenciasClick(Sender: TObject);
     procedure lblApoiosClick(Sender: TObject);
     procedure lblHomeClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+
   private
     { Private declarations }
     procedure RemoverTelaAnterior;
@@ -41,6 +43,11 @@ implementation
 {$R *.fmx}
 
 uses UFraHome, UfraCriarOcorrencia, UfraOcorrencias, UfraApoios;
+
+procedure TfrmHome.FormCreate(Sender: TObject);
+begin
+  //
+end;
 
 procedure TfrmHome.FormShow(Sender: TObject);
 begin
