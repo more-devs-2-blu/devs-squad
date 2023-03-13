@@ -438,7 +438,7 @@ object fraHome: TfraHome
   end
   object TimerGifCarregar: TTimer
     OnTimer = TimerGifCarregarTimer
-    Left = 560
+    Left = 552
     Top = 8
   end
 end

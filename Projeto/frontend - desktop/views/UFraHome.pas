@@ -16,10 +16,10 @@ type
     lblTituloFrame: TLabel;
     rectLista: TRectangle;
     lstOcorrencias: TListView;
-    TimerGifCarregar: TTimer;
     SkAnimatedImage1: TSkAnimatedImage;
     RectOcorrenciaBairroUser: TRectangle;
     Label1: TLabel;
+    TimerGifCarregar: TTimer;
     procedure TimerGifCarregarTimer(Sender: TObject);
     procedure RectOcorrenciaBairroUserClick(Sender: TObject);
 
