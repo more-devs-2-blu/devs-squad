@@ -167,9 +167,9 @@ begin
       API_SUCESSO:
         Self.PreencherOcorrencias(FRESTResponse.Content);
       API_NAO_AUTORIZADO:
-        raise Exception.Create('Usu�rio n�o autorizado.');
+        raise Exception.Create('Usuário não autorizado.');
       else
-        raise Exception.Create('Erro ao carregar a lista de Ocorrencias. C�digo do Erro: ' + FRESTResponse.StatusCode.ToString);
+        raise Exception.Create('Erro ao carregar a lista de Ocorrncias. Código do Erro: ' + FRESTResponse.StatusCode.ToString);
     end;
   except
     on e: exception do

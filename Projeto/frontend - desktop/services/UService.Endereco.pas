@@ -24,6 +24,9 @@ type
     procedure Listar; override;
     procedure Excluir; override;
 
+    //
+    procedure ListarBairro(const aBairro: String);
+
     function ObterRegistro(const aId: Integer): TObject; override;
 
     property Enderecos: TObjectList<TEndereco> read GetEnderecos;
@@ -92,6 +95,51 @@ begin
 end;
 
 procedure TServiceEndereco.Listar;
+var
+  xMemTable: TFDMemTable;
+begin
+  FEnderecos.Clear;
+
+  xMemTable := TFDMemTable.Create(nil);
+
+  try
+    try
+      FRESTClient.BaseURL := URL_BASE_ENDERECOS;
+      FRESTRequest.Method := rmGet;
+      FRESTRequest.Execute;
+
+      case FRESTResponse.StatusCode of
+        API_SUCESSO:
+        begin
+          xMemTable.LoadFromJSON(FRESTResponse.Content);
+
+          while not xMemTable.Eof do
+          begin
+            FEnderecos.Add(TEndereco.Create(xMemTable.FieldByName('Numero').AsInteger,
+                                            xMemTable.FieldByName('Cep').AsString,
+                                            xMemTable.FieldByName('Bairro').AsString,
+                                            xMemTable.FieldByName('Logradouro').AsString,
+                                            xMemTable.FieldByName('Complemento').AsString,
+                                            xMemTable.FieldByName('Id').AsInteger));
+
+            xMemTable.Next;
+          end;
+        end;
+        API_NAO_AUTORIZADO:
+          raise Exception.Create('Usuário não autorizado.');
+        else
+          raise Exception.Create('Erro ao carregar a lista de Endereços. Código do Erro: ' + FRESTResponse.StatusCode.ToString);
+      end;
+    except
+      on e: exception do
+        raise Exception.Create(e.Message);
+    end;
+  finally
+    FreeAndNil(xMemTable);
+  end;
+end;
+
+procedure TServiceEndereco.ListarBairro(const aBairro: String);
 var
   xMemTable: TFDMemTable;
 begin
