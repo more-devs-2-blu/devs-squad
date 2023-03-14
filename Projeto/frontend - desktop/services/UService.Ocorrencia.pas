@@ -126,7 +126,7 @@ end;
 procedure TServiceOcorrencia.Excluir;
 begin
   if (not Assigned(FOcorrencia)) or (FOcorrencia.Id = 0) then
-    raise Exception.Create('Nenhum Palpite foi escolhido para exclusão.');
+    raise Exception.Create('Nenhuma ocorrência foi escolhido para exclusão.');
 
   try
     FRESTClient.BaseURL := Format(URL_BASE_OCORRENCIAS + '/%d', [FOcorrencia.Id]);
@@ -169,7 +169,7 @@ begin
       API_NAO_AUTORIZADO:
         raise Exception.Create('Usuário não autorizado.');
       else
-        raise Exception.Create('Erro ao carregar a lista de Ocorrncias. Código do Erro: ' + FRESTResponse.StatusCode.ToString);
+        raise Exception.Create('Erro ao carregar a lista de Ocorrências. Código do Erro: ' + FRESTResponse.StatusCode.ToString);
     end;
   except
     on e: exception do
@@ -195,7 +195,7 @@ begin
       API_NAO_AUTORIZADO:
         raise Exception.Create('Usuário não autorizado.');
       else
-        raise Exception.Create('Erro ao carregar a lista de Ocorrencias. Código do Erro: ' + FRESTResponse.StatusCode.ToString);
+        raise Exception.Create('Erro ao carregar a lista de Ocorrências. Código do Erro: ' + FRESTResponse.StatusCode.ToString);
     end;
   except
     on e: exception do
@@ -236,9 +236,9 @@ begin
       API_SUCESSO:
         Self.PreencherOcorrencias(FRESTResponse.Content);
       API_NAO_AUTORIZADO:
-        raise Exception.Create('Usu�rio n�o autorizado.');
+        raise Exception.Create('Usuário não autorizado.');
       else
-        raise Exception.Create('Erro ao carregar a lista de Ocorrencias. C�digo do Erro: ' + FRESTResponse.StatusCode.ToString);
+        raise Exception.Create('Erro ao carregar a lista de Ocorrências. Código do Erro: ' + FRESTResponse.StatusCode.ToString);
     end;
   except
     on e: exception do
@@ -288,9 +288,9 @@ begin
           end;
         end;
       API_NAO_AUTORIZADO:
-        raise Exception.Create('Usu�rio n�o autorizado.');
+        raise Exception.Create('Usuário não autorizado.');
       else
-        raise Exception.Create('Erro ao carregar a lista de Ocorrencias. C�digo do Erro: ' + FRESTResponse.StatusCode.ToString);
+        raise Exception.Create('Erro ao carregar a lista de Ocorrências. Código do Erro: ' + FRESTResponse.StatusCode.ToString);
     end;
   except
     on e: exception do
@@ -387,9 +387,9 @@ begin
       API_CRIADO:
         Exit;
       API_NAO_AUTORIZADO:
-        raise Exception.Create('Usu�rio n�o autorizado.');
+        raise Exception.Create('Usuário não autorizado.');
       else
-        raise Exception.Create('Erro n�o catalogado.');
+        raise Exception.Create('Erro não catalogado.');
     end;
   except
     on e: exception do
