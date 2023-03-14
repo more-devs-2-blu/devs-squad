@@ -59,6 +59,7 @@ begin
       xJSONArray[0].ToJSON), 0) as TJSONObject;
 
   FreeAndNil(xJSONArray);
+  xIdEndereco := xJSONObject.GetValue<Integer>('id');
   Result := xJSONObject.GetValue<Integer>('id');
 end;
 

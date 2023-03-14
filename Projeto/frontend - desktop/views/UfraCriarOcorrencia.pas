@@ -61,7 +61,7 @@ uses
   UService.Endereco,
   UEntity.Enderecos,
   UEntity.Ocorrencias,
-  System.SysUtils;
+  System.SysUtils, UService.Usuario.Authenticated, UUtils.Functions;
 
 {$R *.fmx}
 
@@ -96,6 +96,7 @@ var
 
   xServiceEndereco: IService;
   xEndereco: TEndereco;
+  xIdEndereco: Integer;
 
 begin
   if Trim(edtCEP.Text) = EmptyStr then
@@ -129,8 +130,31 @@ begin
   xServiceEndereco := TServiceEndereco.Create(xEndereco);
   xServiceEndereco.Registrar;
 
-  {xServiceOcorrencia := TServiceOcorrencia.Create(
-    TOcorrencia.Create(xEndereco, cmbProblema.Items[cmbProblema.ItemIndex]));}
+//  xServiceEndereco := TServiceEndereco.Create(xEndereco);
+  xIdEndereco := TServiceEndereco(xServiceEndereco).ObterId(xEndereco);
+
+  xEndereco.Free;
+
+  xEndereco := TEndereco.Create(
+                      StrToInt(Trim(edtNumero.Text)),
+                      Trim(edtCEP.Text),
+                      Trim(edtBairro.Text),
+                      Trim(edtRua.Text),
+                      Trim(edtComplemento.Text),
+                      xIdEndereco);
+
+  xServiceOcorrencia := TServiceOcorrencia.Create(
+    TOcorrencia.Create( 0,
+                        0,
+                        Now,
+                        0,
+                        0,
+                        TUtilsFunctions.IIF<Byte>(rbUrgencia.IsChecked,1,0),
+                        Trim(edtDescricao.Text),
+                        cmbProblema.Items[cmbProblema.ItemIndex],
+                        'Em Atendimento',
+                        GbInstance.Usuario,
+                        xEndereco));
 
   try
     xServiceOcorrencia.Registrar;

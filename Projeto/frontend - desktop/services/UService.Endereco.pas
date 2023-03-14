@@ -41,7 +41,7 @@ uses
   UUtils.Constants,
   DataSet.Serialize,
   FireDAC.comp.Client,
-  UService.Intf, System.JSON;
+  UService.Intf, System.JSON, REST.Client;
 
 { TServiceEndereco }
 
@@ -195,27 +195,26 @@ begin
   xMemTable := TFDMemTable.Create(nil);
   xJSON := TJSONObject.Create;
   try
-
-    xJSON.AddPair('cep', aEndereco.Cep);
-    xJSON.AddPair('bairro', aEndereco.Bairro);
-    xJSON.AddPair('numero', aEndereco.Numero.ToString);
-    xJSON.AddPair('logradouro', aEndereco.Logradouro);
-    xJSON.AddPair('complemento', aEndereco.Complemento);
+//
+//    xJSON.AddPair('cep', FEndereco.Cep);
+//    xJSON.AddPair('bairro', FEndereco.Bairro);
+//    xJSON.AddPair('numero', FEndereco.Numero.ToString);
+//    xJSON.AddPair('logradouro', FEndereco.Logradouro);
+//    xJSON.AddPair('complemento', FEndereco.Complemento);
 
     FRESTClient.BaseURL := URL_BASE_ENDERECOS + '/id';
     FRESTRequest.Method := rmPOST;
-    FRESTRequest.AddBody(xJSON.ToString);
+    FRESTRequest.Params.AddBody(FEndereco.JSON);
     FRESTRequest.Execute;
 
     if FRESTResponse.StatusCode = API_SUCESSO then
     begin
-      xMemTable.LoadFromJSON(FRESTResponse.Content);
-
-      if xMemTable.FindFirst then
-        Result := StrToInt(FRESTResponse.Content);
+      TryStrToInt(FRESTResponse.Content, Result);
+//
+//      if xMemTable.FindFirst then
+//        Result := StrToInt(FRESTResponse.Content);
     end;
   finally
-    FreeAndNil(xMemTable);
     FreeAndNil(xJSON);
   end;
 end;

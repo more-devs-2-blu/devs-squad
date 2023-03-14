@@ -86,16 +86,16 @@ constructor TOcorrencia.Create(aId, aQntApoio: Integer; aDataInicial, aDataFinal
   aDataAlteracao: TDateTime; aUrgencia: Byte; aDescricao, aTipoProblema, aStatus: String;
   aUsuario: TUsuario; aEndereco: TEndereco);
 begin
-   FId            := aId;
-   FQntApoio      := aQntApoio;
-   FDataInicial   := aDataInicial;
-   FDataFinal     := aDataFinal;
-   FDataAlteracao := aDataAlteracao;
-   FUrgencia      := aUrgencia;
-   FDescricao     := aDescricao;
-   FTipoProblema  := aTipoProblema;
-   FUsuario       := aUsuario;
-   FEndereco      := aEndereco;
+  FId            := aId;
+  FQntApoio      := aQntApoio;
+  FDataInicial   := aDataInicial;
+  FDataFinal     := aDataFinal;
+  FDataAlteracao := aDataAlteracao;
+  FUrgencia      := aUrgencia;
+  FDescricao     := aDescricao;
+  FTipoProblema  := aTipoProblema;
+  FUsuario       := aUsuario;
+  FEndereco      := aEndereco;
 end;
 
 constructor TOcorrencia.Create(const aId: Integer);
@@ -149,7 +149,8 @@ end;
 
 function TOcorrencia.GetJSON: TJSONObject;
 begin
-  FJSON.AddPair('id',            FId.ToString);
+  if FId <> 0 then
+    FJSON.AddPair('id',            FId.ToString);
   FJSON.AddPair('qntapoio',      FQntApoio.ToString);
   FJSON.AddPair('datainicial',   FormatDateTime('dd/mm/yy hh:nn:ss', FDataInicial));
   FJSON.AddPair('datafinal',     FormatDateTime('dd/mm/yy hh:nn:ss', FDataFinal));
