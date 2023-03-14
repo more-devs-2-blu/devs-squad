@@ -40,7 +40,7 @@ Nosso grupo apresenta como solução o sistema **SEC - Serviço Escuta Cidadão*
 
 </br>
 
-<a href="https://www.figma.com/file/s8CxDTwudeXFRkV018MZti/Untitled?node-id=0%3A1">Clique aqui</a> para acessar o _protótipo_.
+<a href="https://www.figma.com/file/s8CxDTwudeXFRkV018MZti/Untitled?node-id=0%3A1" target="_blank" rel="noopener noreferrer">Clique aqui</a> para acessar o _protótipo_.
 
 </br>
 
