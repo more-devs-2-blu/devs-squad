@@ -74,11 +74,11 @@ var
 begin
 
   xJSON := TJSONObject.Create;
-  xJSON := TJSONObject.ParseJSONValue(
-      TEncoding.ASCII.GetBytes(
-        Req.Body), 0) as TJSONObject;
+  xJSON := Req.Body<TJSONObject>;
 
-  Res.Send(xJSON.GetValue('cep').Value);
+   {TJSONObject.ParseJSONValue(
+      TEncoding.ASCII.GetBytes(
+        Req.Body), 0) as TJSONObject; }
 
   xEndereco := TEndereco.Create( 0,
                     xJSON.GetValue<Integer>('numero'),
