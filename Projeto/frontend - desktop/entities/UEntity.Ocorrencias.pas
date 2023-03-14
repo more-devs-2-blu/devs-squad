@@ -94,8 +94,10 @@ begin
   FUrgencia      := aUrgencia;
   FDescricao     := aDescricao;
   FTipoProblema  := aTipoProblema;
+  FStatus        := aStatus;
   FUsuario       := aUsuario;
   FEndereco      := aEndereco;
+  Self.Create;
 end;
 
 constructor TOcorrencia.Create(const aId: Integer);
@@ -150,17 +152,19 @@ end;
 function TOcorrencia.GetJSON: TJSONObject;
 begin
   if FId <> 0 then
-    FJSON.AddPair('id',            FId.ToString);
-  FJSON.AddPair('qntapoio',      FQntApoio.ToString);
-  FJSON.AddPair('datainicial',   FormatDateTime('dd/mm/yy hh:nn:ss', FDataInicial));
-  FJSON.AddPair('datafinal',     FormatDateTime('dd/mm/yy hh:nn:ss', FDataFinal));
-  FJSON.AddPair('dataalteracao', FormatDateTime('dd/mm/yy hh:nn:ss', FDataAlteracao));
-  FJSON.AddPair('urgencia',      FUrgencia.ToString);
-  FJSON.AddPair('descricao',     FDescricao);
-  FJSON.AddPair('tipoproblema',  FTipoProblema);
-  FJSON.AddPair('status',        FStatus);
-  FJSON.AddPair('usuario',       FUsuario.Id.ToString);
-  FJSON.AddPair('endereco',      FEndereco.id.ToString);
+    FJSON.AddPair('id',           FId.ToString);
+  FJSON.AddPair('qntapoio',       FQntApoio.ToString);
+  FJSON.AddPair('datainicial',    FormatDateTime('dd/mm/yy hh:nn:ss', FDataInicial));
+  if FDataFinal <> 0 then
+    FJSON.AddPair('datafinal',    FormatDateTime('dd/mm/yy hh:nn:ss', FDataFinal));
+  if FDataAlteracao <> 0 then
+    FJSON.AddPair('dataalteracao',FormatDateTime('dd/mm/yy hh:nn:ss', FDataAlteracao));
+  FJSON.AddPair('urgencia',       FUrgencia.ToString);
+  FJSON.AddPair('descricao',      FDescricao);
+  FJSON.AddPair('idtipoproblema',   FTipoProblema);
+  FJSON.AddPair('idstatus',         FStatus);
+  FJSON.AddPair('idusuario',        FUsuario.Id.ToString);
+  FJSON.AddPair('idendereco',       FEndereco.id.ToString);
   Result := FJSON;
 
 end;

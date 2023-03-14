@@ -1,5 +1,9 @@
 insert into usuario(tipoUsuario, nome, telefone, bairro, email, cpf, senha) 
 	values('user', 'João','40028922','progresso','João@email','12345678911','123');
+	
+insert into usuario(tipoUsuario, nome, telefone, bairro, email, cpf, senha) 
+	values('user', 'max','40028922','progresso','max@email','123','123');
+
 
 insert into endereco(cep, bairro, numero, logradouro, complemento)
 	values(12345678, 'Progresso', 1500, 'Rua alfredo', 'Apartamento');

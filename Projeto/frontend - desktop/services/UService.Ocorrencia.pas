@@ -304,8 +304,10 @@ var
   xArray: TJSONArray;
   xUsuario: TUsuario;
   xEndereco: TEndereco;
+  xDataNula: Boolean;
   I: Integer;
-  xDate: TDateTime;
+  xString: String;
+  xDataFinal, xDataAlteracao: TDateTime;
 begin
   FOcorrencias.Clear;
 
@@ -339,12 +341,28 @@ begin
                                     xJSONAux.GetValue<String>('complemento'),
                                     xJSONAux.GetValue<Integer>('id'));
 
+      xDataNula := TUtilsFunctions.IIF<Boolean>(
+        xJSON.GetValue<String>('datafinal') = EmptyStr, True, False);
+
+      if xDataNula then
+        xDataFinal := 0
+      else
+        xDataFinal := ISO8601ToDate(xJSON.GetValue<String>('datafinal'));
+
+      xDataNula := TUtilsFunctions.IIF<Boolean>(
+        xJSON.GetValue<String>('dataalteracao') = EmptyStr, True, False);
+
+      if xDataNula then
+        xDataAlteracao := 0
+      else
+        xDataAlteracao := ISO8601ToDate(xJSON.GetValue<String>('dataalteracao'));
+
       FOcorrencias.Add(
         TOcorrencia.Create( xJSON.GetValue<Integer>('id'),
                             xJSON.GetValue<Integer>('qntapoio'),
                             ISO8601ToDate(xJSON.GetValue<String>('datainicial')),
-                            ISO8601ToDate(xJSON.GetValue<String>('datafinal')),
-                            ISO8601ToDate(xJSON.GetValue<String>('dataalteracao')),
+                            xDataFinal,
+                            xDataAlteracao,
                             xJSON.GetValue<Integer>('urgencia'),
                             xJSON.GetValue<String>('descricao'),
                             xJSON.GetValue<String>('tipoProblema'),
