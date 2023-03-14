@@ -61,7 +61,8 @@ uses
   UService.Endereco,
   UEntity.Enderecos,
   UEntity.Ocorrencias,
-  System.SysUtils, UService.Usuario.Authenticated, UUtils.Functions;
+  System.SysUtils, UService.Usuario.Authenticated, UUtils.Functions,
+  UEntity.Usuarios;
 
 {$R *.fmx}
 
@@ -97,6 +98,8 @@ var
   xServiceEndereco: IService;
   xEndereco: TEndereco;
   xIdEndereco: Integer;
+
+  xUsuario: TUsuario;
 
 begin
   if Trim(edtCEP.Text) = EmptyStr then
@@ -151,8 +154,8 @@ begin
                         0,
                         TUtilsFunctions.IIF<Byte>(rbUrgencia.IsChecked,1,0),
                         Trim(edtDescricao.Text),
-                        cmbProblema.Items[cmbProblema.ItemIndex],
-                        'Em Atendimento',
+                        cmbProblema.ItemIndex.ToString,
+                        '1',
                         GbInstance.Usuario,
                         xEndereco));
 
