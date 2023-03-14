@@ -38,6 +38,12 @@ Por meio das informações coletadas nas mentorias e em rápidas pesquisas, cons
 
 Nosso grupo apresenta como solução o sistema **SEC - Serviço Escuta Cidadão**. Trata-se de uma ferramenta que pretende diminuir o tempo que o cidadão leva para informar problemas, acompanhar problemas informados por outros contribuintes e receber atualizações sobre as ações tomadas pelos gestores. Dessa forma, o cidadão é estimulado por meio da transparência e acesso rápido a informações a participar da zeladoria da sua cidade, trazendo benefícios também para os gestores saberem sobre as demandas e necessidades do cidadão.
 
+</br>
+
+<a href="https://www.figma.com/file/s8CxDTwudeXFRkV018MZti/Untitled?node-id=0%3A1">Clique aqui</a> para acessar o _protótipo_.
+
+</br>
+
 ### 1. Diagrama Caso de Uso
 
 </br>
@@ -80,7 +86,7 @@ A aplicação **_SEC - Serviço Escuta Cidadão_** conta com dois principais pap
 
 </br>
 
-**Criar Conta:** Ação responsável por criar uma conta. No caso do administrador, o mesmo pode excluir uma conta caso as diretrizes de uso seja violada pelo usuário.
+**Criar Conta:** Ação responsável por criar uma conta. No caso do administrador, o mesmo pode excluir uma conta caso as diretrizes de uso sejam violadas pelo usuário.
 
 **Visualizar Ocorrências:** Ação responsável por visualizar ocorrencias criadas pelos usuários, trazendo visibilidade sobre qual ocorrência o administrador deve priorizar.
 
@@ -99,6 +105,7 @@ A aplicação **_SEC - Serviço Escuta Cidadão_** conta com dois principais pap
  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="80" height="80"/>
  <img src="https://www.svgrepo.com/download/354202/postman-icon.svg" alt="postman" width="80 height="80"/> 
  <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="80" height="80"/>
+ <img src="https://is2-ssl.mzstatic.com/image/thumb/Purple116/v4/3b/cc/0c/3bcc0cb0-e973-2aff-27ee-ec93ed761232/AppIcon-1x_U007emarketing-0-7-0-85-220.png/230x0w.webp" alt="trello" width="80" height="80"/>
 </p> 
 
 </br>
@@ -110,6 +117,8 @@ A aplicação **_SEC - Serviço Escuta Cidadão_** conta com dois principais pap
  - MySQL - Banco de Dados.
  - Postman - Ferramenta para Teste de API.
  - Figma - Ferramenta para criação dos Protótipos.
+ - Trello - Ferramenta de Gerenciamento de Projeto.
+ - GBSwagger - Middleware para gerar o Swagger Document.
  
  </br>
  
