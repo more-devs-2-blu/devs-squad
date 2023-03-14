@@ -80,8 +80,8 @@ end;
 function TApoios.GetJSON: TJSONObject;
 begin
   FJSON.AddPair('id',         FId.ToString);
-  FJSON.AddPair('usuario',    FUsuario.Id.ToString);
-  FJSON.AddPair('ocorrencia', FOcorrencia.Id.ToString);
+  FJSON.AddPair('idusuario',    FUsuario.Id.ToString);
+  FJSON.AddPair('idocorrencia', FOcorrencia.Id.ToString);
 
   Result := FJSON;
 end;

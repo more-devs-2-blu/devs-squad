@@ -17,12 +17,10 @@ object fraApoio: TfraApoio
       ItemEditAppearanceClassName = 'TDynamicAppearance'
       HeaderAppearanceClassName = 'TListHeaderObjects'
       FooterAppearanceClassName = 'TListHeaderObjects'
-      Align = Top
-      Margins.Left = 23.500000000000000000
+      Align = Center
+      Margins.Left = 24.000000000000000000
       Margins.Top = 30.000000000000000000
-      Margins.Right = 23.500000000000000000
-      Position.X = 23.500000000000000000
-      Position.Y = 30.000000000000000000
+      Margins.Right = 24.000000000000000000
       Size.Width = 494.000000000000000000
       Size.Height = 443.000000000000000000
       Size.PlatformDefault = False
@@ -101,6 +99,12 @@ object fraApoio: TfraApoio
       ItemAppearanceObjects.HeaderObjects.Text.Visible = False
       ItemAppearanceObjects.FooterObjects.Text.Visible = False
     end
+    object SkAnimatedImage1: TSkAnimatedImage
+      Align = Center
+      Size.Width = 541.000000000000000000
+      Size.Height = 275.000000000000000000
+      Size.PlatformDefault = False
+    end
   end
   object lblTituloFrame: TLabel
     StyledSettings = [Family]
@@ -115,5 +119,10 @@ object fraApoio: TfraApoio
     TextSettings.HorzAlign = Center
     Text = 'Seus Apoios'
     TabOrder = 1
+  end
+  object TimerGifCarregar: TTimer
+    OnTimer = TimerGifCarregarTimer
+    Left = 544
+    Top = 8
   end
 end
