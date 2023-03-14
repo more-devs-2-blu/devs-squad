@@ -243,7 +243,6 @@ begin
   end;
 
   FreeAndNil(xJSONArray);
-  FreeAndNil(xJSONObject);
   Result := xJSONArrayAux;
 end;
 
