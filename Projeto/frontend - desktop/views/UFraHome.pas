@@ -11,22 +11,26 @@ uses
 
 type
   TfraHome = class(TFrame)
-    RectApoiar: TRectangle;
+    rectApoiar: TRectangle;
     lblApoiar: TLabel;
     lblTituloFrame: TLabel;
     rectLista: TRectangle;
     lstOcorrencias: TListView;
     SkAnimatedImage1: TSkAnimatedImage;
-    RectOcorrenciaBairroUser: TRectangle;
-    Label1: TLabel;
+    rectOcorrenciaBairroUser: TRectangle;
+    lblOcorrenciasBairroUsuario: TLabel;
     TimerGifCarregar: TTimer;
-    RectPesquisarBairro: TRectangle;
+    rectPesquisarBairro: TRectangle;
     edtPesquisarBairro: TEdit;
     rectPesquisa: TRectangle;
     imgLupa: TImage;
+    rectTodasOcorrencias: TRectangle;
+    lblTodasOcorrencias: TLabel;
     procedure TimerGifCarregarTimer(Sender: TObject);
-    procedure RectOcorrenciaBairroUserClick(Sender: TObject);
+    procedure rectOcorrenciaBairroUserClick(Sender: TObject);
     procedure rectPesquisaClick(Sender: TObject);
+    procedure rectApoiarClick(Sender: TObject);
+    procedure rectTodasOcorrenciasClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -36,6 +40,7 @@ type
     procedure IniciarGifLoad;
     procedure FiltroOcorrenciasBairroUser;
     procedure PesquisarBairro;
+    procedure ApoiarOcorrencia;
   public
     { Public declarations }
   end;
@@ -54,6 +59,11 @@ uses
 
 { TfraHome }
 
+procedure TfraHome.ApoiarOcorrencia;
+begin
+//
+end;
+
 procedure TfraHome.CarregarRegistros;
 var
   xServiceOcorrencia: IService;
@@ -71,7 +81,6 @@ begin
 
   end;
 end;
-
 
 procedure TfraHome.FiltroOcorrenciasBairroUser;
 var
@@ -131,11 +140,13 @@ begin
   xItem := lstOcorrencias.Items.Add;
   xItem.Tag := aOcorrencia.Id;
 
-  TListItemText(xItem.Objects.FindDrawable('txtBairro')).Text := aOcorrencia.Endereco.Bairro;
+  TListItemText(xItem.Objects.FindDrawable('txtBairro')).Text := 'Bairro: ' + aOcorrencia.Endereco.Bairro;
   TListItemText(xItem.Objects.FindDrawable('txtRua')).Text := aOcorrencia.Endereco.Logradouro;
-  TListItemText(xItem.Objects.FindDrawable('txtApoiadores')).Text := 'Apoios:' + aOcorrencia.QntApoio.ToString;
-  TListItemText(xItem.Objects.FindDrawable('txtNumero')).Text := 'numero: '+aOcorrencia.Endereco.Numero.ToString;
-  TListItemText(xItem.Objects.FindDrawable('txtDescricao')).Text := aOcorrencia.Descricao;
+  TListItemText(xItem.Objects.FindDrawable('txtApoiadores')).Text := 'Apoios: ' + aOcorrencia.QntApoio.ToString;
+  TListItemText(xItem.Objects.FindDrawable('txtNumero')).Text := 'Nº: '+aOcorrencia.Endereco.Numero.ToString;
+  TListItemText(xItem.Objects.FindDrawable('txtDescricao')).Text := 'Descrição: ' + aOcorrencia.Descricao;
+
+
   if aOcorrencia.Urgencia.ToString = '0' then
     xUrgencia := 'Não urgente'
   else
@@ -144,7 +155,12 @@ begin
   TListItemText(xItem.Objects.FindDrawable('txtUrgencia')).Text := xUrgencia;
 end;
 
-procedure TfraHome.RectOcorrenciaBairroUserClick(Sender: TObject);
+procedure TfraHome.rectApoiarClick(Sender: TObject);
+begin
+  ApoiarOcorrencia;
+end;
+
+procedure TfraHome.rectOcorrenciaBairroUserClick(Sender: TObject);
 begin
   FiltroOcorrenciasBairroUser;
 end;
@@ -152,6 +168,11 @@ end;
 procedure TfraHome.rectPesquisaClick(Sender: TObject);
 begin
   PesquisarBairro;
+end;
+
+procedure TfraHome.rectTodasOcorrenciasClick(Sender: TObject);
+begin
+  CarregarRegistros;
 end;
 
 procedure TfraHome.TimerGifCarregarTimer(Sender: TObject);

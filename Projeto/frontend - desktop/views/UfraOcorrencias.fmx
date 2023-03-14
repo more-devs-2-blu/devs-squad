@@ -1,11 +1,11 @@
 object fraOcorrencias: TfraOcorrencias
   Size.Width = 581.000000000000000000
-  Size.Height = 600.000000000000000000
+  Size.Height = 577.000000000000000000
   Size.PlatformDefault = False
   object fraOcorrencias: TLabel
     StyledSettings = [Family]
     Position.X = 32.000000000000000000
-    Position.Y = 24.000000000000000000
+    Position.Y = 40.000000000000000000
     Size.Width = 520.000000000000000000
     Size.Height = 41.000000000000000000
     Size.PlatformDefault = False
@@ -19,9 +19,9 @@ object fraOcorrencias: TfraOcorrencias
   object rectLista: TRectangle
     Fill.Color = xFFF8BF52
     Position.X = 22.000000000000000000
-    Position.Y = 67.000000000000000000
-    Size.Width = 541.000000000000000000
-    Size.Height = 500.000000000000000000
+    Position.Y = 104.000000000000000000
+    Size.Width = 539.000000000000000000
+    Size.Height = 439.000000000000000000
     Size.PlatformDefault = False
     Stroke.Kind = None
     XRadius = 20.000000000000000000
@@ -33,58 +33,63 @@ object fraOcorrencias: TfraOcorrencias
       FooterAppearanceClassName = 'TListHeaderObjects'
       Align = Center
       Margins.Left = 23.500000000000000000
-      Margins.Top = 30.000000000000000000
+      Margins.Top = 10.000000000000000000
       Margins.Right = 23.500000000000000000
-      Size.Width = 471.000000000000000000
-      Size.Height = 376.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Size.Width = 510.000000000000000000
+      Size.Height = 401.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
-      ItemAppearance.ItemHeight = 100
+      ItemAppearance.ItemHeight = 130
+      ItemAppearance.HeaderHeight = 10
+      ItemAppearance.FooterHeight = 1
       ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
         item
           AppearanceObjectName = 'txtProblema'
           AppearanceClassName = 'TTextObjectAppearance'
           Appearance.Font.Size = 16.000000000000000000
           Appearance.TextAlign = Leading
-          Appearance.Width = 50.000000000000000000
-          Appearance.Height = 17.000000000000000000
-          Appearance.PlaceOffset.Y = -16.000000000000000000
+          Appearance.Width = 119.000000000000000000
+          Appearance.Height = 33.000000000000000000
+          Appearance.PlaceOffset.X = 8.000000000000000000
+          Appearance.PlaceOffset.Y = 6.000000000000000000
         end
         item
           AppearanceObjectName = 'txtBairro'
           AppearanceClassName = 'TTextObjectAppearance'
           Appearance.Font.Size = 14.000000000000000000
           Appearance.TextAlign = Leading
-          Appearance.Width = 50.000000000000000000
-          Appearance.Height = 20.000000000000000000
-          Appearance.PlaceOffset.Y = 16.000000000000000000
+          Appearance.Width = 191.000000000000000000
+          Appearance.Height = 25.000000000000000000
+          Appearance.PlaceOffset.X = 8.000000000000000000
+          Appearance.PlaceOffset.Y = 40.000000000000000000
         end
         item
           AppearanceObjectName = 'txtRua'
           AppearanceClassName = 'TTextObjectAppearance'
           Appearance.TextAlign = Leading
-          Appearance.Width = 50.000000000000000000
-          Appearance.Height = 20.000000000000000000
-          Appearance.PlaceOffset.X = 192.000000000000000000
-          Appearance.PlaceOffset.Y = 16.000000000000000000
+          Appearance.Width = 161.000000000000000000
+          Appearance.Height = 25.000000000000000000
+          Appearance.PlaceOffset.X = 206.000000000000000000
+          Appearance.PlaceOffset.Y = 40.000000000000000000
         end
         item
           AppearanceObjectName = 'txtApoiadores'
           AppearanceClassName = 'TTextObjectAppearance'
           Appearance.TextAlign = Trailing
-          Appearance.Width = 131.000000000000000000
-          Appearance.Height = 20.000000000000000000
-          Appearance.PlaceOffset.X = 344.000000000000000000
-          Appearance.PlaceOffset.Y = 104.000000000000000000
+          Appearance.Width = 92.000000000000000000
+          Appearance.Height = 25.000000000000000000
+          Appearance.PlaceOffset.X = 374.000000000000000000
+          Appearance.PlaceOffset.Y = 96.000000000000000000
         end
         item
           AppearanceObjectName = 'txtNumero'
           AppearanceClassName = 'TTextObjectAppearance'
           Appearance.TextAlign = Leading
-          Appearance.Width = 95.000000000000000000
-          Appearance.Height = 20.000000000000000000
-          Appearance.PlaceOffset.X = 376.000000000000000000
-          Appearance.PlaceOffset.Y = 16.000000000000000000
+          Appearance.Width = 65.000000000000000000
+          Appearance.Height = 25.000000000000000000
+          Appearance.PlaceOffset.X = 398.000000000000000000
+          Appearance.PlaceOffset.Y = 40.000000000000000000
         end
         item
           AppearanceObjectName = 'txtDescricao'
@@ -92,18 +97,19 @@ object fraOcorrencias: TfraOcorrencias
           Appearance.Font.Size = 14.000000000000000000
           Appearance.TextAlign = Leading
           Appearance.TextVertAlign = Leading
-          Appearance.Width = 489.000000000000000000
-          Appearance.Height = 40.000000000000000000
-          Appearance.PlaceOffset.Y = 64.000000000000000000
+          Appearance.Width = 353.000000000000000000
+          Appearance.Height = 55.000000000000000000
+          Appearance.PlaceOffset.X = 6.000000000000000000
+          Appearance.PlaceOffset.Y = 72.000000000000000000
         end
         item
           AppearanceObjectName = 'txtUrgencia'
           AppearanceClassName = 'TTextObjectAppearance'
           Appearance.Font.Size = 16.000000000000000000
-          Appearance.Width = 150.000000000000000000
-          Appearance.Height = 17.000000000000000000
-          Appearance.PlaceOffset.X = 320.000000000000000000
-          Appearance.PlaceOffset.Y = -16.000000000000000000
+          Appearance.TextAlign = Trailing
+          Appearance.Width = 129.000000000000000000
+          Appearance.Height = 25.000000000000000000
+          Appearance.PlaceOffset.X = 334.000000000000000000
         end>
       ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
         item

@@ -14,9 +14,10 @@ object fraHome: TfraHome
     TextSettings.FontColor = xFFF6BF52
     TextSettings.HorzAlign = Center
     Text = 'Ocorr'#234'ncias'
-    TabOrder = 2
+    TabOrder = 1
   end
-  object RectApoiar: TRectangle
+  object rectApoiar: TRectangle
+    Cursor = crHandPoint
     Fill.Color = xFF25CCF7
     Position.X = 39.000000000000000000
     Position.Y = 88.000000000000000000
@@ -26,6 +27,7 @@ object fraHome: TfraHome
     Stroke.Kind = None
     XRadius = 10.000000000000000000
     YRadius = 10.000000000000000000
+    OnClick = rectApoiarClick
     object lblApoiar: TLabel
       Align = Center
       StyledSettings = [Family]
@@ -39,8 +41,8 @@ object fraHome: TfraHome
   end
   object rectLista: TRectangle
     Fill.Color = xFFF8BF52
-    Position.X = 22.000000000000000000
-    Position.Y = 128.000000000000000000
+    Position.X = 25.000000000000000000
+    Position.Y = 131.000000000000000000
     Size.Width = 539.000000000000000000
     Size.Height = 439.000000000000000000
     Size.PlatformDefault = False
@@ -57,11 +59,11 @@ object fraHome: TfraHome
       Margins.Top = 10.000000000000000000
       Margins.Right = 23.500000000000000000
       Margins.Bottom = 10.000000000000000000
-      Size.Width = 470.000000000000000000
-      Size.Height = 376.000000000000000000
+      Size.Width = 506.000000000000000000
+      Size.Height = 400.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
-      ItemAppearance.ItemHeight = 110
+      ItemAppearance.ItemHeight = 120
       ItemAppearance.HeaderHeight = 10
       ItemAppearance.FooterHeight = 1
       ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
@@ -70,25 +72,29 @@ object fraHome: TfraHome
           AppearanceClassName = 'TTextObjectAppearance'
           Appearance.Font.Size = 16.000000000000000000
           Appearance.TextAlign = Leading
-          Appearance.Width = 50.000000000000000000
-          Appearance.PlaceOffset.Y = -16.000000000000000000
+          Appearance.Width = 151.000000000000000000
+          Appearance.Height = 20.000000000000000000
+          Appearance.PlaceOffset.X = 8.000000000000000000
+          Appearance.PlaceOffset.Y = 6.000000000000000000
         end
         item
           AppearanceObjectName = 'txtBairro'
           AppearanceClassName = 'TTextObjectAppearance'
           Appearance.Font.Size = 14.000000000000000000
           Appearance.TextAlign = Leading
-          Appearance.Width = 231.000000000000000000
+          Appearance.Width = 215.000000000000000000
           Appearance.Height = 25.000000000000000000
-          Appearance.PlaceOffset.Y = 64.000000000000000000
+          Appearance.PlaceOffset.X = 8.000000000000000000
+          Appearance.PlaceOffset.Y = 24.000000000000000000
         end
         item
           AppearanceObjectName = 'txtRua'
           AppearanceClassName = 'TTextObjectAppearance'
           Appearance.TextAlign = Leading
-          Appearance.Width = 271.000000000000000000
+          Appearance.Width = 177.000000000000000000
           Appearance.Height = 25.000000000000000000
-          Appearance.PlaceOffset.Y = 88.000000000000000000
+          Appearance.PlaceOffset.X = 230.000000000000000000
+          Appearance.PlaceOffset.Y = 24.000000000000000000
         end
         item
           AppearanceObjectName = 'txtApoiadores'
@@ -96,17 +102,17 @@ object fraHome: TfraHome
           Appearance.TextAlign = Trailing
           Appearance.Width = 92.000000000000000000
           Appearance.Height = 25.000000000000000000
-          Appearance.PlaceOffset.X = 358.000000000000000000
+          Appearance.PlaceOffset.X = 374.000000000000000000
           Appearance.PlaceOffset.Y = 88.000000000000000000
         end
         item
           AppearanceObjectName = 'txtNumero'
           AppearanceClassName = 'TTextObjectAppearance'
           Appearance.TextAlign = Leading
-          Appearance.Width = 87.000000000000000000
+          Appearance.Width = 41.000000000000000000
           Appearance.Height = 25.000000000000000000
-          Appearance.PlaceOffset.X = 272.000000000000000000
-          Appearance.PlaceOffset.Y = 88.000000000000000000
+          Appearance.PlaceOffset.X = 414.000000000000000000
+          Appearance.PlaceOffset.Y = 24.000000000000000000
         end
         item
           AppearanceObjectName = 'txtDescricao'
@@ -114,19 +120,19 @@ object fraHome: TfraHome
           Appearance.Font.Size = 14.000000000000000000
           Appearance.TextAlign = Leading
           Appearance.TextVertAlign = Leading
-          Appearance.Width = 455.000000000000000000
-          Appearance.Height = 31.000000000000000000
-          Appearance.PlaceOffset.Y = 32.000000000000000000
+          Appearance.Width = 359.000000000000000000
+          Appearance.Height = 57.000000000000000000
+          Appearance.PlaceOffset.X = 8.000000000000000000
+          Appearance.PlaceOffset.Y = 54.000000000000000000
         end
         item
           AppearanceObjectName = 'txtUrgencia'
           AppearanceClassName = 'TTextObjectAppearance'
           Appearance.Font.Size = 16.000000000000000000
           Appearance.TextAlign = Trailing
-          Appearance.Width = 159.000000000000000000
+          Appearance.Width = 121.000000000000000000
           Appearance.Height = 25.000000000000000000
-          Appearance.PlaceOffset.X = 288.000000000000000000
-          Appearance.PlaceOffset.Y = 32.000000000000000000
+          Appearance.PlaceOffset.X = 334.000000000000000000
         end>
       ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
         item
@@ -138,8 +144,8 @@ object fraHome: TfraHome
     end
     object SkAnimatedImage1: TSkAnimatedImage
       Align = Center
-      Size.Width = 349.000000000000000000
-      Size.Height = 269.000000000000000000
+      Size.Width = 342.000000000000000000
+      Size.Height = 275.000000000000000000
       Size.PlatformDefault = False
       Data = {
         47494638396100010001F4FF00FFFFFFF7F7F7EFEFEFE6E6E6DEDEDED6D6D6CE
@@ -420,7 +426,8 @@ object fraHome: TfraHome
         7474188A95615EB766A36EBE09E91560A61104003B}
     end
   end
-  object RectOcorrenciaBairroUser: TRectangle
+  object rectOcorrenciaBairroUser: TRectangle
+    Cursor = crHandPoint
     Fill.Color = xFF25CCF7
     Position.X = 360.000000000000000000
     Position.Y = 56.000000000000000000
@@ -430,8 +437,8 @@ object fraHome: TfraHome
     Stroke.Kind = None
     XRadius = 10.000000000000000000
     YRadius = 10.000000000000000000
-    OnClick = RectOcorrenciaBairroUserClick
-    object Label1: TLabel
+    OnClick = rectOcorrenciaBairroUserClick
+    object lblOcorrenciasBairroUsuario: TLabel
       Align = Center
       StyledSettings = [Family]
       Size.Width = 161.000000000000000000
@@ -449,23 +456,23 @@ object fraHome: TfraHome
     Left = 552
     Top = 8
   end
-  object RectPesquisarBairro: TRectangle
+  object rectPesquisarBairro: TRectangle
     Fill.Color = xFF25CCF7
     Position.X = 48.000000000000000000
     Position.Y = 56.000000000000000000
-    Size.Width = 185.000000000000000000
+    Size.Width = 153.000000000000000000
     Size.Height = 25.000000000000000000
     Size.PlatformDefault = False
     Stroke.Kind = None
     XRadius = 10.000000000000000000
     YRadius = 10.000000000000000000
-    OnClick = RectOcorrenciaBairroUserClick
+    OnClick = rectOcorrenciaBairroUserClick
     object edtPesquisarBairro: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Center
       StyleLookup = 'transparentedit'
       TabOrder = 0
-      Size.Width = 143.000000000000000000
+      Size.Width = 115.000000000000000000
       Size.Height = 25.000000000000000000
       Size.PlatformDefault = False
       TextPrompt = 'Pesquisar Bairro'
@@ -473,7 +480,7 @@ object fraHome: TfraHome
     object rectPesquisa: TRectangle
       Align = FitRight
       Fill.Color = claWhite
-      Position.X = 156.093750000000000000
+      Position.X = 124.093750000000000000
       Size.Width = 28.906250000000000000
       Size.Height = 25.000000000000000000
       Size.PlatformDefault = False
@@ -506,6 +513,31 @@ object fraHome: TfraHome
         Size.Height = 21.679679870605470000
         Size.PlatformDefault = False
       end
+    end
+  end
+  object rectTodasOcorrencias: TRectangle
+    Cursor = crHandPoint
+    Fill.Color = xFF25CCF7
+    Position.X = 208.000000000000000000
+    Position.Y = 56.000000000000000000
+    Size.Width = 145.000000000000000000
+    Size.Height = 25.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    XRadius = 10.000000000000000000
+    YRadius = 10.000000000000000000
+    OnClick = rectTodasOcorrenciasClick
+    object lblTodasOcorrencias: TLabel
+      Align = Center
+      StyledSettings = [Family]
+      Size.Width = 133.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.FontColor = claWhite
+      TextSettings.HorzAlign = Center
+      Text = 'Todas Ocorr'#234'ncias'
+      TabOrder = 0
     end
   end
 end
