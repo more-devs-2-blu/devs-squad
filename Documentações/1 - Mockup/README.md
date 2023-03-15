@@ -1,3 +1,3 @@
 # Mockup
 
-- [ ] Prototipagem de telas;
+- [X] Prototipagem de telas;

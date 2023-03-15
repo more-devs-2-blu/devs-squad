@@ -2,5 +2,6 @@
 
 - [X] Diagrama Classes - BackEnd;
 - [X] Diagrama Classes - FrontEnd;
-- [ ] Diagrama UML;
-- [ ] Diagrama arquitetura macro WS;
+- [X] Diagrama UML;
+- [X] Diagrama arquitetura macro WS;
+- [X] Arquivo JSON com métodos HTTP - Postman; 
