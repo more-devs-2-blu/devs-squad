@@ -3,10 +3,12 @@ unit UFraHome;
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
+  System.SysUtils, System.Types, System.UITypes, System.Classes,
+  System.Variants,
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.ListView.Types, FMX.ListView.Appearances, FMX.ListView.Adapters.Base,
-  FMX.Controls.Presentation, FMX.ListView, FMX.Objects, UfraOcorrencias, UEntity.Ocorrencias, Skia,
+  FMX.Controls.Presentation, FMX.ListView, FMX.Objects, UfraOcorrencias,
+  UEntity.Ocorrencias, Skia,
   Skia.FMX, FMX.Edit, Generics.Collections;
 
 type
@@ -46,7 +48,7 @@ type
   end;
 
 var
-  fraHome: TFraHome;
+  fraHome: TfraHome;
 
 implementation
 
@@ -56,12 +58,11 @@ uses
   UService.Usuario.Authenticated, UEntity.Enderecos, UService.Endereco;
 
 {$R *.fmx}
-
 { TfraHome }
 
 procedure TfraHome.ApoiarOcorrencia;
 begin
-//
+  //
 end;
 
 procedure TfraHome.CarregarRegistros;
@@ -84,24 +85,29 @@ end;
 
 procedure TfraHome.FiltroOcorrenciasBairroUser;
 var
-  xServiceOcorrencia : IService;
-  xOcorrencia : TOcorrencia;
+  xServiceOcorrencia: IService;
+  xOcorrencia: TOcorrencia;
 
 begin
-  lstOcorrencias.Items.Clear;
+  try
+    lstOcorrencias.Items.Clear;
 
-  xServiceOcorrencia := TServiceOcorrencia.Create;
-  TServiceOcorrencia(xServiceOcorrencia).ListaPorBairro(gbInstance.Usuario.Bairro);
-  for xOcorrencia in TServiceOcorrencia(xServiceOcorrencia).Ocorrencias do
-  begin
-    Self.PreparaListViewFiltroBairroUser(xOcorrencia);
+    xServiceOcorrencia := TServiceOcorrencia.Create;
+    TServiceOcorrencia(xServiceOcorrencia).ListaPorBairro(gbInstance.Usuario.Bairro);
+
+    for xOcorrencia in TServiceOcorrencia(xServiceOcorrencia).Ocorrencias do
+      Self.PreparaListViewFiltroBairroUser(xOcorrencia);
+
+  except
+
   end;
+
 end;
 
 procedure TfraHome.IniciarGifLoad;
 begin
   TimerGifCarregar.Enabled := false;
-  SkAnimatedImage1.Visible := False;
+  SkAnimatedImage1.Visible := false;
   CarregarRegistros;
 end;
 
@@ -118,11 +124,16 @@ begin
   xItem := lstOcorrencias.Items.Add;
   xItem.Tag := aOcorrencia.Id;
 
-  TListItemText(xItem.Objects.FindDrawable('txtBairro')).Text := aOcorrencia.Endereco.Bairro;
-  TListItemText(xItem.Objects.FindDrawable('txtRua')).Text := aOcorrencia.Endereco.Logradouro;
-  TListItemText(xItem.Objects.FindDrawable('txtApoiadores')).Text := aOcorrencia.QntApoio.ToString;
-  TListItemText(xItem.Objects.FindDrawable('txtNumero')).Text := aOcorrencia.Endereco.Numero.ToString;
-  TListItemText(xItem.Objects.FindDrawable('txtDescricao')).Text := aOcorrencia.Descricao;
+  TListItemText(xItem.Objects.FindDrawable('txtBairro')).Text :=
+    aOcorrencia.Endereco.Bairro;
+  TListItemText(xItem.Objects.FindDrawable('txtRua')).Text :=
+    aOcorrencia.Endereco.Logradouro;
+  TListItemText(xItem.Objects.FindDrawable('txtApoiadores')).Text :=
+    aOcorrencia.QntApoio.ToString;
+  TListItemText(xItem.Objects.FindDrawable('txtNumero')).Text :=
+    aOcorrencia.Endereco.Numero.ToString;
+  TListItemText(xItem.Objects.FindDrawable('txtDescricao')).Text :=
+    aOcorrencia.Descricao;
 
   if aOcorrencia.Urgencia.ToString = '0' then
     xUrgencia := 'Não urgente'
@@ -140,11 +151,16 @@ begin
   xItem := lstOcorrencias.Items.Add;
   xItem.Tag := aOcorrencia.Id;
 
-  TListItemText(xItem.Objects.FindDrawable('txtBairro')).Text := 'Bairro: ' + aOcorrencia.Endereco.Bairro;
-  TListItemText(xItem.Objects.FindDrawable('txtRua')).Text := aOcorrencia.Endereco.Logradouro;
-  TListItemText(xItem.Objects.FindDrawable('txtApoiadores')).Text := 'Apoios: ' + aOcorrencia.QntApoio.ToString;
-  TListItemText(xItem.Objects.FindDrawable('txtNumero')).Text := 'Nº: '+aOcorrencia.Endereco.Numero.ToString;
-  TListItemText(xItem.Objects.FindDrawable('txtDescricao')).Text := 'Descrição: ' + aOcorrencia.Descricao;
+  TListItemText(xItem.Objects.FindDrawable('txtBairro')).Text := 'Bairro: ' +
+    aOcorrencia.Endereco.Bairro;
+  TListItemText(xItem.Objects.FindDrawable('txtRua')).Text :=
+    aOcorrencia.Endereco.Logradouro;
+  TListItemText(xItem.Objects.FindDrawable('txtApoiadores')).Text := 'Apoios: '
+    + aOcorrencia.QntApoio.ToString;
+  TListItemText(xItem.Objects.FindDrawable('txtNumero')).Text :=
+    'Nº: ' + aOcorrencia.Endereco.Numero.ToString;
+  TListItemText(xItem.Objects.FindDrawable('txtDescricao')).Text :=
+    'Descrição: ' + aOcorrencia.Descricao;
 
   if aOcorrencia.Urgencia.ToString = '0' then
     xUrgencia := 'Não urgente'
