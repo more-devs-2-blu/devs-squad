@@ -22,6 +22,7 @@ type
       class procedure FecharConexao;
     public
       class function ExecutarConsulta(const aSQL: String): TJSONArray;
+      class function UpdateRegistro(const aSQL: String): Boolean;
       class function AdicionarRegistro(const aTabela: String; const aJSON: String): Boolean;
       class function RemoverRegistro(const aTabela: String; const aIdentificador: Integer): Boolean;
   end;
@@ -144,6 +145,30 @@ begin
       xQuery.Connection := FConexao;
       xQuery.SQL.Clear;
       xQuery.SQL.Add(Format(COMANDO_DELETE, [aTabela, aIdentificador]));
+      xQuery.ExecSQL;
+      Self.FecharConexao;
+
+      Result := True;
+    except
+      on e: Exception do
+        raise Exception.Create(e.Message);
+    end;
+  finally
+    FreeAndNil(xQuery);
+  end;
+end;
+
+class function TUtilBanco.UpdateRegistro(const aSQL: String): Boolean;
+var
+  xQuery: TFDQuery;
+begin
+  xQuery := TFDQuery.Create(nil);
+  try
+    try
+      Self.AbrirConexao;
+      xQuery.Connection := FConexao;
+      xQuery.SQL.Clear;
+      xQuery.SQL.Add(aSQL);
       xQuery.ExecSQL;
       Self.FecharConexao;
 

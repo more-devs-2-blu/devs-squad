@@ -172,7 +172,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:9000/v1/ocorrencias/1",
+							"raw": "http://localhost:9000/v1/ocorrencias/4",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -181,7 +181,7 @@
 							"path": [
 								"v1",
 								"ocorrencias",
-								"1"
+								"4"
 							]
 						}
 					},
@@ -194,7 +194,36 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"qntapoio\": 0,\r\n    \"datainicial\": \"10/01/23 10:13:45\",\r\n    \"datafinal\": \"13/01/23 10:15:45\",\r\n    \"dataalteracao\": \"10/01/23 10:16:45\",\r\n    \"urgencia\": 1,\r\n    \"descricao\": \"Rua com buraco\",\r\n    \"idtipoproblema\": 1,\r\n    \"idstatus\": 1,\r\n    \"idusuario\": 2,\r\n    \"idendereco\": 2\r\n}",
+							"raw": "{\r\n    \"qntapoio\": 0,\r\n    \"datainicial\": \"10/01/23 10:13:45\",\r\n    \"urgencia\": \"1\",\r\n    \"descricao\": \"Rua com buraco\",\r\n    \"idtipoproblema\": \"1\",\r\n    \"idstatus\": \"1\",\r\n    \"idusuario\": \"2\",\r\n    \"idendereco\": \"8\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/v1/ocorrencias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"ocorrencias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 4,\r\n    \"idstatus\": 1,\r\n    \"qtdapoio\": 13\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -226,7 +255,7 @@
 							"raw": "{\r\n    \r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:9000/v1/ocorrencias/1",
+							"raw": "http://localhost:9000/v1/ocorrencias/5",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -235,7 +264,7 @@
 							"path": [
 								"v1",
 								"ocorrencias",
-								"1"
+								"5"
 							]
 						}
 					},
@@ -361,7 +390,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"idusuario\": 2,\r\n    \"idocorrencia\": 1      \r\n}",
+							"raw": "{\r\n    \"idusuario\": 2,\r\n    \"idocorrencia\": 4      \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -513,7 +542,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"cep\": \"12345678\",\r\n  \"bairro\": \"Velha Central\",\r\n  \"numero\": 66,\r\n  \"logradouro\": \"Rua João\",\r\n  \"complemento\": \"Casa\"\r\n}",
+							"raw": "{\r\n  \"cep\": \"12345678\",\r\n  \"bairro\": \"Velha Central\",\r\n  \"numero\": \"66\",\r\n  \"logradouro\": \"Rua João\",\r\n  \"complemento\": \"Casa\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -573,12 +602,12 @@
 					"type": "basic",
 					"basic": [
 						{
-							"key": "username",
-							"value": "10140628967",
+							"key": "password",
+							"value": "123",
 							"type": "string"
 						},
 						{
-							"key": "password",
+							"key": "username",
 							"value": "123",
 							"type": "string"
 						},
@@ -622,7 +651,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEZXZzU3F1YWQiLCJzdWIiOiJIYWNrV2VlayIsImV4cCI6MTY3ODc5NDE4MiwiaWQiOjEsImNwZiI6IjEwMTQwNjI4OTY3In0.lRFRstOBHCMU6Ia3WL0EjEwH-tI-csLOrShC1y0A6fY",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEZXZzU3F1YWQiLCJzdWIiOiJIYWNrV2VlayIsImV4cCI6MTY3ODg4NTAzMiwiaWQiOjEsImNwZiI6IjEwMTQwNjI4OTY3In0.pZYqYmI5sChiZ4uVJr1XRYkftDHSHX1Ipy7SV6nnZ34",
 				"type": "string"
 			}
 		]

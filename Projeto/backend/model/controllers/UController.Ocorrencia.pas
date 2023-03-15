@@ -46,6 +46,13 @@ type
     [SwagResponse(400)]
     class procedure Post(Req: THorseRequest; Res: THorseResponse; Next: TProc); override;
 
+    [SwagUPDATE('Atualizar uma Ocorrência')]
+    [SwagParamBody('Informações da Ocorrencia', TOcorrencia)]
+    [SwagResponse(204)]
+    [SwagResponse(400)]
+    [SwagResponse(404)]
+    class procedure Update(Req: THorseRequest; Res: THorseResponse; Next: TProc);
+
     [SwagDELETE('{id}', 'Deletar uma Ocorrência')]
     [SwagParamPath('id', 'Id da Ocorrência')]
     [SwagResponse(204)]
@@ -60,7 +67,8 @@ implementation
 { TControllerOcorrencia }
 
 uses
-  UDAO.Ocorrencia, System.SysUtils, JSON;
+  UDAO.Ocorrencia, System.SysUtils, JSON, UEntity.Enderecos, UEntity.Usuarios,
+  System.DateUtils;
 
 class procedure TControllerOcorrencia.Delete(Req: THorseRequest; Res: THorseResponse; Next: TProc);
 begin
@@ -129,6 +137,25 @@ class procedure TControllerOcorrencia.Post(Req: THorseRequest; Res: THorseRespon
 begin
   FDAO := TDAOOcorrencia.Create;
   inherited;
+end;
+
+class procedure TControllerOcorrencia.Update(Req: THorseRequest;
+  Res: THorseResponse; Next: TProc);
+var
+  xJSON: TJSONObject;
+  xId, xIdStatus, xQtdApoio : Integer;
+begin
+  xJSON := Req.Body<TJSONObject>;
+
+  xId := xJSON.GetValue<Integer>('id');
+  xIdStatus := xJSON.GetValue<Integer>('idstatus');
+  xQtdApoio := xJSON.GetValue<Integer>('qtdapoio');
+
+  FDAO := TDAOOcorrencia.Create;
+  if TDAOOcorrencia(FDAO).AtualizarRegistro(xId, xIdStatus, xQtdApoio) then
+    Res.Status(THTTPStatus.OK)
+  else
+    Res.Status(THTTPStatus.InternalServerError);
 end;
 
 end.

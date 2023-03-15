@@ -59,6 +59,7 @@ begin
     .Get('/ocorrencias/usuario/:id', TControllerOcorrencia.GetsByUser)
     .Get('/ocorrencias/bairro/:bairro', TControllerOcorrencia.GetsByBairro)
     .Get('/ocorrencias/logradouro/:logradouro', TControllerOcorrencia.GetsByLogradouro)
+    .Put('/ocorrencias', TControllerOcorrencia.Update)
     .Post('/ocorrencias', TControllerOcorrencia.Post)
     .Delete('/ocorrencias/:id', TControllerOcorrencia.Delete);
 
