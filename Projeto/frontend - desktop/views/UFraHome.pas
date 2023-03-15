@@ -55,14 +55,45 @@ implementation
 uses
   UService.Intf,
   UService.Ocorrencia,
-  UService.Usuario.Authenticated, UEntity.Enderecos, UService.Endereco;
+  UService.Usuario.Authenticated, UEntity.Enderecos, UService.Endereco,
+  UService.Apoio;
 
 {$R *.fmx}
 { TfraHome }
 
 procedure TfraHome.ApoiarOcorrencia;
+var
+  xOcorrencia: TOcorrencia;
+  xQntApoio: Integer;
+  xIdStatus: Integer;
+  xIdOcorrencia: Integer;
+  xItem: TListViewItem;
+
+  xServiceApoio : IService;
+const
+  C_Apoio = 1;
 begin
-  //
+
+  if lstOcorrencias.ItemIndex = -1 then
+    Exit;
+  try
+    xOcorrencia := TOcorrencia(
+      lstOcorrencias.Items[lstOcorrencias.Selected.Index].TagObject);
+
+    xIdOcorrencia := xOcorrencia.Id;
+    xQntApoio := xOcorrencia.QntApoio +1;
+    xIdStatus := 1;
+
+    xServiceApoio := TServiceApoio.Create;
+    TServiceApoio(xServiceApoio).ApoiarOcorrencia(xIdOcorrencia,xQntApoio,
+      xIdStatus);
+
+    ShowMessage('Apoio Realizado!');
+    CarregarRegistros;
+
+  except
+
+  end;
 end;
 
 procedure TfraHome.CarregarRegistros;
@@ -72,6 +103,7 @@ var
 begin
   try
     lstOcorrencias.Items.Clear;
+
 
     xServiceOcorrencia := TServiceOcorrencia.Create;
     xServiceOcorrencia.Listar;
@@ -150,6 +182,8 @@ var
 begin
   xItem := lstOcorrencias.Items.Add;
   xItem.Tag := aOcorrencia.Id;
+
+  xItem.TagObject := aOcorrencia;
 
   TListItemText(xItem.Objects.FindDrawable('txtBairro')).Text := 'Bairro: ' +
     aOcorrencia.Endereco.Bairro;

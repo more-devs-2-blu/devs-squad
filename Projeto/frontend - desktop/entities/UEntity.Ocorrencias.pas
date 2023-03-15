@@ -113,7 +113,7 @@ end;
 
 destructor TOcorrencia.Destroy;
 begin
-  FreeAndNil(FUsuario);
+  //FreeAndNil(FUsuario);
   FreeAndNil(FEndereco);
   FreeAndNil(FJSON);
   inherited;
