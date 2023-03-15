@@ -117,6 +117,8 @@ begin
 end;
 
 destructor TServiceOcorrencia.Destroy;
+var
+  xOcorrencia: TOcorrencia;
 begin
   FreeAndNil(FOcorrencia);
   FreeAndNil(FOcorrencias);
@@ -317,8 +319,6 @@ begin
 
   try
     xArray := TJSONObject.ParseJSONValue(aJsonOcorrencias) as TJSONArray;
-    xJSON := xArray[0];
-
 
     for I := 0 to xArray.Count - 1 do
     begin

@@ -1,5 +1,6 @@
 object DmDados: TDmDados
   OldCreateOrder = False
+  OnDestroy = DataModuleDestroy
   Height = 223
   Width = 279
   object RESTClient1: TRESTClient

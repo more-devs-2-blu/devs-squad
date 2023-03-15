@@ -26,6 +26,7 @@ type
     procedure lblApoiosClick(Sender: TObject);
     procedure lblHomeClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
 
   private
     { Private declarations }
@@ -42,6 +43,12 @@ implementation
 {$R *.fmx}
 
 uses UFraHome, UfraCriarOcorrencia, UfraOcorrencias, UfraApoios;
+
+procedure TfrmHome.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Action := TCloseAction.caFree;
+  frmHome := nil;
+end;
 
 procedure TfrmHome.FormCreate(Sender: TObject);
 begin
