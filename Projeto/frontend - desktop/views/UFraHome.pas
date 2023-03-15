@@ -146,7 +146,6 @@ begin
   TListItemText(xItem.Objects.FindDrawable('txtNumero')).Text := 'Nº: '+aOcorrencia.Endereco.Numero.ToString;
   TListItemText(xItem.Objects.FindDrawable('txtDescricao')).Text := 'Descrição: ' + aOcorrencia.Descricao;
 
-
   if aOcorrencia.Urgencia.ToString = '0' then
     xUrgencia := 'Não urgente'
   else

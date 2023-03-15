@@ -91,7 +91,7 @@ object fraHome: TfraHome
           AppearanceObjectName = 'txtRua'
           AppearanceClassName = 'TTextObjectAppearance'
           Appearance.TextAlign = Leading
-          Appearance.Width = 177.000000000000000000
+          Appearance.Width = 169.000000000000000000
           Appearance.Height = 25.000000000000000000
           Appearance.PlaceOffset.X = 230.000000000000000000
           Appearance.PlaceOffset.Y = 24.000000000000000000
@@ -109,9 +109,9 @@ object fraHome: TfraHome
           AppearanceObjectName = 'txtNumero'
           AppearanceClassName = 'TTextObjectAppearance'
           Appearance.TextAlign = Leading
-          Appearance.Width = 41.000000000000000000
+          Appearance.Width = 49.000000000000000000
           Appearance.Height = 25.000000000000000000
-          Appearance.PlaceOffset.X = 414.000000000000000000
+          Appearance.PlaceOffset.X = 406.000000000000000000
           Appearance.PlaceOffset.Y = 24.000000000000000000
         end
         item
@@ -130,9 +130,9 @@ object fraHome: TfraHome
           AppearanceClassName = 'TTextObjectAppearance'
           Appearance.Font.Size = 16.000000000000000000
           Appearance.TextAlign = Trailing
-          Appearance.Width = 121.000000000000000000
+          Appearance.Width = 177.000000000000000000
           Appearance.Height = 25.000000000000000000
-          Appearance.PlaceOffset.X = 334.000000000000000000
+          Appearance.PlaceOffset.X = 278.000000000000000000
         end>
       ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
         item

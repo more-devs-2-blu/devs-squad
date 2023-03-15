@@ -47,9 +47,7 @@ begin
   begin
     Self.PreparaListView(xOcorrencia);
   end;
-
 end;
-
 
 procedure TfraOcorrencias.PreparaListView(aOcorrenciaUser: TOcorrencia);
 var
