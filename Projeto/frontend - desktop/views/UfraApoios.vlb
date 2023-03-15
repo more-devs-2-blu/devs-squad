@@ -1,7 +1,4 @@
-﻿[TimerGifCarregar]
-Coordinates=129,78,115,36
-
-[lstApoio]
+﻿[lstApoio]
 Coordinates=10,10,110,322
 
 [lblTituloFrame]
@@ -10,10 +7,7 @@ Coordinates=130,10,97,58
 [rectLista]
 Coordinates=373,10,64,36
 
-[SkAnimatedImage1]
-Coordinates=237,10,126,36
-Visible=True
-
 []
-Coordinates=129,188,91,36
+Coordinates=129,78,115,36
+Visible=True
 
