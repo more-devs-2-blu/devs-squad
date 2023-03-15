@@ -124,16 +124,16 @@ begin
   xItem := lstOcorrencias.Items.Add;
   xItem.Tag := aOcorrencia.Id;
 
-  TListItemText(xItem.Objects.FindDrawable('txtBairro')).Text :=
+  TListItemText(xItem.Objects.FindDrawable('txtBairro')).Text := 'Bairro: ' +
     aOcorrencia.Endereco.Bairro;
   TListItemText(xItem.Objects.FindDrawable('txtRua')).Text :=
     aOcorrencia.Endereco.Logradouro;
-  TListItemText(xItem.Objects.FindDrawable('txtApoiadores')).Text :=
-    aOcorrencia.QntApoio.ToString;
+  TListItemText(xItem.Objects.FindDrawable('txtApoiadores')).Text := 'Apoios: '
+    + aOcorrencia.QntApoio.ToString;
   TListItemText(xItem.Objects.FindDrawable('txtNumero')).Text :=
-    aOcorrencia.Endereco.Numero.ToString;
+    'Nº: ' + aOcorrencia.Endereco.Numero.ToString;
   TListItemText(xItem.Objects.FindDrawable('txtDescricao')).Text :=
-    aOcorrencia.Descricao;
+    'Descrição: ' + aOcorrencia.Descricao;
 
   if aOcorrencia.Urgencia.ToString = '0' then
     xUrgencia := 'Não urgente'
