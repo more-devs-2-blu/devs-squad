@@ -79,7 +79,7 @@ object fraOcorrencias: TfraOcorrencias
           Appearance.TextAlign = Trailing
           Appearance.Width = 92.000000000000000000
           Appearance.Height = 25.000000000000000000
-          Appearance.PlaceOffset.X = 374.000000000000000000
+          Appearance.PlaceOffset.X = 366.000000000000000000
           Appearance.PlaceOffset.Y = 96.000000000000000000
         end
         item
@@ -88,7 +88,7 @@ object fraOcorrencias: TfraOcorrencias
           Appearance.TextAlign = Leading
           Appearance.Width = 65.000000000000000000
           Appearance.Height = 25.000000000000000000
-          Appearance.PlaceOffset.X = 398.000000000000000000
+          Appearance.PlaceOffset.X = 382.000000000000000000
           Appearance.PlaceOffset.Y = 40.000000000000000000
         end
         item
@@ -107,9 +107,9 @@ object fraOcorrencias: TfraOcorrencias
           AppearanceClassName = 'TTextObjectAppearance'
           Appearance.Font.Size = 16.000000000000000000
           Appearance.TextAlign = Trailing
-          Appearance.Width = 129.000000000000000000
+          Appearance.Width = 145.000000000000000000
           Appearance.Height = 25.000000000000000000
-          Appearance.PlaceOffset.X = 334.000000000000000000
+          Appearance.PlaceOffset.X = 302.000000000000000000
         end>
       ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
         item
