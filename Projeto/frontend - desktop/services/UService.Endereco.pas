@@ -28,7 +28,7 @@ type
     procedure ListarBairro(const aBairro: String);
 
     function ObterRegistro(const aId: Integer): TObject; override;
-    function ObterId(const aEndereco: TEndereco) : Integer;
+    function ObterId: Integer;
 
     property Enderecos: TObjectList<TEndereco> read GetEnderecos;
   end;
@@ -185,7 +185,7 @@ begin
   end;
 end;
 
-function TServiceEndereco.ObterId(const aEndereco: TEndereco): Integer;
+function TServiceEndereco.ObterId : Integer;
 var
   xMemTable: TFDMemTable;
   xJSON : TJSONObject;
@@ -195,12 +195,6 @@ begin
   xMemTable := TFDMemTable.Create(nil);
   xJSON := TJSONObject.Create;
   try
-//
-//    xJSON.AddPair('cep', FEndereco.Cep);
-//    xJSON.AddPair('bairro', FEndereco.Bairro);
-//    xJSON.AddPair('numero', FEndereco.Numero.ToString);
-//    xJSON.AddPair('logradouro', FEndereco.Logradouro);
-//    xJSON.AddPair('complemento', FEndereco.Complemento);
 
     FRESTClient.BaseURL := URL_BASE_ENDERECOS + '/id';
     FRESTRequest.Method := rmPOST;
@@ -210,9 +204,6 @@ begin
     if FRESTResponse.StatusCode = API_SUCESSO then
     begin
       TryStrToInt(FRESTResponse.Content, Result);
-//
-//      if xMemTable.FindFirst then
-//        Result := StrToInt(FRESTResponse.Content);
     end;
   finally
     FreeAndNil(xJSON);

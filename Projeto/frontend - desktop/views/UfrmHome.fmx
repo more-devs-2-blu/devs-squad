@@ -11,6 +11,7 @@ object frmHome: TfrmHome
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
+  OnClose = FormClose
   OnShow = FormShow
   DesignerMasterStyle = 0
   object rectUsuario: TRectangle

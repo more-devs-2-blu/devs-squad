@@ -96,7 +96,7 @@ var
   xOcorrencia: TOcorrencia;
 
   xServiceEndereco: IService;
-  xEndereco: TEndereco;
+  xEndereco, xEnderecoAux: TEndereco;
   xIdEndereco: Integer;
 
   xUsuario: TUsuario;
@@ -134,11 +134,9 @@ begin
   xServiceEndereco.Registrar;
 
 //  xServiceEndereco := TServiceEndereco.Create(xEndereco);
-  xIdEndereco := TServiceEndereco(xServiceEndereco).ObterId(xEndereco);
+  xIdEndereco := TServiceEndereco(xServiceEndereco).ObterId;
 
-  xEndereco.Free;
-
-  xEndereco := TEndereco.Create(
+  xEnderecoAux := TEndereco.Create(
                       StrToInt(Trim(edtNumero.Text)),
                       Trim(edtCEP.Text),
                       Trim(edtBairro.Text),
@@ -157,7 +155,7 @@ begin
                         cmbProblema.ItemIndex.ToString,
                         '1',
                         GbInstance.Usuario,
-                        xEndereco));
+                        xEnderecoAux));
 
   try
     xServiceOcorrencia.Registrar;

@@ -15,6 +15,7 @@ type
     RESTResponse1: TRESTResponse;
     RESTResponseDataSetAdapter1: TRESTResponseDataSetAdapter;
     FDMemTable1: TFDMemTable;
+    procedure DataModuleDestroy(Sender: TObject);
   private
     { Private declarations }
   public
@@ -29,5 +30,16 @@ implementation
 {%CLASSGROUP 'FMX.Controls.TControl'}
 
 {$R *.dfm}
+
+{ TDmDados }
+
+procedure TDmDados.DataModuleDestroy(Sender: TObject);
+begin
+  FreeAndNil(RESTClient1);
+  FreeAndNil(RESTRequest1);
+  FreeAndNil(RESTResponse1);
+  FreeAndNil(RESTResponseDataSetAdapter1);
+  FreeAndNil(FDMemTable1);
+end;
 
 end.
