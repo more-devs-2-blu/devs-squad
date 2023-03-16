@@ -40,7 +40,7 @@ var
   xServiceApoio: IService;
   xApoio: TApoios;
   xItem: TListViewItem;
-    xUrgencia: String;
+  xUrgencia: String;
 begin
   try
     lstApoio.Items.Clear;

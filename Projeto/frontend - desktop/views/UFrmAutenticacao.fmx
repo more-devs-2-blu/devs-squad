@@ -1,8 +1,8 @@
 object frmAutenticacao: TfrmAutenticacao
   Left = 0
   Top = 0
-  BorderStyle = None
-  Caption = 'Form1'
+  BorderStyle = Single
+  Caption = 'SEC - Servi'#231'o Escuta Cidad'#227'o'
   ClientHeight = 600
   ClientWidth = 800
   Position = DesktopCenter

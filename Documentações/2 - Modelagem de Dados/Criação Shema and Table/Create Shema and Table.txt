@@ -35,7 +35,7 @@ CREATE TABLE ocorrencia
 CREATE TABLE status 
 ( 
  id INT PRIMARY KEY AUTO_INCREMENT,  
- nome VARCHAR(20) NOT NULL  
+ nome VARCHAR(50) NOT NULL  
 ); 
 
 CREATE TABLE tipoProblema 
@@ -67,9 +67,3 @@ ALTER TABLE ocorrencia ADD FOREIGN KEY(idstatus) REFERENCES status (id);
 ALTER TABLE ocorrencia ADD FOREIGN KEY(idendereco) REFERENCES endereco (id);
 ALTER TABLE apoio ADD FOREIGN KEY(idusuario) REFERENCES usuario (id);
 ALTER TABLE apoio ADD FOREIGN KEY(idocorrencia) REFERENCES ocorrencia (id);
-
-
-
-INSERT INTO `servicoescutacidadao_sec`.`status` (`id`, `nome`) VALUES ('1', 'Em atendimento');
-INSERT INTO `servicoescutacidadao_sec`.`tipoproblema` (`id`, `nome`) VALUES ('1', 'Via com buraco');
-
