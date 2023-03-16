@@ -70,8 +70,7 @@ var
   xItem: TListViewItem;
 
   xServiceApoio : IService;
-const
-  C_Apoio = 1;
+
 begin
 
   if lstOcorrencias.ItemIndex = -1 then
@@ -85,8 +84,7 @@ begin
     xIdStatus := 1;
 
     xServiceApoio := TServiceApoio.Create;
-    TServiceApoio(xServiceApoio).ApoiarOcorrencia(xIdOcorrencia,xQntApoio,
-      xIdStatus);
+    TServiceApoio(xServiceApoio).ApoiarOcorrencia(xIdOcorrencia,xQntApoio, xIdStatus);
 
     ShowMessage('Apoio Realizado!');
     CarregarRegistros;

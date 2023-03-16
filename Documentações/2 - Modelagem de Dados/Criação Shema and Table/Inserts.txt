@@ -1,12 +1,20 @@
+INSERT INTO status (id, nome) VALUES ('1', 'AGUARDANDO ATENDIMENTO');
+INSERT INTO status (id, nome) VALUES ('2', 'EM ATENDIMENTO');
+INSERT INTO status (id, nome) VALUES ('3', 'FINALIZADO');
+
+INSERT INTO tipoproblema (id, nome) VALUES ('1', 'Alagamento');
+INSERT INTO tipoproblema (id, nome) VALUES ('1', 'Buraco na Estrada');
+
+
 insert into usuario(tipoUsuario, nome, telefone, bairro, email, cpf, senha) 
 	values('user', 'João','40028922','progresso','João@email','12345678911','123');
 	
 insert into usuario(tipoUsuario, nome, telefone, bairro, email, cpf, senha) 
 	values('user', 'max','40028922','progresso','max@email','123','123');
 
-
 insert into endereco(cep, bairro, numero, logradouro, complemento)
 	values(12345678, 'Progresso', 1500, 'Rua alfredo', 'Apartamento');
 
 insert into ocorrencia(dataInicial, urgencia, descricao, qntApoio, idusuario, idtipoProblema, idstatus, idendereco) 
 	values(now(), 0, 'a', 3, 1, 1, 1, 1);
+

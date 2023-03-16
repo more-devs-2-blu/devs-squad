@@ -133,7 +133,6 @@ begin
   xServiceEndereco := TServiceEndereco.Create(xEndereco);
   xServiceEndereco.Registrar;
 
-//  xServiceEndereco := TServiceEndereco.Create(xEndereco);
   xIdEndereco := TServiceEndereco(xServiceEndereco).ObterId;
 
   xEnderecoAux := TEndereco.Create(
