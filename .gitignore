@@ -6,3 +6,4 @@
 **/__recovery
 **/*.res
 **/*.env
+**/node_modules
