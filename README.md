@@ -97,7 +97,7 @@ A aplicação **_SEC - Serviço Escuta Cidadão_** conta com dois principais pap
 ## Tecnologias Utilizadas
 </br>
 
-<p align="left">
+<p align="center">
  <img src="https://cdn-icons-png.flaticon.com/512/5968/5968252.png" alt="delphi" width="80" height="80"/>
  <img src="https://upload.wikimedia.org/wikipedia/en/c/cb/FireMonkeyLogo.svg" alt="firemonkey" width="80" height="80"/>
  <img src="https://avatars.githubusercontent.com/u/32908721?s=280&v=4" alt="hashload" width="80" height="80"/>
@@ -106,6 +106,11 @@ A aplicação **_SEC - Serviço Escuta Cidadão_** conta com dois principais pap
  <img src="https://www.svgrepo.com/download/354202/postman-icon.svg" alt="postman" width="80 height="80"/> 
  <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="80" height="80"/>
  <img src="https://is2-ssl.mzstatic.com/image/thumb/Purple116/v4/3b/cc/0c/3bcc0cb0-e973-2aff-27ee-ec93ed761232/AppIcon-1x_U007emarketing-0-7-0-85-220.png/230x0w.webp" alt="trello" width="80" height="80"/>
+ <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Swagger-logo.png" alt="swagger" width="80" height="80"/>
+<img src="https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_f0b606abb6d19089febc9faeeba5bc05/nodejs-development-services.png" alt="nodejs" width="80" height="80"/>
+<img src="https://gitlab.com/uploads/-/system/project/avatar/31182514/logo-react-icon.png" alt="react" width="80" height="80"/>
+<img src="https://bognarjunior.files.wordpress.com/2018/09/typescript.png" alt="typescript" width="80" height="80"/>
+<img src="https://v4.mui.com/static/logo.png" alt="material ui" width="80" height="80"/>
 </p> 
 
 </br>
@@ -119,8 +124,16 @@ A aplicação **_SEC - Serviço Escuta Cidadão_** conta com dois principais pap
  - Figma - Ferramenta para criação dos Protótipos.
  - Trello - Ferramenta de Gerenciamento de Projeto.
  - GBSwagger - Middleware para gerar o Swagger Document.
+ - Node.JS - Para desenvolvimento da versão admin web.
+ - React JS - Biblioteca de renderização web.
+ - Typescript - Superset de tipagem para javascript.
+ - Material UI - Biblioteca de componentes estilizados para React.
  
  </br>
+
+ ## Modo de uso
+
+ Para utilização recomenda-se a leitura da documentação técnica localizada na pasta Projeto.
  
  ## Equipe
  
