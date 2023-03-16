@@ -3,7 +3,7 @@ INSERT INTO status (id, nome) VALUES ('2', 'EM ATENDIMENTO');
 INSERT INTO status (id, nome) VALUES ('3', 'FINALIZADO');
 
 INSERT INTO tipoproblema (id, nome) VALUES ('1', 'Alagamento');
-INSERT INTO tipoproblema (id, nome) VALUES ('1', 'Buraco na Estrada');
+INSERT INTO tipoproblema (id, nome) VALUES ('2', 'Buraco na Estrada');
 
 
 insert into usuario(tipoUsuario, nome, telefone, bairro, email, cpf, senha) 
