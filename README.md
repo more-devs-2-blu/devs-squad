@@ -134,27 +134,26 @@ A aplicação **_SEC - Serviço Escuta Cidadão_** conta com dois principais pap
  ## Modo de uso
 
  Para utilização recomenda-se a leitura da documentação técnica localizada na pasta Projeto.
+
+ ----
  
  ## Equipe
  
- </br>
- 
- <div align="center">
+ <div align="left">
 <img src="https://github.com/MuriloBatista/devs-squad/blob/main/Documenta%C3%A7%C3%B5es/1%20-%20Mockup/DEvs.png?raw=true" width="300" height="300" >
-
- [Guilherme Hillesheim](https://github.com/GuilhermeHSilva1)
- 
- [Jean Carlos Möller](https://github.com/JeanCarlosMoller)
- 
- [Jean Jefferson Oliveira](https://github.com/Jeanjoliveira)
- 
- [Jefferson Domareski](https://github.com/Jdomareski)
- 
- [Jieff Cavalcanti Neves](https://github.com/jieff)
- 
- [Max Furtado](https://github.com/maax103)
- 
- [Murilo Batista](https://github.com/MuriloBatista)
-
 </div>
+ 
+
+
+|Integrante|Repositório|Contato|Foto|
+|:-|:-:|:-:|:-:|
+|Guilherme Hillesheim|[Github](https://github.com/GuilhermeHSilva1)|[LinkedIn](https://www.linkedin.com/in/guilherme-hillesheim-bb5064224/)|<img src="https://github.com/GuilhermeHSilva1.png" height="100"></img>|
+|Jean Carlos Möller|[Github](https://github.com/JeanCarlosMoller)|[LinkedIn](https://www.linkedin.com/in/jeancarlosmoller/)|<img src="https://github.com/JeanCarlosMoller.png" height="100"></img>|
+|Jean Jefferson Oliveira|[Github](https://github.com/Jeanjoliveira)|-|<img src="https://github.com/Jeanjoliveira.png" height="100"></img>|
+|Jefferson Domareski|[Github](https://github.com/Jdomareski)|[LinkedIn](https://www.linkedin.com/in/jefferson-domareski-68801234/)|<img src="https://github.com/Jdomareski.png" height="100"></img>|
+|Jieff Cavalcanti Neves|[Github](https://github.com/jieff)|[LinkedIn](https://www.linkedin.com/in/jieff/)|<img src="https://github.com/jieff.png" height="100"></img>|
+|Maximiliano Furtado|[Github](https://github.com/maax103)|[LinkedIn](https://www.linkedin.com/in/maximiliano-furtado-905845155/)|<img src="https://github.com/maax103.png" height="100"></img>|
+|Murilo Batista|[Github](https://github.com/MuriloBatista)|[LinkedIn](https://www.linkedin.com/in/mubasi/)|<img src="https://github.com/MuriloBatista.png" height="100"></img>|
+
+
 
